@@ -1,0 +1,1183 @@
+##########################################semifar.lpf################################
+# semifar with local polynomial fitting
+
+semifar.lpf<-function(xinput.SEMI,pmin.SEMI,pmax.SEMI,qmin.SEMI,qmax.SEMI,
+                      mse.RANGE, pg, kn, bb, IF)
+{
+  
+  #IF mit (1,2,3) ### ("opt", "naive", "var")
+  
+  #--- default values not given as input
+  
+  mmax.SEMI<-1 # 
+  # mse.RANGE<-0.0
+  alpha.SEMI<-0.01
+  alpha.MLE<-0.05
+  
+  #--- Sample size
+  
+  result<-est.semifar(xinput.SEMI,pmin.SEMI,pmax.SEMI,qmin.SEMI,qmax.SEMI,mmax.SEMI,mse.RANGE,
+                      alpha.SEMI,alpha.MLE, pg, kn, bb)
+  
+  #---------------------
+  #--- Final results ---
+  #---------------------
+  
+  drop(result)
+  
+} 
+
+##########################################est.semifar################################
+
+est.semifar<-function(xinput.SEMI,pmin.SEMI,pmax.SEMI,qmin.SEMI,qmax.SEMI,mmax.SEMI,mse.RANGE,
+                      alpha.SEMI,alpha.MLE, pg, kn, bb)
+{
+  #--- Sample size
+  
+  ndata.SEMI<-length(xinput.SEMI)
+  
+  #--- ESTIMATION
+  
+  result<-mle.semifar.bic(xinput.SEMI,pmin.SEMI,pmax.SEMI,qmin.SEMI,qmax.SEMI,mmax.SEMI,
+                          mse.RANGE, pg, kn, bb)
+  
+  #---------------------
+  #--- Final results ---
+  #---------------------
+  
+  pBIC<-result$pBIC
+  qBIC<-result$qBIC #####neu S.L.
+  thetaBIC<-result$thetaBIC
+  etaBIC<-result$etaBIC
+  dBIC<-result$dBIC
+  mBIC<-result$mBIC
+  deltaBIC<-result$deltaBIC
+  BIC.opt<-result$BIC.opt
+  BIC<-result$BIC
+  pALL<-result$pALL
+  g0BIC<-result$g0BIC
+  b0BIC<-result$b0BIC
+  CfBIC<-result$CfBIC
+  nuBIC<-result$nuBIC
+  rBIC<-result$rBIC
+  nBIC<-result$nBIC
+  xBIC<-result$xBIC
+  
+  
+  #--- confidence intervals for theta (BIC)
+  #browser()
+  CI<-conf.farima(etaBIC,pBIC,qBIC,nBIC,alpha.MLE)$CI
+  
+  
+  #--- Trend significant?
+  
+  VARg0<-(nBIC*b0BIC)**(2*deltaBIC-1)*nuBIC*CfBIC 
+  CRITg0<-qnorm( (1-alpha.SEMI/2) )*sqrt(VARg0) 
+  
+  SIG<-1
+  if(mBIC==0){MEAN<-mean(xBIC)}
+  if(mBIC==1){MEAN<-0}
+  
+  g0.limits<-c(MEAN-CRITg0,MEAN+CRITg0)
+  
+  if( max(abs(g0BIC-MEAN)) <= CRITg0 )
+  {
+    SIGtext<-"Trend g0 is not significant!"
+    SIG<-0
+  }  
+  else
+  {
+    SIGtext<-"Trend g0 is significant!"
+  } 
+  
+  #--- Output
+  
+  result<-list(xinput.SEMI=xinput.SEMI,
+               pmin.SEMI=pmin.SEMI,
+               pmax.SEMI=pmax.SEMI,
+               mmax.SEMI=mmax.SEMI,
+               mse.RANGE=mse.RANGE,
+               alpha.SEMI=alpha.SEMI,
+               alpha.MLE=alpha.MLE,
+               pBIC=pBIC,
+               qBIC=qBIC,
+               thetaBIC=thetaBIC,
+               etaBIC=etaBIC,
+               dBIC=dBIC,
+               mBIC=mBIC,
+               deltaBIC=deltaBIC,
+               BIC.opt=BIC.opt,
+               BIC=BIC,
+               pALL=pmin.SEMI:pmax.SEMI,
+               g0BIC=g0BIC,
+               b0BIC=b0BIC,
+               CfBIC=CfBIC,
+               nuBIC=nuBIC,
+               rBIC=rBIC,
+               nBIC=nBIC,
+               xBIC=xBIC,
+               CI=CI,
+               VARg0=VARg0,
+               CRITg0=CRITg0,
+               TESTtext=SIGtext,
+               TEST=SIG,
+               g0.limits=g0.limits)
+  
+  drop(result)
+  
+} 
+
+#######################################mle.semifar.bic################################
+
+mle.semifar.bic<-function(xinput.SEMI,pmin.SEMI,pmax.SEMI,qmin.SEMI,qmax.SEMI,mmax.SEMI,
+                          mse.RANGE, pg, kn, bb)
+{
+  
+  # SEMIFAR estimation with m unknown
+  
+  x<-xinput.SEMI
+  result<-mle.semifar.bic.alg2(xinput.SEMI,pmin.SEMI,pmax.SEMI,qmin.SEMI,qmax.SEMI,mmax.SEMI,
+                               mse.RANGE, pg, kn, bb)
+  
+  
+  drop(result)
+}
+
+
+###################################mle.semifar.bic.alg2################################
+
+
+mle.semifar.bic.alg2<-function(xinput.SEMI,
+                               pmin.SEMI,
+                               pmax.SEMI,
+                               qmin.SEMI,
+                               qmax.SEMI,
+                               mmax.SEMI,
+                               mse.RANGE, 
+                               pg,
+                               kn,
+                               bb)
+{
+  
+  #--- data, ti
+  IFM=c("opt","naive","var") ###("opt", "naive", "var")
+  IFM=IFM[IF]
+  pmax.INPUT<-pmax.SEMI
+  qmax.INPUT<-qmax.SEMI ######neu S.L.
+  x.DATA<-xinput.SEMI
+  n.DATA<-length(x.DATA)  
+  korder<-pg+1            
+  ko21<-2*korder+1        
+  ti<-(1:n.DATA)/n.DATA   
+  
+  #--- iteration settings
+  
+  nITER<-30
+  icrit<-0
+  convc=1   #### b0 converges 
+  
+  #--- initial parameters for smoothing
+  
+  dBIC<-0
+  deltaBIC<-0            ###################rausgenommen in semifarima
+  mBIC<-0
+  mBIC.first.iteration<-0
+  mBIC.1<-0
+  
+  Intgk<-mean(diff(x.DATA, pg+1)**2)*n.DATA**2 
+  Cf<-var(x.DATA)/(2*pi) 
+  
+  # deltaITER<-0.2/n.DATA
+  
+  ################ In the following Bk=1/(beta^2) with beta=int(u^(p+1)K(u))du
+  ################ All formulas for K(u) may be found in Table 5.7 of Mueller (988)
+  ################ Rk is the kernel constant in the variance, see e.g. Table 1 of Feng and Heiler (2009)   
+  if(korder==2){Kk<-1 #### Kk=(factorial(p+1))^2/(2*(p+1))
+  if(kn==1){
+    Bk<-9                      #### =3^2      
+    Rk<-0.5}    
+  if(kn==2){
+    Bk<-25                    #### =5^2
+    Rk<-0.6}    
+  if(kn==3){
+    Bk<-49                    #### =7^2
+    Rk<-0.7143} 
+  if(kn==4){
+    Bk<-81                    #### =9^2
+    Rk<-0.8159}	
+  }
+  
+  
+  if(korder==4){Kk<-72 #### Kk=(factorial(p+1))^2/(2*(p+1))
+  if(kn==1){
+    Bk<-(35/3)^2          #### =(5*7/3)^2         
+    Rk<-1.125}
+  if(kn==2){
+    Bk<-21^2               #### =(7*9/3)^2 
+    Rk<-1.250}
+  if(kn==3){
+    Bk<-33^2              #### =(9*11/3)^2 
+    Rk<-1.4073}	
+  if(kn==4){
+    Bk<-(143/3)^2     #### =(11*13/3)^2
+    Rk<-1.5549}	
+  }
+  
+  #const1<-(Bk*Kk*Rk*(1-2*mse.RANGE)*2*pi)**(1/(ko21-2*deltaBIC))  #### See the formula for bA in Beran and Feng (2002) or Feng (2004) 
+  #const2<-(Cf/Intgk)**(1/(ko21-2*deltaBIC))                                                #### Here the starting value is deltaBIC=0
+  #const3<-n.DATA**((2*deltaBIC-1)/(ko21-2*deltaBIC))                       
+  
+  #b0<-const1*const2*const3 
+  #b0<-min(0.5,b0) 
+  #b0<-n.DATA**(-1/3)/2 
+  
+  if(korder==2){b0=0.1}
+  if(korder==4){b0=0.2}
+  
+  #------- smoothing iteration
+  for(iITER in 1:nITER)
+  {
+    cat("iteration=",iITER,fill=TRUE) 
+    
+    #--- data, ti
+   
+    x.DATA<-xinput.SEMI                           
+    if( (mBIC.1==1)||((iITER==1)&(mmax.SEMI>0)) ) ################# rausgenommen in semifarima
+    {x.DATA<-diff(x.DATA)}                      
+    n.DATA<-length(x.DATA)
+    ti<-(1:n.DATA)/n.DATA                        
+    
+    if( icrit==0 )
+    {
+      
+      #------- estimate g
+      if(iITER<=1)
+      {g0<-smooth.lpf(x.DATA, 0, pg, 1, b0, bb)############kn = 1 warum?############
+      
+      }
+      else
+      {
+        g0<-smooth.lpf(x.DATA, 0, pg, kn, b0, bb)} 
+      x.DETRENDED<-x.DATA-g0 
+      
+      #------- MLE estimation of theta
+      mmax.MLE<-mmax.SEMI
+      pmin.MLE<-pmin.SEMI
+      pmax.MLE<-pmax.SEMI
+      qmin.MLE<-qmin.SEMI
+      qmax.MLE<-qmax.SEMI
+      # obtain initial estimates of p and bandwidth b0 for estimating m
+      ######################hier wegen MA##############################################mle.farima.bic
+      if(iITER==1) 
+      {
+        result<-mle.farima.bic(x.DETRENDED,0, 
+                               pmin.MLE,pmax.MLE,qmin.MLE,qmax.MLE,0.05,0) 
+        pBIC<-result$pBIC
+        qBIC<-result$qBIC ###SL
+        thetaBIC<-result$thetaBIC
+        etaBIC<-result$etaBIC
+        dBIC<-result$dBIC
+        deltaBIC<-result$deltaBIC
+        CI<-result$CI
+        BIC.opt<-result$BIC.opt
+        BIC<-c(result$BIC)
+        rBIC<-result$rBIC
+        
+      }
+      
+      if(iITER>1)
+      {
+        
+        result<-mle.farima.bic(x.DETRENDED,0,pmin.MLE,pmax.MLE,qmin.MLE,qmax.MLE,0.05,0)
+        
+        pBIC<-result$pBIC
+        qBIC<-result$qBIC
+        thetaBIC<-result$thetaBIC
+        etaBIC<-result$etaBIC
+        dBIC<-result$dBIC
+        deltaBIC<-result$deltaBIC
+        CI<-result$CI
+        BIC.opt<-result$BIC.opt
+        BIC<-c(result$BIC)
+        rBIC<-result$rBIC
+        
+        pmax.SEMI<-pBIC
+        qmax.SEMI<-qBIC
+      }
+      
+      #--------- each iteration
+      
+      #------- update smoothing parameters
+      
+      #---------- 1 -------- data, ti
+      
+       x.UPDATE<-xinput.SEMI
+      #if(mBIC==1){x.UPDATE<-diff(x.UPDATE)}
+      n.UPDATE<-length(x.UPDATE)
+      ti<-(1:n.UPDATE)/n.UPDATE
+      
+      #---------- 2 -------- Cf
+      browser()
+      ar.PARAMETERS<-list(order=pBIC,
+                          ar = if(pBIC > 0){ar = thetaBIC[3:(3 + (pBIC-1))]}else{ar = 0}, ####SL
+                          ma = if(qBIC > 0){ma = thetaBIC[(-1 : -(pBIC+2))]}else{ma = 0}, ####SL
+                          var.pred=thetaBIC[1])
+      
+      Cf <- sum(c(1, -ar.PARAMETERS$ma))^2 / (1 - sum(ar.PARAMETERS$ar))^2 * ar.PARAMETERS$var.pred / (2*pi) ###SL
+     
+      #---------- 3 -------- updated bandwidth for g2
+      if(convc==1){                    
+        if(korder==2 && IFM=="opt"){b2<-(b0)**((5-2*deltaBIC)/(7-2*deltaBIC))}
+        if(korder==2 && IFM=="naive"){b2<-(b0)**((5-2*deltaBIC)/(9-2*deltaBIC))}    
+        if(korder==2 && IFM=="var"){b2<-(b0)**((1/2))}
+        if(korder==4 && IFM=="opt"){b2<-(b0)**((9-2*deltaBIC)/(11-2*deltaBIC))}
+        if(korder==4 && IFM=="naive"){b2<-(b0)**((9-2*deltaBIC)/(13-2*deltaBIC))}  
+        if(korder==4 && IFM=="var"){b2<-(b0)**((1/2))}
+        
+        b2<-min(0.49,b2) 
+        
+        #---------- 4 -------- kernel for g2 estimation
+        
+        #---------- 8 -------- estimate int(g2**2 dt)
+        if(iITER<=2)
+        {gk<-smooth.lpf(x.UPDATE, pg+1, pg+2, 1, b2, bb)###New !!!
+        
+        }else
+        {gk<-smooth.lpf(x.UPDATE, pg+1, pg+2, kn, b2, bb)}
+        
+        index<-max(1,trunc(mse.RANGE*n.UPDATE)):trunc((1-mse.RANGE)*n.UPDATE) 
+        
+        gkk<-gk[index]**2
+        Intgk<-sum(gkk)/n.DATA
+        
+        #---------- 7 -------- update b0
+        
+        b0old<-b0
+        
+        ##### The function kdf.t is proposed in Feng (2007) based on K(u) in Mueller (1988)
+        if(deltaBIC!=0)
+        {
+          d<-deltaBIC
+          Vc<-2*gamma(1-2*d)*sin(pi*d) # 
+          
+          if(korder==2 && kn==1){
+            Rk<-(1/2)^2*Vc*kdf.t(0,0,d)
+          }  
+          if(korder==2 && kn==2){
+            Rk<-(3/4)^2*Vc*(kdf.t(0,0,d)-
+                              2*kdf.t(2,0,d)+
+                              kdf.t(2,2,d))######hier war erst nur "df.t"
+          }
+          if(korder==2 && kn==3){
+            Rk<-(15/16)^2*Vc*(kdf.t(0,0,d)+
+                                4*kdf.t(2,2,d)+
+                                kdf.t(4,4,d)-
+                                4*kdf.t(2,0,d)+
+                                2*kdf.t(4,0,d)-
+                                4*kdf.t(4,2,d))  
+          }
+          if(korder==2 && kn==4){
+            Rk<-(35/32)^2*Vc*(kdf.t(0,0,d)+
+                                9*kdf.t(2,2,d)+
+                                9*kdf.t(4,4,d)+
+                                kdf.t(6,6,d)-
+                                6*kdf.t(2,0,d)+
+                                6*kdf.t(4,0,d)-
+                                2*kdf.t(6,0,d)-
+                                18*kdf.t(4,2,d)+
+                                6*kdf.t(6,2,d)-
+                                6*kdf.t(6,4,d))  
+          }
+          
+          if(korder==4 && kn==1){
+            Rk<-(3/8)^2*Vc*(9*kdf.t(0,0,d)-
+                              30*kdf.t(2,0,d)+
+                              25*kdf.t(2,2,d))
+          }
+          if(korder==4 && kn==2){
+            Rk<-(15/32)^2*Vc*(9*kdf.t(0,0,d)+
+                                100*kdf.t(2,2,d)+
+                                49*kdf.t(4,4,d)-
+                                60*kdf.t(2,0,d)+
+                                42*kdf.t(4,0,d)-
+                                140*kdf.t(4,2,d))  
+          }
+          if(korder==4 && kn==3){
+            Rk<-(105/64)^2*Vc*(kdf.t(0,0,d)+   
+                                 25*kdf.t(2,2,d)+
+                                 49*kdf.t(4,4,d)+
+                                 9*kdf.t(6,6,d)-
+                                 10*kdf.t(2,0,d)+
+                                 14*kdf.t(4,0,d)-
+                                 6*kdf.t(6,0,d)-
+                                 70*kdf.t(4,2,d)+
+                                 30*kdf.t(6,2,d)-
+                                 42*kdf.t(6,4,d))
+          }  
+          if(korder==4 && kn==4){
+            Rk<-(315/512)^2*Vc*(9*kdf.t(0,0,d)+   
+                                  400*kdf.t(2,2,d)+
+                                  42^2*kdf.t(4,4,d)+
+                                  36^2*kdf.t(6,6,d)+
+                                  11^2*kdf.t(8,8,d)-
+                                  120*kdf.t(2,0,d)+
+                                  252*kdf.t(4,0,d)-
+                                  216*kdf.t(6,0,d)+
+                                  66*kdf.t(8,0,d)-
+                                  40*42*kdf.t(4,2,d)+
+                                  40*36*kdf.t(6,2,d)-
+                                  40*11*kdf.t(8,2,d)-
+                                  84*36*kdf.t(6,4,d)+
+                                  84*36*kdf.t(8,4,d)-
+                                  72*11*kdf.t(8,6,d))
+          }
+          
+          const1<-(Bk*Kk*Rk*(1-2*mse.RANGE)*(1-2*deltaBIC))**(1/(ko21-2*deltaBIC))
+        }
+        
+        else
+        {
+          const1<-(Bk*Kk*Rk*(1-2*mse.RANGE)*2*pi)**(1/ko21)     #### Here, deltaBIC=0, but Kk depends on p.
+        }
+        
+        const2<-(Cf/Intgk)**(1/(ko21-2*deltaBIC))
+        const3<-n.DATA**((2*deltaBIC-1)/(ko21-2*deltaBIC))
+        browser()
+        # bandwidth: data pro time
+        b0<-const1*const2*const3      
+        b0<-min(0.49,b0) # nicht größer als 0.49
+        b0<-max(n.DATA**(-5/7),b0) # nicht kleiner als 0.005 oder 0.05?
+      }  
+      
+      
+      cat("Selected b0=", b0, fill=TRUE)
+      
+      ### if(iITER==1) 
+      ### {
+      ### b0<-min(b0,0.05)
+      ### }
+      
+      #--- did b0 change much? if not, stop iteration
+      
+      deltaITER<-0.01*max(b0,b0old)
+      if( (abs(b0-b0old)<deltaITER)&(iITER>3) ){
+        icrit<-1
+      }
+      if( (abs(b0-b0old)>=deltaITER)&(iITER==(nITER-1)) ){
+        convc=0
+        b0=(b0+b0old)/2   #
+      }
+      if( iITER==nITER ){
+        cat("Alg doesn't converge. b0 is the mean of the last two values!!!", fill=TRUE) 	       
+      }
+      
+      # if(iITER==2) #################SL
+      # {
+      # 
+      #   b0<-n.DATA**(-5/7)
+      # }
+    } 
+    
+    #--- end of smoothing iteration:
+    
+  }
+  
+  #--- final result
+  
+  #--- 1 ---- nu (needed for test of g0-significance)
+  
+  if(deltaBIC==0)
+  {
+    nu<-pi
+  }
+  else
+  {
+    nu<-2**(2*deltaBIC)*gamma(1-2*deltaBIC)*sin(pi*deltaBIC)
+    nu<-nu/(deltaBIC*(2*deltaBIC+1))
+  }
+  
+  thetaBIC[2]<-thetaBIC[2]+mBIC.1
+  etaBIC<-thetaBIC[c(-1)]
+  mBIC<-mBIC.1
+  dBIC<-thetaBIC[2]
+  deltaBIC<-dBIC-mBIC
+  
+  result<-list(xBIC=xinput.SEMI,
+               pmin.SEMI=pmin.SEMI,
+               pmax.SEMI=pmax.INPUT,
+               qmin.SEMI=qmin.SEMI,
+               qmax.SEMI=qmax.INPUT,
+               mmax.SEMI=mmax.SEMI,
+               mse.RANGE=mse.RANGE,
+               nBIC=n.DATA,
+               qBIC=qBIC,
+               pBIC=pBIC,
+               thetaBIC=thetaBIC,
+               etaBIC=etaBIC,
+               dBIC=dBIC,
+               mBIC=mBIC,
+               deltaBIC=deltaBIC,
+               BIC.opt=BIC.opt,
+               BIC=BIC,
+               pALL=pmin.SEMI:pmax.SEMI,
+               g0BIC=g0,
+               b0BIC=b0,
+               CfBIC=Cf,
+               nuBIC=nu,
+               rBIC=rBIC)
+  
+  drop(result)
+  
+}
+
+
+
+##########################################smooth.lpf################################
+
+smooth.lpf<-function(y,v,p,kn,b,bb)
+{ 
+  n<-length(y)          
+  gr<-rep(0,1,n)         
+  hh<-trunc(n*b)         
+  htm<-2*hh+1            
+  ws<-matrix(0,htm,htm)  
+  wk<-rep(0,1,htm)       
+  xt<-matrix(0,(p+1),htm)
+  xw<-xt                 
+  
+  #### lpf is a linear smoother. The main tesk is to calculate the ####
+  #### weighting system at each point i. In the following only the ####
+  #### weighting systems at the left boundary (i=1 to hh) and that ####
+  #### at i=hh+1 will be computed. The weighting system at a point ####
+  #### hh+1=<i<=n-hh is the same. The weighting system at i > n-hh ####
+  #### is symmetric or asymmetric to that at the point j = n-i+1.  #### 
+  
+  hr<-c(hh+bb*(hh-0:hh)) #pointwise right bandwith of i,  
+  
+  ht<-c(1+0:hh)+hr       #pointwise total bandwith of i, 
+  
+  for(i in (1:(hh+1))){
+    
+    wk[1:ht[i]]<-(1-(((1:ht[i])-i+1)/(hr[i]+0.5))**2)**(kn-1) 
+    
+    for(j in (1:(p+1))){
+      xt[j,1:ht[i]]<-(((1:ht[i])-i+0.5)/hh)**(j-1) 
+      
+      xw[j,]<-xt[j,]*t(wk)} 
+    
+    xa<-solve(xw%*%t(xt))%*%xw 
+    ws[i,]<-xa[(v+1),] 
+  } 
+  ws[(hh+2):htm,]<-(-1)**(v)*ws[hh:1,htm:1]
+  ws<-factorial(v)*ws*(n/hh)**(v)     
+  
+  ym<-matrix(0,(n-htm),htm)
+  for(i in ((hh+2):(n-hh))){
+    ym[(i-hh-1),]<-y[(i-hh):(i+hh)]
+  }
+  gr[1:(hh+1)]<-ws[1:(hh+1),]%*%cbind(y[1:htm])
+  gr[(hh+2):(n-hh)]<-ym%*%cbind(ws[(hh+1),]) 
+  gr[(n-hh+1):n]<-ws[(hh+2):htm,]%*%cbind(y[(n-htm+1):n])
+  
+  drop(gr)
+}
+
+#######################################mle.farima.bic################################ 
+
+mle.farima.bic<-function(xinput,mmax,pmin,pmax,qmin,qmax,alpha,iCI)
+{
+  #browser()
+  ndata<-length(xinput)
+  
+      p = pmax
+      q = qmax ###SL
+      result<-mle.farima(xinput,mmax,p,q)
+      m<-result$mEST
+      eta<-result$etaEST       
+      loglik<-result$loglikEST 
+      
+      BICpq<--2*loglik+log(ndata)*(p+q)
+      BIC.opt<-BICpq   
+      etaBIC<-eta
+      pBIC<-p          
+      qBIC<-q
+      
+  
+  # sigma2BIC and residuals rBIC: 
+  # 1. fractional filter (m and delta); 2. ARMA filter
+  
+  dBIC<-etaBIC[1]
+  mBIC<-trunc(dBIC+0.5)
+  deltaBIC<-dBIC-mBIC
+  
+  r<-xinput
+  if(mBIC>0){r<-diff(xinput,mBIC)}
+  n<-length(r)
+  b<-ar.coef.farima(n,eta[1])$b
+  r<-c(r*0,r)
+  r<-filter(r,b,sides=1)[(n+1):(2*n)]
+  # 
+  if((pBIC==0)&(qBIC==0))
+  {
+    n<-length(r)
+    sigma2BIC<-sum(r**2)/n
+    rBIC<-r
+  }
+  else
+  {
+    if((pBIC!=0)&(qBIC!=0))
+    {
+      model=list(ar=c(etaBIC[2:(pBIC+1)]),ma=c(etaBIC[(pBIC+1):(pBIC+qBIC+1)]))
+      result=arma.filt(r,model)
+    }
+    else
+    {
+      if(pBIC==0)
+      {
+        model=list(ma=c(etaBIC[(pBIC+1):(pBIC+qBIC+1)]))
+        result=arma.filt(r,model)
+      }
+      else
+      {
+        model=list(ar=c(etaBIC[2:(pBIC+1)]))
+        result=arma.filt(r,model)
+      }
+    }
+    sigma2BIC<-arima(r,order=c(pBIC,0,qBIC))$sigma2            
+    rBIC<-r[c(-(1:pBIC))]-result[-(1:pBIC)]
+  }
+  
+  thetaBIC<-c(sigma2BIC,etaBIC)
+  # confidence intervals for eta
+  
+  r.conf<-conf.farima(thetaBIC[c(-1)],pBIC,qBIC,ndata,alpha)
+  V<-r.conf$V
+  CI<-r.conf$CI
+  
+  # result
+  
+  drop(list(xinput=xinput,
+            mmax=mmax,
+            pmin=pmin,
+            pmax=pmax,
+            qmin=qmin,
+            qmax=qmax,
+            alpha=0.05,
+            iCI=iCI,
+            pBIC=pBIC,
+            qBIC=qBIC,
+            thetaBIC=thetaBIC, ###l### vorher thetaBIC
+            etaBIC=etaBIC,
+            dBIC=dBIC,
+            mBIC=mBIC,
+            deltaBIC=deltaBIC,
+            CI=CI, ###l## vorher CI
+            V=V,
+            BIC.opt=BIC.opt,
+            BIC=BIC,
+            pALL=pmin:pmax,
+            qALL=qmin:qmax,
+            rBIC=rBIC)) ###l### vorher rBIC
+}
+
+
+#######################################mle.farima################################### 
+
+mle.farima <- function(xinput,mmax,p,q)
+{ 
+  browser()
+  mALL<-0:mmax
+  etaALL<-matrix(0,ncol=p+q+1,nrow=mmax+1)
+  loglikALL<-rep(0,mmax+1)
+  d.START<-0.1
+  
+  #m = 0
+ 
+  r<-xinput
+  n<-length(xinput)
+  if(p==0)
+  {
+    z.AR<-2
+    if(q==0) 
+    {
+      result=fracdiff(r,M=100,drange = c(0,0.5))
+      etaALL[1,]<-c(result$d)
+      z.MA<-2
+    }
+    else 
+    {
+      result=fracdiff(r,nma = q,M=100,drange = c(0,0.5))
+      etaALL[1,]<-c(result$d,result$ma)
+      z.MA<-abs(polyroot(c(1,result$ma)))
+    }
+  }
+  else
+  {
+    if(q==0) 
+    {
+      z.MA<-2
+      result=fracdiff(r,nar = p,M=100,drange = c(0,0.5))
+      etaALL[1,]<-c(result$d,result$ar)
+      z.AR<-abs(polyroot(c(1,-result$ar)))
+    }
+    else 
+    {
+      if (p>=q)
+      {
+        result=fracdiff(r,nar=p,nma = q,M=100,drange = c(0,0.5))
+      }
+      
+      else
+      {
+        result=fracdiff(r,nar=p,nma = q,M=100,drange = c(0,0.5))
+      }
+      etaALL[1,]<-c(result$d,result$ar,result$ma)
+      z.AR<-abs(polyroot(c(1,-result$ar)))
+      z.MA<-abs(polyroot(c(1,result$ma)))
+    }
+  } 
+  z.ARMA<-c(z.AR,z.MA)
+  loglikALL[1]<-result$log.likelihood
+  
+  if( (abs(etaALL[1,1]-0.5)<0.01)||(abs(etaALL[1,1]-(-0.5))<0.01)||
+      (min(z.ARMA)<= 1.05))
+  { 
+    loglikALL[1]<-result$log.likelihood-10**10 
+  }  
+
+  for(m in mALL[c(-1)])
+  {
+    r<-diff(xinput,m)
+    n<-length(r)
+    
+    if(p==0)
+    {
+      z.AR<-2
+      if(q==0) 
+      {
+        z.MA<-2
+        m1=fracdiff(r,M=100,drange = c(0,0.5))
+        m2=fracdiff(r,M=100,drange = c(-0.5,0))
+        BIC.1=-2*m1$log.likelihood+log(n)*(p+q)
+        BIC.2=-2*m2$log.likelihood+log(n)*(p+q)
+        if(BIC.1<=BIC.2){ 
+          result<-m1} else
+          {result=m2}
+        if(isTRUE(all.equal(m1$correlation.dpq,NULL)))
+          result<-m2
+        if(isTRUE(all.equal(m2$correlation.dpq,NULL)))
+          result<-m1
+        
+        etaALL[m+1,]<-c(result$d)
+        etaALL[m+1,1]<-etaALL[m+1,1]+m
+      }
+      else 
+      {
+        m1=fracdiff(r,nma = q,M=100,drange = c(0,0.5))
+        m2=fracdiff(r,nma = q,M=100,drange = c(-0.5,0))
+        BIC.1=-2*m1$log.likelihood+log(n)*(p+q)
+        BIC.2=-2*m2$log.likelihood+log(n)*(p+q)
+        if(BIC.1<=BIC.2){ 
+          result<-m1} else
+          {result=m2}
+        
+        etaALL[m+1,]<-c(result$d,result$ma)
+        etaALL[m+1,1]<-etaALL[m+1,1]+m
+        z.MA<-abs(polyroot(c(1,result$ma)))
+      } 
+    } 
+    # p>0
+    else 
+    {
+      if(q==0) 
+      {
+        z.MA<-2
+        m1=fracdiff(r,nar = p,M=100,drange = c(0,0.5))
+        m2=fracdiff(r,nar = p,M=100,drange = c(-0.5,0))
+        BIC.1=-2*m1$log.likelihood+log(n)*(p+q)
+        BIC.2=-2*m2$log.likelihood+log(n)*(p+q)
+        if(BIC.1<=BIC.2){ 
+          result<-m1} else
+          {result=m2}
+        if(isTRUE(all.equal(m1$correlation.dpq,NULL)))
+          result<-m2
+        if(isTRUE(all.equal(m2$correlation.dpq,NULL)))
+          result<-m1        
+        
+        etaALL[m+1,]<-c(result$d,result$ar)
+        etaALL[m+1,1]<-etaALL[m+1,1]+m
+        z.AR<-abs(polyroot(c(1,-result$ar)))
+      } 
+      else 
+      {
+        if (p>=q)
+        {
+          m1=fracdiff(r,nar=p,nma = q,M=100,drange = c(0,0.5))
+          m2=fracdiff(r,nar=p,nma = q,M=100,drange = c(-0.5,0))
+          BIC.1=-2*m1$log.likelihood+log(n)*(p+q)
+          BIC.2=-2*m2$log.likelihood+log(n)*(p+q)
+          if(BIC.1<=BIC.2){ 
+            result<-m1} else
+            {result=m2}
+          if(isTRUE(all.equal(m1$correlation.dpq,NULL)))
+            result<-m2
+          if(isTRUE(all.equal(m2$correlation.dpq,NULL)))
+            result<-m1        
+        }
+        
+        else
+        {
+          m1=fracdiff(r,nar=p,nma = q,M=100,drange = c(0,0.5))
+          m2=fracdiff(r,nar=p,nma = q,M=100,drange = c(-0.5,0))
+          BIC.1=-2*m1$log.likelihood+log(n)*(p+q)
+          BIC.2=-2*m2$log.likelihood+log(n)*(p+q)
+          if(BIC.1<=BIC.2){ 
+            result<-m1} else
+            {result=m2}
+          if(isTRUE(all.equal(m1$correlation.dpq,NULL)))
+            result<-m2
+          if(isTRUE(all.equal(m2$correlation.dpq,NULL)))
+            result<-m1        
+          
+        }
+        
+        etaALL[m+1,]<-c(result$d,result$ar,result$ma)
+        etaALL[m+1,1]<-etaALL[m+1,1]+m
+        z.AR<-abs(polyroot(c(1,-result$ar)))
+        z.MA<-abs(polyroot(c(1,result$ma)))
+      }  
+    }  
+    z.ARMA<-c(z.AR,z.MA)
+    loglikALL[m+1]<-result$log.likelihood 
+    
+    if( (abs(etaALL[m+1,1]-0.5)<0.01)||(abs(etaALL[m+1,1]-(-0.5))<0.01)||
+        (min(z.ARMA)<= 1.05))
+    { 
+      loglikALL[m+1]<-result$log.likelihood-10**10 
+    }  
+    
+  }
+  
+  iEST<-mALL[loglikALL==max(loglikALL)]+1
+  mEST<-mALL[iEST]
+  etaEST<-etaALL[iEST,]      
+  loglikEST<-loglikALL[iEST]  
+  
+  # result
+  
+  drop(list(xinput = xinput, mmax = mmax, p=p, q=q,
+            mEST=mEST,etaEST=etaEST,loglikEST=loglikEST))
+  
+}
+
+
+##################################ARMA-filter#####################################SL#
+arma.filt=function(x,model)
+{
+  if (length(model$ma)){
+    x <- filter(x, c(1, -model$ma), sides = 1L)
+    x[seq_along(-model$ma)]<-0
+  }
+  if (length(model$ar)){
+    x <- filter(x, model$ar, method = "recursive")
+    x
+  }
+}
+##########################################kdf.t#############################################
+
+kdf.t<-function(l, m, d)
+{S<-0
+for(i in 0:m){S1<-0
+for(j in i:(l+m)){
+  S1<-S1+(-1)^(j-i)*choose(l+m-i, j-i)/(2*d+j+1)*2^(2*d+j+1)
+}
+S<-S+2*choose(m, i)*S1/(2*d+i)
+}
+drop(S)
+} 
+#######################################cov.mle.farima###################################
+cov.mle.farima<-function(eta,p,q)
+{
+  M<-p+q+1                    
+  m<-trunc(eta[1]+0.5)
+  delta<-eta[1]-m
+  theta<-c(1,eta)
+  
+  # size of steps in Riemann sum: 2*pi/m.Riemann
+  
+  m.Riemann<- 10000
+  mhalfm   <- trunc((m.Riemann-1)/2) 
+  
+  # size of delta for numerical calculation of derivative
+  
+  delta.Deriv<- 0.000000001         
+  
+  # partial derivatives of log f (at each Fourier frequency)
+  
+  lf<-matrix(1,ncol=M,nrow=mhalfm)
+  f0<-fspec.farima.fourier(theta,p,q,m.Riemann)$f
+  for(j in (1:M))
+  {
+    etaj<-eta
+    etaj[j]<-etaj[j]+delta.Deriv
+    thetaj<-c(1,etaj)
+    fj<-fspec.farima.fourier(thetaj,p,q,m.Riemann)$f
+    lf[,j]<-log(fj/f0)/delta.Deriv
+  }
+  
+  # Calculate D
+  
+  Djl<-matrix(1,ncol=M,nrow=M)
+  for(j in (1:M))
+  {
+    for(l in (1:M))
+    {
+      Djl[j,l]<-2*2*pi/m.Riemann*sum(lf[,j]*lf[,l])
+    }   
+  }
+  
+  # Result
+  
+  result<-matrix(4*pi*solve(Djl),ncol=M,nrow=M,byrow=T)
+  drop(list(eta=eta,p=p,q=q,
+            V=result))
+}
+
+##########################################conf.farima################################
+
+conf.farima<-function(eta,p,q,n,alpha) 
+{
+  #browser()
+  z<-qnorm(1-alpha/2)
+  M<-p+q+1
+  
+  # Covariance matrix
+  #browser()
+  V<-matrix(cov.mle.farima(eta,p,q)$V/n,ncol=M,nrow=M,byrow=T)
+  
+  # C.I.
+  
+  etalow<-c()
+  etaup<-c()
+  for(i in (1:M))
+  {
+    etalow<-c(etalow,eta[i]-z*sqrt(V[i,i]))
+    etaup<-c(etaup,eta[i]+z*sqrt(V[i,i]))
+  } 
+  CI<-cbind(etalow,etaup)
+  
+  # result
+  
+  drop(list(eta=eta,p=p,q=q,n=n,alpha=alpha, 
+            V=V,CI=CI))
+}
+########################################fspec.farima.fourier#####################
+
+fspec.farima.fourier <- function (theta,p,q,n) 
+{ 
+  
+  #---------parameters for the calculation of f--------
+  
+  sigma2<-    theta[1]
+  eta   <-    theta[c(-1)]
+  d     <-    eta[1]
+  m     <-    trunc(d+0.5)
+  delta <-    eta[1]-m
+  phi   <-    c()
+  psi   <-    c()
+  
+  #------   Fourier frequencies: ------------------------------
+  #------   x = 2*pi*(j-1)/n (j=1,2,...,(n-1)/2) ------- 
+  
+  nhalf <- trunc((n-1)/2)
+  x  <- 1:nhalf
+  x  <- 2*pi/n*x
+  
+  #-----   calculation of f at Fourier frequencies   -------
+  
+  far   <-    rep(1,nhalf)
+  fma   <-    rep(1,nhalf)
+  
+  if(p>0) 
+  {
+    phi    <-  cbind(eta[2:(p+1)])
+    cosar  <- cos(cbind(x)%*%rbind(1:p))
+    sinar  <- sin(cbind(x)%*%rbind(1:p))
+    Rar    <- cosar%*%phi
+    Iar    <- sinar%*%phi
+    far    <- (1-Rar)**2 + Iar**2
+  } 
+  
+  if(q>0) 
+  {
+    psi    <- cbind(eta[(p+2):(p+q+1)])
+    cosma  <- cos(cbind(x)%*%rbind(1:q))
+    sinma  <- sin(cbind(x)%*%rbind(1:q))
+    Rma    <- cosma%*%psi
+    Ima    <- sinma%*%psi
+    fma    <- (1+Rma)**2 + Ima**2
+  } 
+  
+  f.long<-sqrt((1-cos(x))**2 + sin(x)**2)**(-2*d)     
+  f.short<-sigma2/(2*pi)*fma/far
+  f         <- f.short*f.long
+  
+  drop(list(theta=theta,p=p,q=q,n=n,
+            freq=x,f=f,f.long=f.long,f.short=f.short)) 
+  
+}
+#######################################ar.coef.farima###################################
+
+ar.coef.farima <- function(n,d)
+{
+  m<-trunc(d+0.5)
+  delta<-d-m
+  if(delta==0)
+  {
+    result<-c(1,rep(0,n-1))
+  }
+  else
+  {
+    result<-c(1,gamma(1:100-delta)/(gamma(1:100+1)*gamma(-delta)))
+    result<-c(result,( 101:max(101,(n-1)) )**(-delta-1)/gamma(-delta))
+  }
+  result<-result[1:n]
+  
+  drop(list(n=n,d=d,
+            b=cbind(result)))
+}
+
+############################################################################
+################################################################
+######### This is the rogramm for estimating g' using SEMIFAR
+######### Modiefied by Yuanhua Feng, 28.02.2003
+######### Name of the function: semifar.der
+######### Variables: The same as for semifar.lpf
+######### See also semifar.lpf 
+######### Estimate g at first using SEMIFAR
+######### Then estimate g' with known parameters
+################################################################
+########################################################################
+
+
+semifar.der<-function(result, xinput.SEMI, mse.RANGE, kn, bb)
+{
+  #########The data
+  x.DATA<-xinput.SEMI
+  
+  ##################### Estimating g' based on the above results
+  #--- data, ti
+  Cf<-result$CfBIC
+  deltaBIC<-result$deltaBIC
+  mBIC<-result$mBIC
+  
+  
+  if(mBIC==1){x.DATA<-diff(x.DATA)} 
+  n.DATA<-length(x.DATA)
+  ti<-(1:n.DATA)/n.DATA
+  
+  b0<-result$b0BIC#/4
+  #         b0<-max(n.DATA**(-5/7),b0)
+  
+  
+  #--- iteration settings
+  
+  nITER<-20
+  icrit<-0
+  
+  #--- initial parameters for smoothing
+  
+  Kk<-9
+  if(kn==1){Bk<-25/9
+  Rk<-1.5}
+  if(kn==2){Bk<-49/9
+  Rk<-2.1429}
+  if(kn==3){Bk<-9        ###81/9
+  Rk<-3.1818}  ###35/11	
+  
+  #------- smoothing iteration
+  cat("This is the smooth for estimating'.",fill=T)
+  
+  for(iITER in 1:nITER)
+  {
+    cat("iteration=",iITER,fill=T)
+    
+    #--- data, ti
+    
+    if( icrit==0 )
+    {
+      #---------- 3 -------- updated bandwidth for g2
+      
+      if(iITER==1){b2<-b0}else
+      {b2<-(b0)**((7-2*deltaBIC)/(14-2*deltaBIC))}#opt. for I(g''')
+      
+      b2<-min(0.49,b2) #### the above bound
+      
+      #---------- 4 -------- kernel for g2 estimation
+      
+      #---------- 8 -------- estimate int(g2**2 dt)
+      gk<-smooth.lpf(x.DATA, 3, 4, kn, b2, bb)###New !!!
+      
+      index<-max(1,trunc(mse.RANGE*n.DATA)):trunc((1-mse.RANGE)*n.DATA) 
+      # avoid border effects
+      gkk<-gk[index]**2
+      Intgk<-sum(gkk)/n.DATA
+      
+      #---------- 7 -------- update b0
+      
+      #------- estimate g
+      b0old<-b0
+      
+      if(deltaBIC!=0)
+      {
+        d<-deltaBIC
+        Vc<-2*gamma(1-2*d)*sin(pi*d)
+        
+        
+        ####For kernels of order (1, 3)
+        if(kn==1){
+          Rk<-(-3/2)^2*Vc*kdf.t(1,1,d)
+        }  
+        if(kn==2){
+          Rk<-(-15/4)^2*Vc*(kdf.t(1,1,d)-2*kdf.t(3,1,d)+kdf.t(3,3,d))
+        }
+        if(kn==3){
+          Rk<-(-105/16)^2*Vc*(kdf.t(1,1,d)+4*kdf.t(3,3,d)+kdf.t(5,5,d)
+                              -4*kdf.t(3,1,d)+2*kdf.t(5,1,d)-4*kdf.t(5,3,d))
+        }
+        
+        const1<-(Bk*Kk*Rk*(1-2*mse.RANGE)
+                 *(2+1-2*deltaBIC))**(1/(7-2*deltaBIC))
+      }
+      else
+      {
+        const1<-(Bk*Rk*(1-2*mse.RANGE)*(2+1)*2*pi)**(1/7)
+      }
+      
+      const2<-(Cf/Intgk)**(1/(7-2*deltaBIC))
+      const3<-n.DATA**((2*deltaBIC-1)/(7-2*deltaBIC))
+      b0<-const1*const2*const3      
+      #       b0<-min(1,b0)
+      b0<-min(0.49,b0) #min(1,b0)
+      #       b0<-max(n.DATA**(-2/6),b0)
+      b0<-max(n.DATA**(-5/7),b0)
+      
+      cat("Selected b0=", b0, fill=T)
+      
+      #--- did b0 change much? if not, stop iteration
+      
+      deltaITER<-0.01*max(b0,b0old)
+      if( (abs(b0-b0old)<deltaITER)&(iITER>3) ){icrit<-1}
+      
+    }
+    
+    #--- end of smoothing iteration:
+    
+  }
+  
+  #--- final result
+  g0<-smooth.lpf(x.DATA, 1, 2, kn, b0, bb)
+  
+  drop(g0)
+  
+}

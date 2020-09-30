@@ -1,0 +1,38 @@
+require(fracdiff)
+source("semifar.lpf-final-A.R")
+
+#### US-Quarterly GDP
+X = read.table("Feng-Gries-2016-D1Q-USGDP.txt", header = TRUE)
+Y = X[,2]
+Y0 = log(Y)
+
+
+#### NH temperature
+X=read.table("NH-TM-1850-2018.txt")
+m=length(X[,1])
+Ys=31
+for(i in Ys:m)
+if(i==Ys){Y0=as.numeric(X[i, 2:13])}else
+          {Y0=c(Y0,as.numeric(X[i, 2:13]))} 
+
+
+#### VIX
+X=read.table("VIX_01-1990-07-2019.txt", header = TRUE)
+Y0=log(X[,7])
+
+#### SEMIFAR procudrue
+n = length(Y0)
+pg=1
+kn=2
+bb=1
+IF=1
+result = semifar.lpf(Y0, 0, 1, 0.025, pg, kn, bb, IF)
+g_hat = result$g0BIC
+matplot(1:n, cbind(Y0, g_hat), type = "l")
+result$pBIC
+result$thetaBIC
+result$deltaBIC
+result$b0BIC
+result$CI
+result$TESTtext
+

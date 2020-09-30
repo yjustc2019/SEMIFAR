@@ -1,0 +1,242 @@
+\documentclass[12pt]{article}
+
+%%%%%%%%%%%%%%%% Commands for including graphics %%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.ps,.eps,.pcx}
+%%%%%%%%%%%%%%%%%%%%%%%%%  End of these commands %%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{eucal}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+\usepackage{algorithm}
+\usepackage{setspace} % spacing in the algorithm
+\usepackage{listings} % code Darstellung
+
+\lstset{ 			  % code style
+	backgroundcolor=\color{white},
+	keepspaces=true,
+	numbers=left,						% where to put the line-numbers
+	numberstyle=\tiny\color{black},
+	stepnumber=1,						% the step between two line-numbers
+	captionpos=b,						% sets the caption-position to bottom
+	tabsize=2,  						% sets default tabsize to 2 spaces
+	showstringspaces=false,				% underline spaces within strings or not
+	columns=flexible,
+	%breaklines=true					% enter is breakline
+	basicstyle={\small\ttfamily},		% the size of the fonts that are used 
+	keywordstyle=\color{blue},
+	commentstyle=\color{mygreen},
+	stringstyle=\color{red},
+	escapeinside={\%*}{*)},
+	morekeywords={*,...}
+}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\textwidth16cm
+
+
+\textheight23cm
+
+\oddsidemargin0.25cm
+
+\evensidemargin0.25cm
+
+\parindent0.4cm
+\parskip2ex plus0.5ex minus0.5ex
+\renewcommand{\baselinestretch}{1.37}
+\unitlength1.0cm \headheight0cm \topskip0cm \headsep-1cm
+
+\newcommand{\cov}{\mbox{cov\,}}
+\newcommand{\var}{\mbox{var\,}}
+\newcommand{\bbo}{\mbox{1}\hspace{-3pt}\mbox{I}}
+\renewcommand{\Re}{\mbox{I}\hspace{-2pt}\mbox{R}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+%---------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY SETTINGS
+%---------------------------------------------------------------------------------------
+
+\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+
+\addbibresource{BIB.bib} % The filename of the bibliography
+
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+%---------------------------------------------------------------------------------------
+
+
+\begin{document}
+
+\renewcommand{\thetheorem}{\arabic{theorem}.}
+\renewcommand{\theremark}{\arabic{remark}.}
+\renewcommand{\thelemma}{\arabic{lemma}.}
+\renewcommand{\proposition}{\arabic{proposition}.}
+
+
+
+\title{Semiparametric regression under long memory errors with implementation in R}
+%\author{Yuanhua Feng, Jan Beran, Sebastian Letmathe and Tim Brandt \\ Faculty of Business Administration and Economics,
+%Department of Economics, 
+%Paderborn University}
+%\maketitle
+%\doublespacing
+
+
+%\centerline{\large $^3$Swiss Federal Research Institute WSL}
+
+
+
+
+
+
+
+\begin{abstract}
+\noindent 
+This paper provides first a brief summary of the SEMIFAR (semiparametric fractional autoregressiove) and ESEMIFAR (exponential SEMIFAR) models. Those models are extended slightly to include the moving average part. Under common distribution condition it is shown that the long memory parameter is not affected by the log-transformation. 
+A simple data-driven algorithm is proposed, by which the selected bandwidth and the selected orders of the ARMA model are all consistent. An R package is developed for practical implementation. The application of the proposals are illustrated by different kind of time series. 
+
+  
+%
+
+\vspace{.3cm}
+
+\noindent{\it Keywords:} Nonparametric regression with long memory, SEMIFAR, ESEMIFAR, bandwidth selection, model selection, implementation in R, 
+
+%Generalized ESEMIFAR, asymptotic results, bandwidth selection, bootstrap forecasting, long memory in realized volatility
+
+\vspace{.3cm}
+
+\noindent{\it JEL Codes:} C14, C51
+\end{abstract}
+
+%\newpage
+
+\vspace{.5cm}
+
+%\thispagestyle{empty}
+
+\section{Introduction}
+Literature research and model research required.\\
+\\ 
+In many areas of research data are observed spatially, depending on two separate dimensions in a lattice. 
+In recent years one can observe more frequently some sort of apparent memory in the decay of spatial correlations to depend and change over its direction within the spatial process. 
+For instance, long-memory in the sense of slowly decaying autocorrelations in (high frequency) financial data across trading time and trading day produces a random field on a lattice in both dimensions simultaneously. \textcite{beran2015modelling} state that daily average trade duration data has often shown long memory
+with a clear non zero mode. Therefore a log-normal conditional distribution is suggested.
+The simplest approach to model long range dependence in a positive valued
+time series is to take the exponential of a linear long memory process such as
+FARIMA leading to stochastic volatility models. Due to the long range dependence
+there is an unobservable latent process which makes the estimation and interpretation
+of the fitted parameters very challenging.\\
+\\
+The SEMIFAR and ESEMIFAR models introduced by \textcite{beran2002semifar} and \textcite{beran2015modelling} are designed for simultaneous modeling of stochastic trends, deterministic trends and stationary short- and long-memory components in a time series such that the trend generating mechanisms can be distinguished.
+
+\section{The SEMIFARIMA model}
+ 
+\subsection{The SEMIFAR}
+A process \(Y_{t}\) is said to follow a SEMIFAR model, introduced by Beran (1999)
+if there exists an integer \(m \in \{0,1\}\) and a fraction \(\delta\in (-0.5,0.5) \) such that 
+\begin{equation}
+\label{M1}
+\phi(B)(1-B)^{\delta} \{(1-B)^m Y_t - g(x_t)\}= \epsilon_t,
+\end{equation} 
+where \(\phi(x) = 1 - \sum_{j=1}^{p} \phi x^{j} \) is a polynomial with all roots outside the unit circle, \( \epsilon_t \) are iid normal with \(E(\epsilon_t) = 0\), var\((\epsilon_t) = \sigma_{\epsilon}^{2} \),  \(x_t = t/n\)  with \( t \in \mathbb{Z} \), $B$ is the backshift operator and  \(g:[0,1]\) is a nonparametric smooth trend function. The fractional differencing parameter \( \delta \) was introduced by \textcite{granger1980introduction} and \textcite{hosking1981fractional} and is defined by 
+\begin{equation}
+\label{eq:fractional difference 1}
+(1-B)^{\delta} = \sum_{k=0}^{\infty} b_k(\delta) B^k, 
+\end{equation} 
+with
+\begin{equation}
+\label{eq:fractional difference 2}
+b_k(\delta) = (-1)^{k}{\delta\choose k}  = (-1)^{k} \frac{\Gamma(\delta+1)}{\Gamma(k+1)\Gamma(\delta-k+1)}. 
+\end{equation} 
+Considering the autocovariances \(\gamma(k) = \text{cov}(Y_t,Y_{t+k})\), \(Y_t\) incorporates long memory if the spectral density  given by
+\begin{equation}
+\label{eq:long memory1}
+f(\lambda) = \frac{1}{2 \pi} \sum_{k=-\infty}^{\infty} e^{i k \lambda} \gamma(k) 
+\end{equation}
+exhibits a pole at the origin of the frequency spectrum such that
+\begin{equation}
+\label{eq:long memory2}
+f(\lambda) \sim c_f |\lambda|^{-2\delta}, \quad (\text{as}\, \lambda \rightarrow 0),
+\end{equation}
+where \(c_f > 0\)  and "\(\sim\)" stands for the ratio of both sides converging one. 
+Then, for \(k \rightarrow \infty\) the autocovariances \( \gamma(k) \) are proportional to \(k^{2\delta - 1}\) and hence yield an infinite sum. We can distinguish between three temporal dependency structures. The process $Z_t = \{(1-B)^m Y_t - g(x_t)\}$  has long memory for \(\delta > 0\) with \( \sum_{k=-\infty}^{\infty} \gamma_{U}(k) = \infty  \), short memory for \(\delta = 0\) with \( \sum_{k=-\infty}^{\infty} \gamma_{U}(k) < \infty  \)
+and is anitpersistent for \(\delta < 0\) with \( \sum_{k=-\infty}^{\infty} \gamma_{U}(k) = 0  \) frequently reversing itself. Based on model \eqref{M1} \citet{beran2002semifar} proposed an adapted version of a data-driven IPI (iterative plug-in) algorithm already introduced in Beran (1995) by replacing an estimate of the constant mean with a kernel estimate of $g$ defined by
+\begin{equation}
+\label{kern}
+\hat{g}(x) = \frac{1}{nh}\sum_{t=1}^{n}K(\frac{x-x_t}{h})(1-B)^{\hat{m}}Y_t,
+\end{equation}
+where $h>0$ denotes the bandwidth, $x\in[0,1]$ and $K(\cdot)$ is a symmetric second order kernel with compact support (see e.g. Gasser and M\"uller 1979). Moreover, explicit expressions for the bias, variance, MISE and the optimal bandwidth which minimises the asymptotic MISE are stated in Theorem 1 in \citet{beran2002semifar}.
+%\begin{equation}
+%	K(x) = \sum_{l=0}^{r}\alpha_{l}x^{2l}, \quad (|x|\leq1),
+%\end{equation}
+A comprehensive application of the SEMIFAR to finanical time series data was carried out by \citet{beran2001volatility}. The authors found strong evidence of long memory in power transformed absolute return series in form of a stochastic- or deterministic trend and in some cases with both forms. Subsequently, these results indicate that conventional parametric short- and long memory models may not be suitable for modelling volatility of stock market indices. In \citet{beran2002iterative} two new IPI-algorithms are proposed which run much faster as they do not rely on a full search of the long memory parameter. Furthermore, an EIM- (exponential inflation method) bandwidth selector is defined.  \citet{beran2001volatility} and \citet{beran2002semifar} already suggested to use an EIM as it requires less iterations than the conventional multiplicative inflation method (MIM) used by Gasser et al. (1991), Herrmann et al. (1992) and Ray and Tsay (1997). Different choices for the inflation factor and asymptotic properties of the estimated bandwidths are derived by \citet{beran2002iterative}. To control for the poor estimation quality of the kernel estimator at the boundaries, the authors introduced a small positive constant $\Sigma > 0$ such that as $n \rightarrow \infty$, $h\rightarrow 0$, $nh\rightarrow \infty$,
+\begin{equation}
+	\text{MISE} = E \bigg\{  \int_{\Sigma}^{1-\Sigma}[\hat{g}(x)-g(x)]^2dx   \bigg\}.
+\end{equation}
+In a following paper \citet{beran2002local} replaced the kernel estimator \eqref{kern} with a local 
+local approximation of \(g(x)\) given by the \(p\) order polynomial
+\begin{equation}
+\label{lp}
+g(x_{t}) \approx g(x) + g^{(1)}(x)(x_{t} - x) + \ldots + g^{(p)}(x)\frac{(x_{t} - x)^{p}}{p!} + R_{p},
+\end{equation}
+where \(R_{p}\) is a remainder term. Then the estimator \(\hat{g}^{(\nu)}(x)\) with \((\nu \leq p)\) is obtained when the locally weighted sum of squared residuals is minimized such that
+\begin{equation}
+\label{eq:2.2}
+Q(x) = \sum_{t=1}^{n} \left\lbrace Y_{t} - \sum_{j=0}^{p} \beta_{j}(x_{t} - x)^{j} \right\rbrace^{2} K \left( \frac{x_{t} - x}{h} \right) \Rightarrow min ,
+\end{equation}
+where \(\hat{\beta} = (\hat{\beta}_{0},\hat{\beta}_{1},\ldots,\hat{\beta}_{p})^{T}\) and $h$ and $K$ are defined as before. 
+
+
+
+%\begin{equation}
+%g(x_{t}) \approx g(x) + g^{(1)}(x)(x_{t} - x) + \ldots + g^{(p)}(x)\frac{(x_{t} - x)^{p}}{p!} + R_{p},
+%\end{equation}
+%with a remainder term \(R_{p}\)
+\section{The E-SEMIFARIMA model}
+
+
+
+
+A theorem about the memory property of the ESEMIFAR (direct after that model) 
+\begin{theorem}
+Assume that $X_t$ follows an ESEMIFAR model defined above with $d>0$ and a linear FARIMA error process $\xi_t$ in the log-data, then $Z_t=X_t/v(\tau_t)$ is a stationary long memory process with the same memory parameter $d$.   
+\end{theorem}
+This result shows that the level of long memory of the stationary part of the process under consideration is not affected by the log- or exponential transformations. In the case when $\xi_t$ is normal, those results are e.g. obtained in Dittmann and Granger (2002) and Beran et al. (2015). Theorem 2 extends those results to a common innovation distribution in the log-data. The proof of Theorem 2 is given in the appendix, where we will show that the process $Z_t$ is a special case of the general framework defined in Surgailis and Viano (2002). Hence, their results apply to $Z_t$. Note however that the above result does not hold for $d=0$. Detailed discussion on corresponding properties in case with $d=0$ is beyond the aim of the current paper.  
+
+\section{Data-driven estimation}
+
+\begin{theorem}
+Under assumptions A1 - A5, the selected AR order $\hat p_1$ and MA order $\hat q_1$ at the end of the first out-side iteration are both consistent.
+\end{theorem}
+The proof of Theorem 1 is given in the appendix. Note in particular that to achieve consistent model selection only the first out-side iteration is required. Hence, if $p_0$ and $q_0$ happen to be chosen correctly, the procedure will usually be stopped after the first out-side iteration. Otherwise, it will usually be stopped after the second out-side iteration. If $n$ is large enough, in most of the cases the third or further out-side iterations are not required. This ensures that the running time of the proposed algorithm comparable to that required by the original SEMIFAR algorithm.      
+
+\section{Implemenation in R}
+
+\section{Application to different kinds of time series}
+
+\subsection{Application of the SEMIFARIMA}
+
+\subsection{Application of the ESEMIFARIMA}
+
+\subsection{Application to high-frequency financial data}
+
+\section{Concluding remarks}
+
+\section*{Appendix}
+
+
+
+
+
+\end{document}
