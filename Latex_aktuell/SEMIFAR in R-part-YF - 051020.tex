@@ -195,7 +195,7 @@ where \(R_{p}\) is a remainder term. Then the estimator \(\hat{g}^{(\nu)}(x)\) w
 \label{eq:2.2}
 Q(x) = \sum_{t=1}^{n} \left\lbrace Y_{t} - \sum_{j=0}^{p} \beta_{j}(x_{t} - x)^{j} \right\rbrace^{2} K \left( \frac{x_{t} - x}{h} \right) \Rightarrow min ,
 \end{equation}
-where \(\hat{\beta} = (\hat{\beta}_{0},\hat{\beta}_{1},\ldots,\hat{\beta}_{p})^{T}\), $h$ and $K$ are defined as before. 
+where \(\hat{\beta} = (\hat{\beta}_{0},\hat{\beta}_{1},\ldots,\hat{\beta}_{p})^{T}\) and $h$ and $K$ are defined as before. 
 
 
 
@@ -203,10 +203,11 @@ where \(\hat{\beta} = (\hat{\beta}_{0},\hat{\beta}_{1},\ldots,\hat{\beta}_{p})^{
 %g(x_{t}) \approx g(x) + g^{(1)}(x)(x_{t} - x) + \ldots + g^{(p)}(x)\frac{(x_{t} - x)^{p}}{p!} + R_{p},
 %\end{equation}
 %with a remainder term \(R_{p}\)
+\section{The E-SEMIFARIMA model}
 
-\subsection{The E-SEMIFARIMA}
 
-\subsection{The E-SEMIFARIMA}
+
+
 A theorem about the memory property of the ESEMIFAR (direct after that model) 
 \begin{theorem}
 Assume that $X_t$ follows an ESEMIFAR model defined above with $d>0$ and a linear FARIMA error process $\xi_t$ in the log-data, then $Z_t=X_t/v(\tau_t)$ is a stationary long memory process with the same memory parameter $d$.   
@@ -215,11 +216,12 @@ This result shows that the level of long memory of the stationary part of the pr
 
 \section{Data-driven estimation}
 
-\subsection{The IPI-algorithm for estimating $g$}
+\begin{theorem}
+Under assumptions A1 - A5, the selected AR order $\hat p_1$ and MA order $\hat q_1$ at the end of the first out-side iteration are both consistent.
+\end{theorem}
+The proof of Theorem 1 is given in the appendix. Note in particular that to achieve consistent model selection only the first out-side iteration is required. Hence, if $p_0$ and $q_0$ happen to be chosen correctly, the procedure will usually be stopped after the first out-side iteration. Otherwise, it will usually be stopped after the second out-side iteration. If $n$ is large enough, in most of the cases the third or further out-side iterations are not required. This ensures that the running time of the proposed algorithm comparable to that required by the original SEMIFAR algorithm.      
 
-\subsection{Data driven estimation of $g'$ and $g''$}    
-
-\section{Implementation in R}
+\section{Implemenation in R}
 
 \section{Application to different kinds of time series}
 
@@ -228,10 +230,6 @@ This result shows that the level of long memory of the stationary part of the pr
 \subsection{Application of the ESEMIFARIMA}
 
 \subsection{Application to high-frequency financial data}
-
-\section{The Semi-FI-Log-GARCH model}
-
-\section{The Semi-FI-Log-ACD model* (nachfragen)}
 
 \section{Concluding remarks}
 
