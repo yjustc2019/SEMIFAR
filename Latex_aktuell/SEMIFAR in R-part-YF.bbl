@@ -166,6 +166,41 @@
     \field{year}{2015}
   \endentry
 
+  \entry{beran1999semifar}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BJ}{%
+         family={Beran},
+         familyi={B\bibinitperiod},
+         given={Jan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=OD}{%
+         family={Ocker},
+         familyi={O\bibinitperiod},
+         given={Dirk},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{BJOD1}
+    \strng{fullhash}{BJOD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1999}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{1-2}
+    \field{pages}{137\bibrangedash 153}
+    \field{title}{SEMIFAR forecasts, with applications to foreign exchange
+  rates}
+    \field{volume}{80}
+    \field{journaltitle}{Journal of Statistical Planning and Inference}
+    \field{year}{1999}
+  \endentry
+
   \entry{beran2001volatility}{article}{}
     \name{author}{2}{}{%
       {{hash=BJ}{%
@@ -201,67 +236,196 @@
     \field{year}{2001}
   \endentry
 
-  \entry{granger1980introduction}{article}{}
-    \name{author}{2}{}{%
-      {{hash=GCW}{%
-         family={Granger},
-         familyi={G\bibinitperiod},
-         given={Clive\bibnamedelima WJ},
-         giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod},
+  \entry{beran2013limit}{incollection}{}
+    \name{author}{4}{}{%
+      {{hash=BJ}{%
+         family={Beran},
+         familyi={B\bibinitperiod},
+         given={Jan},
+         giveni={J\bibinitperiod},
       }}%
-      {{hash=JR}{%
-         family={Joyeux},
-         familyi={J\bibinitperiod},
-         given={Roselyne},
+      {{hash=FY}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Yuanhua},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=GS}{%
+         family={Ghosh},
+         familyi={G\bibinitperiod},
+         given={Sucharita},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=KR}{%
+         family={Kulik},
+         familyi={K\bibinitperiod},
+         given={Rafal},
          giveni={R\bibinitperiod},
       }}%
     }
     \list{publisher}{1}{%
-      {Wiley Online Library}%
+      {Springer}%
     }
-    \strng{namehash}{GCWJR1}
-    \strng{fullhash}{GCWJR1}
+    \strng{namehash}{BJ+1}
+    \strng{fullhash}{BJFYGSKR1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{labelyear}{1980}
+    \field{labelyear}{2013}
     \field{labeldatesource}{}
-    \field{sortinit}{G}
-    \field{sortinithash}{G}
-    \field{number}{1}
-    \field{pages}{15\bibrangedash 29}
-    \field{title}{An introduction to long-memory time series models and
-  fractional differencing}
-    \field{volume}{1}
-    \field{journaltitle}{Journal of time series analysis}
-    \field{year}{1980}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Long-Memory Processes}
+    \field{pages}{209\bibrangedash 384}
+    \field{title}{Limit theorems}
+    \field{year}{2013}
   \endentry
 
-  \entry{hosking1981fractional}{article}{}
-    \name{author}{1}{}{%
-      {{hash=HJR}{%
-         family={Hosking},
-         familyi={H\bibinitperiod},
-         given={Jonathan\bibnamedelima RM},
-         giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod},
+  \entry{beran2016long}{book}{}
+    \name{author}{4}{}{%
+      {{hash=BJ}{%
+         family={Beran},
+         familyi={B\bibinitperiod},
+         given={Jan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=FY}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Yuanhua},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=GS}{%
+         family={Ghosh},
+         familyi={G\bibinitperiod},
+         given={Sucharita},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=KR}{%
+         family={Kulik},
+         familyi={K\bibinitperiod},
+         given={Rafal},
+         giveni={R\bibinitperiod},
       }}%
     }
     \list{publisher}{1}{%
-      {Oxford University Press}%
+      {Springer}%
     }
-    \strng{namehash}{HJR1}
-    \strng{fullhash}{HJR1}
+    \strng{namehash}{BJ+1}
+    \strng{fullhash}{BJFYGSKR1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{labelyear}{1981}
+    \field{labelyear}{2016}
     \field{labeldatesource}{}
-    \field{sortinit}{H}
-    \field{sortinithash}{H}
-    \field{number}{1}
-    \field{pages}{165\bibrangedash 176}
-    \field{title}{Fractional differencing}
-    \field{volume}{68}
-    \field{journaltitle}{Biometrika}
-    \field{year}{1981}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Long-Memory Processes.}
+    \field{year}{2016}
+  \endentry
+
+  \entry{engle2002dynamic}{article}{}
+    \name{author}{1}{}{%
+      {{hash=ER}{%
+         family={Engle},
+         familyi={E\bibinitperiod},
+         given={Robert},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{ER1}
+    \strng{fullhash}{ER1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2002}
+    \field{labeldatesource}{}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{number}{3}
+    \field{pages}{339\bibrangedash 350}
+    \field{title}{Dynamic conditional correlation: A simple class of
+  multivariate generalized autoregressive conditional heteroskedasticity
+  models}
+    \field{volume}{20}
+    \field{journaltitle}{Journal of Business \& Economic Statistics}
+    \field{year}{2002}
+  \endentry
+
+  \entry{feng2020fractionally}{report}{}
+    \name{author}{4}{}{%
+      {{hash=FY}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Yuanhua},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=BJ}{%
+         family={Beran},
+         familyi={B\bibinitperiod},
+         given={Jan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Letmathe},
+         familyi={L\bibinitperiod},
+         given={Sebastian},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=GS}{%
+         family={Ghosh},
+         familyi={G\bibinitperiod},
+         given={Sucharita},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FY+1}
+    \strng{fullhash}{FYBJLSGS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{title}{Fractionally integrated Log-GARCH with application to value
+  at risk and expected shortfall}
+    \list{institution}{1}{%
+      {Paderborn University, CIE Center for International Economics}%
+    }
+    \field{type}{techreport}
+    \field{year}{2020}
+  \endentry
+
+  \entry{gasser1979kernel}{incollection}{}
+    \name{author}{2}{}{%
+      {{hash=GT}{%
+         family={Gasser},
+         familyi={G\bibinitperiod},
+         given={Theo},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=MHG}{%
+         family={M{\"u}ller},
+         familyi={M\bibinitperiod},
+         given={Hans-Georg},
+         giveni={H\bibinithyphendelim G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{GTMHG1}
+    \strng{fullhash}{GTMHG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1979}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{booktitle}{Smoothing techniques for curve estimation}
+    \field{pages}{23\bibrangedash 68}
+    \field{title}{Kernel estimation of regression functions}
+    \field{year}{1979}
   \endentry
 \enddatalist
 \endinput

@@ -1,0 +1,91 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Literature review.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: biblatex.bst
+Reallocating 'name_of_file' (item size: 1) to 22 items.
+Reallocating 'name_of_file' (item size: 1) to 4 items.
+I couldn't open database file BIB.bib
+---line 3 of file Literature review.aux
+ : \bibdata{Literature_review-blx,BIB
+ :                                   }
+I'm skipping whatever remains of this command
+Reallocating 'glb_str_end' (item size: 4) to 20 items.
+Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
+Reallocating 'global_strs' (item size: 1) to 4000000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Database file #1: Literature_review-blx.bib
+Warning--I didn't find a database entry for "beran2015modelling"
+Warning--I didn't find a database entry for "menendez2013trend"
+Warning--I didn't find a database entry for "beran2013limit"
+Warning--I didn't find a database entry for "schutzner2009asymptotic"
+Warning--I didn't find a database entry for "engle1982autoregressive"
+Warning--I didn't find a database entry for "bollerslev1986generalized"
+Warning--I didn't find a database entry for "mandelbrot1963new"
+Warning--I didn't find a database entry for "baillie1996fractionally"
+Warning--I didn't find a database entry for "feng2008modelling"
+Warning--I didn't find a database entry for "ding1993long"
+Warning--I didn't find a database entry for "robinson1991testing"
+Warning--I didn't find a database entry for "karanasos2004autocorrelation"
+Warning--I didn't find a database entry for "conrad2006garch"
+Warning--I didn't find a database entry for "nelson1991conditional"
+Warning--I didn't find a database entry for "bollerslev1996modeling"
+Warning--I didn't find a database entry for "lopes2012theoretical"
+Warning--I didn't find a database entry for "hosking1981fractional"
+Warning--I didn't find a database entry for "feng2004simultaneously"
+Biblatex version: 3.13
+Reallocating 'wiz_functions' (item size: 4) to 9000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+You've used 1 entry,
+            6365 wiz_defined-function locations,
+            1211 strings with 9269 characters,
+and the built_in function-call counts, 1529 in all, are:
+= -- 72
+> -- 70
+< -- 1
++ -- 49
+- -- 28
+* -- 31
+:= -- 368
+add.period$ -- 0
+call.type$ -- 1
+change.case$ -- 0
+chr.to.int$ -- 42
+cite$ -- 0
+duplicate$ -- 11
+empty$ -- 103
+format.name$ -- 0
+if$ -- 329
+int.to.chr$ -- 0
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 20
+num.names$ -- 0
+pop$ -- 47
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 77
+stack$ -- 0
+substring$ -- 151
+swap$ -- 1
+text.length$ -- 20
+text.prefix$ -- 0
+top$ -- 1
+type$ -- 22
+warning$ -- 0
+while$ -- 64
+width$ -- 0
+write$ -- 20
+(There was 1 error message)

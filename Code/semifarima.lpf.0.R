@@ -1,4 +1,4 @@
-###################################semifarima.lpf - extension of semifar.lpf with an addition MA-part################################
+###################################semifarima.lpf - extension of semifar.lpf with an additional MA-part################################
 ###################################content is heavily simplified, e.g no more integer differencing and###############################
 ###################################other adjustments#################################################################################
 semifarima.lpf = function(x, p, q, mse.RANGE,b0 = NULL, pg, kn, bb, IF, par.est = "fracdiff")

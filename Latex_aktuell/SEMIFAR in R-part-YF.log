@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.8.23)  5 OCT 2020 23:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.8.23)  9 DEC 2020 10:05
 entering extended mode
 **"./SEMIFAR in R-part-YF.tex"
 ("SEMIFAR in R-part-YF.tex"
@@ -489,7 +489,7 @@ Package csquotes Info: ... none found.
 
 
 Package csquotes Warning: No multilingual support.
-(csquotes)                Cannot enable multilingual quotes on input line 78.
+(csquotes)                Cannot enable multilingual quotes on input line 85.
 
 (D:\Downloads\MikeTex\tex/latex/l3backend\l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-08-07 L3 backend support: PDF mode
@@ -499,20 +499,20 @@ File: l3backend-pdfmode.def 2020-08-07 L3 backend support: PDF mode
 ("SEMIFAR in R-part-YF.aux")
 \openout1 = `"SEMIFAR in R-part-YF.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
 
 (D:\Downloads\MikeTex\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -561,67 +561,65 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file '"SEMIFAR in R-part-YF".bbl' found.
 
 ("SEMIFAR in R-part-YF.bbl")
-Package biblatex Info: Reference section=0 on input line 78.
-Package biblatex Info: Reference segment=0 on input line 78.
+Package biblatex Info: Reference section=0 on input line 85.
+Package biblatex Info: Reference segment=0 on input line 85.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 91.
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--142
+ (D:\MikeTex\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 91.
 
- []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 129--142
-
+(D:\MikeTex\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 91
+.
+ (D:\MikeTex\tex/latex/base\ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+Overfull \hbox (12.31693pt too wide) in paragraph at lines 91--91
+ [][] 
  []
 
 [1
 
 {C:/Users/Letmode/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 146
-.
+Underfull \hbox (badness 10000) in paragraph at lines 129--142
 
-(D:\MikeTex\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 146
-.
- (D:\MikeTex\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 14
-6.
-(D:\MikeTex\tex/latex/base\ulasy.fd
-File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)
+ []
 
-Package amsmath Warning: Foreign command \atopwithdelims;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 160.
 
-[2] [3] [4] [5] ("SEMIFAR in R-part-YF.aux")
-Package logreq Info: Writing requests to '"SEMIFAR in R-part-YF".run.xml'.
-\openout1 = `"SEMIFAR in R-part-YF.run.xml"'.
+Underfull \hbox (badness 10000) in paragraph at lines 129--142
 
- ) 
+ []
+
+[2] [3])
+Runaway argument?
+{I[g^{(m)}]\beta ^2\Bigg )^{1/(2m+1-2d)}. \end {equation} Based on th\ETC.
+! File ended while scanning use of \frac .
+<inserted text> 
+                \par 
+<*> "./SEMIFAR in R-part-YF.tex"
+                                
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
+
+! Emergency stop.
+<*> "./SEMIFAR in R-part-YF.tex"
+                                
+*** (job aborted, no legal \end found)
+
+ 
 Here is how much of TeX's memory you used:
  12407 strings out of 481178
- 211238 string characters out of 2920669
- 671272 words of memory out of 3000000
- 27863 multiletter control sequences out of 15000+200000
- 545489 words of font info for 72 fonts, out of 3000000 for 9000
+ 211288 string characters out of 2920669
+ 671285 words of memory out of 3000000
+ 27868 multiletter control sequences out of 15000+200000
+ 545134 words of font info for 71 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,6n,44p,1414b,890s stack positions out of 5000i,500n,10000p,200000b,50000s
-<D:/MikeTex/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/MikeTex/fonts/type1
-/public/amsfonts/cm/cmbx12.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmex1
-0.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/MikeTex/fonts/t
-ype1/public/amsfonts/cm/cmmi8.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cm
-r10.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/MikeTex/fonts/
-type1/public/amsfonts/cm/cmr8.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cm
-sy10.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><D:/MikeTex/fonts
-/type1/public/amsfonts/cm/cmti10.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm
-/cmti12.pfb><D:/MikeTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "SEMIFAR in R-part-YF.pdf" (5 pages, 176029 bytes).
-PDF statistics:
- 70 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 40i,6n,46p,975b,954s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!

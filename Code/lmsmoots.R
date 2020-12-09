@@ -19,7 +19,7 @@ lmsmoots = function(x, mse.RANGE,b0 = NULL, pg, kn, bb, bbi = 1, bbd = 1, IM, IF
   convc=1   #### b0 converges
 
   ################ In the following Bk=1/(beta^2) with beta=int(u^(p+1)K(u))du
-  ################ All formulas for K(u) may be found in Table 5.7 of Mueller (988)
+  ################ All formulas for K(u) may be found in Table 5.7 of Mueller (1988)
   ################ Rk is the kernel constant in the variance, see e.g. Table 1 of Feng and Heiler (2009)
   if(korder==2){Kk<-1 #### Kk=(factorial(p+1))^2/(2*(p+1))
   if(kn==1){
@@ -81,9 +81,9 @@ lmsmoots = function(x, mse.RANGE,b0 = NULL, pg, kn, bb, bbi = 1, bbd = 1, IM, IF
       ############ inflation factors ###SL
       if(convc==1){
         if(IM == "E"){
-          if(IFM=="opt"){b2<-(b0)**((2 * korder + 1 -2*d)/(2 * korder + 3-2*d))}
-          if(IFM=="naive"){b2<-(b0)**((2 * korder +1 -2*d)/(2 * (korder + 2) + 1-2*d))}
-          if(IFM=="var"){b2<-(b0)**((1/2))}
+          if(IFM=="opt"){b2 <- (b0)**((2 * korder + 1 -2*d)/(2 * korder + 3-2*d))}
+          if(IFM=="naive"){b2 <- (b0)**((2 * korder +1 -2*d)/(2 * (korder + 2) + 1-2*d))}
+          if(IFM=="var"){b2 <- (b0)**((1/2))}
         }
         if(IM =="M"){
           if(IFM=="opt"){b2<-(b0)*n.DATA**((2 - 4*d)/((2 * korder + 1 -2 * d) * (2* korder + 3 -2*d)))}
@@ -95,12 +95,12 @@ lmsmoots = function(x, mse.RANGE,b0 = NULL, pg, kn, bb, bbi = 1, bbd = 1, IM, IF
 
         if(iITER<=2)
         #{gk<-smooth.lpf(x, pg+1, pg+2, 1, b2, bb)}
-        {if(pg==1){gk<-smooth.lpf(x, pg+1, pg+2, 1, b2, bbd)}
-          if(pg==3){gk<-smooth.lpf(x, pg+1, pg+2, 1, b2, bbd)}}
+        {if(pg==1){gk<-smooth.lpf(x, pg+1, pg+2, kn, b2, bbd)} ## kn!!!!!!!!!!
+          if(pg==3){gk<-smooth.lpf(x, pg+1, pg+2, kn, b2, bbd)}}
         else
         #{gk<-smooth.lpf(x, pg+1, pg+2, kn, b2, bb)}
-        {if(pg==1){gk<-smooth.lpf(x, pg+1, pg+2, 1, b2, bbd)}
-          if(pg==3){gk<-smooth.lpf(x, pg+1, pg+2, 1, b2, bbd)}}
+        {if(pg==1){gk<-smooth.lpf(x, pg+1, pg+2, kn, b2, bbd)}
+          if(pg==3){gk<-smooth.lpf(x, pg+1, pg+2, kn, b2, bbd)}}
 
         index<-max(1,trunc(mse.RANGE*n.DATA)):trunc((1-mse.RANGE)*n.DATA)
 
@@ -186,7 +186,7 @@ lmsmoots = function(x, mse.RANGE,b0 = NULL, pg, kn, bb, bbi = 1, bbd = 1, IM, IF
                                   72*11*kdf.t(8,6,d))
           }
 
-          const1<-(Bk*Kk*Rk*(1-2*mse.RANGE)*(1-2*d))**(1/(ko21-2*d))
+          const1<-(Bk*Kk*Rk*(1-2*mse.RANGE)*(1-2*d))**(1/(ko21-2*d)) # V without cf / beta^2
         }
 
         else
@@ -238,7 +238,7 @@ lmsmoots = function(x, mse.RANGE,b0 = NULL, pg, kn, bb, bbi = 1, bbd = 1, IM, IF
 
   ####significance test trend
   g0 = smooth.lpf(x, 0, pg, kn, b0, bb)
-  VARg0<-(n*b0)**(2*d-1)*nu*Cf
+  VARg0<-(n.DATA*b0)**(2*d-1)*nu*Cf
   CRITg0<-qnorm( (1-alpha.SEMI/2) )*sqrt(VARg0)
   SIG<-1
   MEAN<-mean(x)
@@ -387,7 +387,7 @@ dfilt<-function(x,d){
   r<-filter(r,b,sides=1)[(n+1):(2*n)]
   drop(r)
 }
-################gph.est####################################
+################gph.est SL####################################
 gph.est <- function(x, method, A){
   n = length(x)
   n2 = trunc(A * n ^ (6/7))

@@ -1,37 +1,68 @@
-This is 8-bit Big BibTeX version 0.99d
-Implementation:  Microsoft(R) C/C++ for Win32
-Release version: 3.71 (18 mar 2013)
-
-The 8-bit codepage and sorting file: 88591lat.csf
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Partial analysis of the spatial ESEMFIAR model1.1.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: biblatex.bst
-Reallocated glb_str_ptr (elt_size=4) to 10 items from 0.
-Reallocated global_strs (elt_size=20001) to 10 items from 0.
-Reallocated glb_str_end (elt_size=4) to 10 items from 0.
-Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
-Reallocated global_strs (elt_size=20001) to 20 items from 10.
-Reallocated glb_str_end (elt_size=4) to 20 items from 10.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocating 'name_of_file' (item size: 1) to 54 items.
+Reallocating 'name_of_file' (item size: 1) to 10 items.
+Reallocating 'glb_str_end' (item size: 4) to 20 items.
+Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
+Reallocating 'global_strs' (item size: 1) to 4000000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: Partial_analysis_of_the_spatial_ESEMFIAR_model1.1-blx.bib
 Database file #2: NameMeBIB.bib
-Biblatex version: 3.3
-Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-
-Here's how much of BibTeX's memory you used:
- Cites:                30 out of 750
- Fields:             2084 out of 5000
- Hash table:        34645 out of 35307
- Strings:            1347 out of 35307
- Free string pool:  13501 out of 65000
- Wizard functions:   6256 out of 9000
+Biblatex version: 3.13
+Reallocating 'wiz_functions' (item size: 4) to 9000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+You've used 30 entries,
+            6365 wiz_defined-function locations,
+            1367 strings with 13873 characters,
+and the built_in function-call counts, 173189 in all, are:
+= -- 11680
+> -- 3612
+< -- 1235
++ -- 3781
+- -- 1223
+* -- 12506
+:= -- 16455
+add.period$ -- 0
+call.type$ -- 30
+change.case$ -- 776
+chr.to.int$ -- 42
+cite$ -- 58
+duplicate$ -- 18148
+empty$ -- 15942
+format.name$ -- 1924
+if$ -- 37131
+int.to.chr$ -- 0
+int.to.str$ -- 92
+missing$ -- 0
+newline$ -- 953
+num.names$ -- 1728
+pop$ -- 10026
+preamble$ -- 1
+purify$ -- 912
+quote$ -- 0
+skip$ -- 6498
+stack$ -- 0
+substring$ -- 18505
+swap$ -- 4956
+text.length$ -- 840
+text.prefix$ -- 31
+top$ -- 1
+type$ -- 1007
+warning$ -- 0
+while$ -- 2172
+width$ -- 0
+write$ -- 924

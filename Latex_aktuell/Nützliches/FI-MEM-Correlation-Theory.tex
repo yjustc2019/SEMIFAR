@@ -1,0 +1,761 @@
+\documentclass[12pt]{article}
+
+%%%%%%%%%%%%%%%% Commands for including graphics %%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.ps,.eps,.pcx}
+%%%%%%%%%%%%%%%%%%%%%%%%%  End of these commands %%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%\usepackage{mathtools}
+
+
+\usepackage{latexsym}
+\usepackage{eucal}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{enumitem}
+
+\textwidth16cm
+
+
+\textheight23cm
+
+\oddsidemargin0.25cm
+
+\evensidemargin0.25cm
+
+\parindent0.4cm
+\parskip2ex plus0.5ex minus0.5ex
+\renewcommand{\baselinestretch}{1.37}
+\unitlength1.0cm \headheight0cm \topskip0cm \headsep-1cm
+%
+
+%
+
+%\newcommand{\cov}{\mbox{cov\,}}
+%\newcommand{\var}{\mbox{var\,}}
+%\newcommand{\bbo}{\mbox{1}\hspace{-3pt}\mbox{I}}
+%\renewcommand{\Re}{\mbox{I}\hspace{-2pt}\mbox{R}}
+
+
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+
+
+
+
+
+\renewcommand{\thetheorem}{\arabic{theorem}.}
+\renewcommand{\thedefinition}{\arabic{definition}.}
+\renewcommand{\thecorollary}{\arabic{corollary}.}
+\renewcommand{\theremark}{\arabic{remark}.}
+\renewcommand{\theproposition}{\arabic{proposition}.}
+\renewcommand{\thelemma}{\arabic{lemma}.}
+
+\newcommand\inner[2]{\langle #1, #2 \rangle}
+
+
+
+\newcommand{\bbo}{\mbox{1}\hspace{-3pt}\mbox{I}}
+\newcommand{\Na}{\mbox{I}\hspace{-2pt}\mbox{N}}
+
+
+\newcommand{\real}{\mbox{I}\hspace{-2pt}\mbox{R}}
+\newcommand{\indi}{\mbox{1}\hspace{-3pt}\mbox{I}}
+\newcommand{\B}{\mbox{I}\hspace{-2pt}\mbox{B}}
+\newcommand{\intplus}{\mbox{I}\hspace{-2pt}\mbox{N}}
+\newcommand{\integer}{\mbox{Z}\hspace{-4pt}\mbox{Z}}
+\newcommand{\F}{\mbox{I}\hspace{-2pt}\mbox{F}}
+\newcommand{\var}{\mbox{var\,}}
+\newcommand{\Var}{\mbox{Var\,}}
+\newcommand{\Cov}{\mbox{Cov\,}}
+\newcommand{\cov}{\mbox{cov\,}}
+
+
+\newcommand{\bbbr}{\mbox{I}\hspace{-2pt}\mbox{R}}
+\newcommand{\bbbn}{\mbox{I}\hspace{-2pt}\mbox{N}}
+\newcommand{\bbbone}{\mbox{1}\hspace{-3pt}\mbox{I}}
+\newcommand{\bbbz}{\mbox{Z}\hspace{-4pt}\mbox{Z}}
+
+
+\begin{document}
+
+%Dependence structures and central limit theorems of
+%Theoretical results
+\title{Semiüarametric fractionally integrated log-linear multiplicative error models}% -- applied to semiparametric GARCH models} %volatility
+\author{Yuanhua Feng and Sebastian Letmathe\\ Faculty of Business Administration and Economics,
+%Department of Economics, 
+Paderborn University}
+\maketitle
+%\doublespacing
+
+
+%\centerline{\large $^3$Swiss Federal Research Institute WSL}
+
+
+
+
+
+
+
+\begin{abstract}
+
+\noindent 
+
+ A class of long-memory non-negative subordinated Gaussian processes is defined by a suitable transformation. The memory parameter of any power of such a process is the same as that of the underlying Gaussian process. The transformed data can be analyzed by an ARFIMA, including the log-ARFIMA as a special case. The use of an extended Birnbaum-Saunders, or log-sinh, transformation is first proposed. It is shown that the extended sinh-normal distribution can be skewed. Then the sinh-arcsinh (SAS) distribution of Jones and Pewsey (2009) is generalized. It is surprisingly found that the generalized SAS distribution can be bimodal but the bimodality and heavy-tails cannot occur simultaneously. Our main proposal is the use of a novel log-sinh-arcsinh transformation for non-negative data. A multistage procedure is developed for choosing the optimal transformation. The application is illustrated by data examples. The proposals apply to cross-sectional data. 
+
+
+
+\vspace{.3cm}
+
+\noindent{\it Keywords:}  Log-GARCH, FI-Log-GARCH, power rank, correlation structures, central limit theorems, long-memory volatility models
+%Value at risk, expected shortfall 
+
+%Adjusted power rank, Box-Cox-ARFIMA, memory invariant transformation, memory unstable transformation, transformation of MEM
+
+%Generalized ESEMIFAR, asymptotic results, bandwidth selection, bootstrap forecasting, long memory in realized volatility
+
+\vspace{.3cm}
+
+\noindent{\it JEL Codes:} C14, C51
+\end{abstract}
+
+
+
+
+\newpage
+
+\section{Introduction}
+
+ARCH, GARCH, ACD, MEM, EGARCH, Log-ACD, SV
+
+
+FIGARCH, FIACD, FIEGARCH, LMSV, FI-Log-ACD
+
+Log-ARFIMA of Andersen et al. (2003), EFARIMA and ESEMIFAR (Beran et al., 2015), ... ... applied without detailed investigating their properties.  
+
+
+
+The purpose of this paper
+
+
+Main contributions
+
+
+
+%Our main proposals: The GLog Gaussian processes, GLog-FARIMA models with two special practically relevant classes: EBS Gaussian processes, EBS FARIMA; and  Log-SAS  Gaussian processes, Log-SAS FARIMA. Sub-classes %of the former defined based on two well-known transformations are the classes of the Birnbaum-Saunders (BS) Gaussian processes, BS FARIMA; and GBS Gaussian processes, GBS FARIMA.  
+
+
+Structure
+
+%\section{The adjusted power rank}
+
+%\section{The power rank and LM-invariant transformations}
+
+%... ...
+
+
+%where $e_t$ are random variables with mean zero and unit variance, e.g. $e_t\sim N(0, 1)$ or is rescaled $t$-distributed, so that its variance is one.
+
+
+%... ... (an der entsprechenden Stelle nachher)
+
+%Define ... ... $\epsilon_t=\ln(e_t^2)-E[\ln(e_t^2)]$, ... ...
+
+\newpage
+
+\section{The models}
+
+In this paper we say that a MEM is log-linear, if its logarithmic transformation is a linear process. The general form of this approach is represented in the following. The specified log-ARFIMA model is described. Several useful examples are stated. Two of those special cases are first introduced in this paper. 
+
+\subsection{The log-linear MEM model}
+
+Let $\{X_{t}\ge0\}$, $t=1,...,n$, denote a non-negative financial process of interest, e.g. those of financial trading volumes, of waiting time between transactions and, in particular, of squared returns. It can also be any suitable non-negative process from other research areas. The well-known MEM for $\{X_t\}$ is defined by%
+\begin{equation}\label{MEM}
+X_{t}=g_{t}\eta_{t}, %
+\end{equation}
+where $\eta_{t}\ge0$ are non-negative i.i.d. random variables with $E(\eta_1)=0$ and $\var(\eta_1)=1$, and $g_{t}\ge0$ are the conditional means
+of $X_{t}$ determined by the $\sigma$-algebra of past observations. In the current paper we focus on discussing the persistent properties of $\{X_t\}$ and further asymptotics of corresponding estimators by means of the logarithmic transformation. For this purpose we assume that the transformed process linear. Note that a long memory linear model should be stated by means of centralized random variables, because the coefficients are now not summable. For simplicity, we will use centralized random variables to represent all short- or long memory processes throughout this paper. In the application and precdiction, corresponding means should be estimated and taken into account.   
+Let $Y_t=\ln(X_t)$ with $E(Y_1)=\mu_Y$ and $\epsilon_t=\ln(\eta_t)-E[\ln(\eta_t)]$. Hence, $\epsilon_t$ are i.i.d. with $E(\epsilon_t)=0$ and $\var(\epsilon_t)=\sigma^2_{\epsilon}$. It is further assumed that $\{X_t\}$is at least strictly stationary such that $E(X_t^m)<\infty$ for $m\in(-\delta, \delta)$, where $\delta>0$ is some positive number. This implies that the moment generating functions $M_X(\tau)$ and $M_\eta(\tau)$  exist for $\tau\in(-\delta, \delta)$, and that all moments of $\{Y_t\}$, $\{Z_t\}$ and $\{\epsilon_t\}$ exist. Let $Z_t=Y_t-\mu_Y$. Under the log-linear assumption we have 
+\begin{equation}\label{LFZt}
+Z_{t}=\sum_{k=0}^{\infty}\alpha_{k}\epsilon_{t-k}, %
+\end{equation}
+where it is assumed that $\sum_{i=0}^\infty\alpha_i^2<\infty$. If the sequence $\{\alpha_k\}$ is of the form
+\begin{equation}\label{AL1} 
+\alpha_k = L_1(k) k^{d-1},
+\end{equation}
+where $d\in(0, 0.5)$ and $L_1(k)$ is a slowly varying function at infinite, then we have $\sum_{k=0}^\infty|\alpha_k|=\infty$ and $\{Z_t\}$ (or $\{Y_t\}$) is a long memory process with the memory parameter $d$ (see e.g. Pipiras and Taqqu, 2017, p. 17). If $d\in(-0.5, 0)$ and $\sum_{k=0}^\infty \alpha_k =0$, $\{Z_t\}$ is said to have anti-persistence. The case with $d=0$ following this definition is a very special long memory case and will also not be discussed further.  
+
+Model (\ref{AL1}) provides a simple framework for discussing the long memory properties and limit behaviors of certain non-negative financial processes. Under this assumption, $\{X_t\}$ is a special case of the so-called subordinated linear process. The properties of a subordinated linear process can be investigated via those of $\{Z_t\}$ by means of the well-developed Hermite decomposition (Taqqu, 1975), Appell decomposition (Surgailis, 1982) and the Martingale approach developed by Ho and Hsing (1997). The choice of those techniques depends on the distribution of $\{\epsilon_t\}$ and the (inverse) transformation under consideration. In financial econometrics or other related areas, one is not only interested in the memory properties of $\{X_t\}$ itself, but also interested in those of the $m$th power of $\{X_t\}$ for some $m>0$.  Hence, we are going to study the properties of the log-transformation $\ln(X_t^m)=m Y_t$ including $\{X_t\}$ as the special case with $m=1$. The inverse transformation is now the general exponential transformation $X_t^m=\exp(m Y_t)$. Note in particular that $e^{my}$ is an entire function, so that the application of the Appell decomposition is possible. For more information about those decompositions and their applications we refer the reader to Beran et al. (2013) and Pipiras and Taqqu, 2017).  
+
+
+\subsection{The Log-ARFIMA specification}
+
+Assume that $Z_{t}$ follows an ARFIMA($p$, $d$, $q$) process, a Log-ARFIMA model is defined:
+\begin{equation}
+(1-B)^{d}\phi(B)Z_{t}=\psi(B)\epsilon_{t}. \label{Mzt}%
+\end{equation}
+where $-0.5<d<0.5$ is the memory parameter, $\phi(z)=1-\phi_{1}z-...-\phi
+_{p}z^{p}$ and $\psi(z)=1+\psi_{1}z+...+\psi_{q}z^{q}$ are characteristic polynomials for the AR- and
+MA-parts, respectively, with all roots outside the unit circle. Define 
+\begin{equation}
+A(B)=(1-B)^{-d}\phi^{-1}(B)\psi(B)= \sum_{k=0}^\infty \alpha_{k, d} B^k,
+\end{equation}
+then $\{Z_t\}$ can be represented in the form of (\ref{LFZt}). Here, we have
+\begin{equation}\label{AL1d} 
+\alpha_{k, d} \sim \frac{\psi(1)}{\phi(1)\Gamma(d)} k^{d-1}=L_{1, d}(k) k^{d-1} 
+\end{equation}
+for large $k$ and $d\ne0$, where $\Gamma(\cdot)$ denotes the $\Gamma$-function. We see again, $\{Z_t\}$ has long memory, if $d>0$. For $d<0$, it is clear that $L_{1, d}(k)<0$ and it can be shown that $\sum\alpha_{k, d}=0$. Thence, $\{Z_t\}$ is now anti-persistent. For $d=0$, $\alpha_{k,0}$ are those of an ARMA model, which decay to zero exponentially, not hyperbolically. Hence, the formula in (\ref{AL1d}) does not apply to the case with $d=0$. This parametrization simplifies the practical implementation of the proposed log-linear process application very much. The model can be now estimated by any standard package for ARFIMA models. If $\epsilon_t$ are non-normal, the results can be thought of as QMLE (quasi maximum likelihood estimators). 
+
+
+
+The Log-ARFIMA model is frequently used in the literature. For instance, Andersen et al. (2006) proposed the use of an ARFIMA($p$, $d$, 0) process for the log-transformation of the realized volatility (RV). The author indicated in particular that, the unconditional distribution of the log-values of the RV is not far from a Gaussian distribution. See also Andersen et al. (2003). Beran et al. (2015), and Feng and Zhou (2015) proposed to apply the SEMIFAR (semiparametric fractionally integrated AR) to the log-transformation of different non-negative processes, also including RV series as examples. Most recently, Feng and Letmathe (2018) introduced a FI-Log-GARCH model defined based on the log-transformation of the squared returns, a long memory extension of the well-known Log-GARCH (Geweke, 1986, Pantula, 1986, Milh\o j, 1987 and Sucarrat et al., 2016). % and provides us a simple long memory volatility model.
+Our main focuses are the studies on the detailed correlation properties of this model and the asymptotic properties of some estimators defined under this model. 
+
+
+Some closely related models are also introduced into the literature. The most closely related approach is the FIEGARCH of Bollerslev and Mikkelsen (1996). Lopes and Prass (2014) showed that the log-transformation of the conditional variance series of a FIEGARCH($p$, $d$, $q$) process follows a (non-Gaussian) ARFIMA($q$, $d$, $p$) model. The log-transformation of the squared returns in this approach is not a linear ARFIMA model, which is however an ARFIMA($q$, $d$, 0) process with a correlated error term. Another closely related approach isthe LMSV (long memory stochastic volatility) model proposed by Harvey (1998) and Breidt et
+al. (1998). In this process it is usually assumed that the log-transformation of the volatility series is a Gaussian ARFIMA, which is completely independent of the innovation series. In contrast to those models, the well-known FIGARCH model of Baillie et al. (1996) and a modified version of it (Conrad and Karanasos, 2007) are defined directly based on the squared returns not on the log-transformation of them. 
+
+
+
+     
+
+%Combining eqs. (\ref{Zt}) and (\ref{Mzt}) we have:
+%\begin{equation}
+%\Theta(B)(\zeta_t+\epsilon_t) = \psi(B) \epsilon_t \mbox{ or } \Theta(B)\zeta_t = \Omega(B) \epsilon_t,
+%\end{equation}\label{lambt}
+%where $\Omega(B)=\psi(B)-\Theta(B)$. This is a fractional extension of equation (5) in Karanasos (2008). 
+
+
+
+
+
+\subsection{Two useful examples} % and its relationship to the Log-ARFIMA
+
+
+The proposed Log-ARFIMA model is widely applicable. For instance, it provides a useful approach for analysis long memory in non-negative financial processes. In particular, the Log-ACD and Log-GARCH models can be further extended to capture long memory in trading durations and squared returns, They will be stated in the following.
+
+{\bf Example 1 - the FI-Log-ACD model.} The Gaussian FI-Log-ACD model was discussed briefly in Beran et al. (2015), see also Feng and Zhou (2015), as a long memory extension of the first type Log-ACD (Log-ACD$_1$, Bauwens and Giot, 2003). This approach can be applied to different non-negative financial processes, like durations between transactions, trading volumes, trading numbers and RV as well. However, their discussion was based on a infinite linear filter representation and a clear parametric specification of this model was not given in those works. In the following, we will fill this blank by defining this interesting model without the Gaussian restriction. A clear relationship between this and the Log-ARFIMA models will be stated. Let $\lambda_t=\ln(g_t)-E[\ln(g_t)]$, we have $Z_t=\lambda_t+\epsilon_t$. According to Eq. (10) of Bauwens and giot (2000), the (centralized form of the) Log-ACD$_1$($p$, $q$) model is defined by (\ref{MEM}) together with
+\begin{equation}\label{LACDL}  
+\lambda_t = \sum_{i=1}^p \theta_i Z_{t-i} +  \sum_{j=1}^q \omega_j \lambda_{t-j}. 
+\end{equation}
+Straightforward rewriting of this equation leads to
+\begin{equation}\label{LACDZ}  
+\theta(B) Z_t = \omega(B) \epsilon_t, 
+\end{equation}
+where $\theta(B)=1-\sum_{i=1}^p \theta_i B^i - \sum_{j=1}^q \omega_j B^j$ and $\omega(B)=1- \sum_{j=1}^q \omega_j B^j$. We see, a Log-ACD$_1$ model corresponds to an ARMA($p^*$, $q$) model with $p^*=\max(p, q)$. On the other hand, any ARMA($p$, $q$) model with $p\ge q$ can be rewritten as a Log-ACD$_1$ model. The FI-Log-ACD model is defined by introducing the fractional differencing operator into (\ref{LACDZ}). 
+\begin{definition}
+The FI-Log-ACD($p$, $d$, $q$) model is defined by (\ref{MEM}) together with 
+\begin{equation}\label{FILACDZ}  
+(1-B)^d \theta(B) Z_t = \omega(B) \epsilon_t
+\end{equation}
+for $d\in[0, 0.5)$, where $\theta(B)$ and $\omega(B)$ are as before. 
+%We see, a Log-ACD$_1$ model corresponds to an ARMA($p^*$, $q$) model with $p^*\max(p, q)$. On the other hand, any ARMA($p$, $q$) model with $p\ge q$ can be rewritten as a Log-ACD$_1$ model. The FI-Log-ACD model %is defined by introducing the fractional differencing operator into (\ref{LACDZ}). 
+\end{definition}
+The relationship between the FI-Log-ACD and the Log-ARFIMA models can be conducted from the above analysis.  
+\begin{proposition}
+%\begin{lemma}
+The FI-Log-ACD is a special case of the Log-ARFIMA model. On the other hand, any Log-ARFIMA($p$, $d$, $q$) model defined based on $X_t$ and $Z_t$ with $p\ge q$ can be represented as a FI-Log-ACD model. 
+%\end{lemma}
+\end{proposition}
+Proof of Proposition 1 is straightforward and is omitted. 
+Proposition 1 shows a FI-Log-ACD model can be estimated via an ARFIMA model from the log-data. This is a suitable way for the practical implementation, because the marginal distribution of the log-transformation of a non-negative process is usually not far from Gaussian. After fitting a Log-ARFIMA model we obtain a FI-Log-ACD with $\hat d$, $\hat\theta_i=\hat\phi_i+\hat\psi_i$ and $\hat\omega_i=-\hat\psi_i$. 
+%Although a special package for estimating the FI-Log-ACD model can be developed. Our experience show that this is unnecessary. 
+   
+
+{\bf Example 2 - the FI-Log-GARCH model.} The Log-GARCH model is an ARMA model of the logarithmic transformation of the squared returns. See e.g. Eq. (2) in Sucarrat et al. (2016). Most recently,  a long memory Log-GARCH model, called a FI-Log-GARCH, was introduced by Feng and Letmathe (2018), which is defined as follows. Let $r_t$ be a return series. The basic formula of a GARCH-type model is given by
+\begin{equation}\label{ret}
+r_t = \mu_r + \sqrt{h_t} \zeta_t,
+\end{equation}
+where $\zeta_t$ are i.i.d. continuous random variables with zero mean and unit variance, $\mu_r$ is a possible non-zero mean and $h_t$ are the conditional variances of $r_t$. Let $r_t^*=r_t-\mu_t$. Define $Z_t=\ln[(r_t^*)^2]-E\{[\ln(r_t^*)^2]\}$, $\lambda_t=\ln(h_t)-E[\ln(h_t)]$ and $\epsilon_t=\ln(\zeta_t^2)-E[\ln(\zeta_t^2)]$. We have $Z_t=\lambda_t+\epsilon_t$. A FI-Log-GARCH is analogously defined by inserting the above quantities into (\ref{FILACDZ}). 
+The FI-Log-GARCH model provides us a simple way to capture long memory in volatility. And this model can again be simply estimated via an ARFIMA model for $Z_t$. For more information about the FI-Log-GARCH, its semiparametric extension and application we refer the reader to Feng and Letmathe (2018). 
+%In the literature, the Log-ARFIMA model was frequently applied to model RV series (Andersen et al., 2003, 2006) or other non-negative financial processes. However, its properties were still not yet well-studied.  
+
+%\newpage
+
+\section{The stationary solutions}
+
+In the following, some results in Beran et al. (2014) under the log-normal assumption are extended to more general distributions.
+Let $\alpha(B)=(1-B)^{-d}\phi^{-1}(B)\psi(B)=1+\sum_{i=1}^\infty\alpha_iB^i$.
+Note that the stationary solution of the FARIMA process $Z_t$ is given by
+\begin{equation}
+Z_t=\sum_{i=0}^\infty \alpha_i\varepsilon_{t-i}
+\label{S-Y}
+\end{equation}
+with $\alpha_i\approx c_\alpha i^{d-1}$ for large $i$, and, for large $k$, the autocorrelation (ACF) of $Z_t$ is given by
+\begin{equation}
+\rho_{Z}(k) \approx c_{\rho}^Z|k|^{2d-1},
+\label{acf of Z}
+\end{equation}
+where $c_{\rho}^Z$ is a constant. Note that $c_{\rho}^Z>0$ for $d>0$ and now $Z_t$ has long memory.
+Let $\alpha_{\rm max}=\max(\alpha_i)$ and $\alpha_{\rm min}=\inf(\alpha_i)$, where $\alpha_{\rm max}\ge 1$ and $\alpha_{\rm min}$ may be negative. Conditions for the existence of a stationary solution of $X_t^*$ in the current case with $2u$-th finite moment are similar to those given by Karanasos (2008).
+\begin{enumerate}
+\item[A1.] $Z_t$ is a stationary and invertible FARIMA process as defined in \eqref{FARIMA}.
+\item[A2.] Both $E(\eta_t^{2u\alpha_{\rm max}})$ and $E(\eta_t^{2u\alpha_{\rm min}})$ are finite for some $u>0$.
+\end{enumerate}
+Now, the stationarity solution of $X_t^*$ is given by
+\begin{equation}
+X_t^*=\prod\limits_{i=0}^\infty \eta_{t-i}^{\alpha_i}.
+\label{Xtst}
+\end{equation}
+\begin{lemma}
+The solution of $X_t^*$ given in \eqref{Xtst} is strictly stationary with finite $2u$-th moment, if and only if A1 and A2 hold. If A2 holds for $u\ge 1$, $X_t^*$ is also weakly stationary.
+\end{lemma}
+The proof is similar to that of Lemmas 1 and 2 in Karanasos (2008) and is omitted.
+
+A2 ensures that all of the terms in the product in \eqref{Xtst} exist. A1 implies that $\sum_{i=0}^\infty\alpha_i^2<\infty$ and $E(\varepsilon_t)=0$. This together with A2 ensures the convergence of $X_t^*$ defined in \eqref{Xtst}. The condition $E(\varepsilon_t)=0$ is different to the typical assumption $E(\eta_t)=1$ used in an ACD model. For instance, if $\eta_t$ is exponentially distributed with the density $f(u)=\mu_\eta^{-1}\exp(-u/\mu_\eta)$, we have $\mu_\eta=\exp(\gamma)\approx 1.781$, where $\gamma$ is the Euler constant. 
+%In the case without long memory, the model can be identified either under $E(\eta_t)=1$  or $E(\varepsilon_t)=0$. 
+But now the restriction $E(\varepsilon_t)=0$ is necessary. Otherwise, the mean in $Z_t$ and the scale in $X_t^*$ are not well defined, because $\alpha_i$ are not summable. $E(\varepsilon_t)=0$ is  e.g. fulfilled by:
+\begin{enumerate}
+\item[]\hspace*{-.5cm}{\bf Example 1.} The log-normal innovations $\eta_t$ with $\varepsilon_t\sim N(0, \sigma_\varepsilon^2)$ and $\sigma_\varepsilon^2>0$,
+\item[]\hspace*{-.5cm}{\bf Example 2.} The log-logistic innovations $\eta_t$ with $\varepsilon_t\sim Lo(0, b)$ and $b>0$ or
+\item[]\hspace*{-.5cm}{\bf Example 3.} The log-Laplace innovations $\eta_t$ with $\varepsilon_t\sim La(0, b)$ and $b>0$.
+\end{enumerate}
+Note that A2 may or may not be affected by $d$. Whether A2 is fulfilled or not, is jointly determined by the distribution of $\eta_t$, the value of $u$ and the FARIMA coefficients. In Example 1, A2 is always fulfilled and $X_t^*$ is strictly and weakly stationary. In Examples 2 and 3, $X_t^*$ is weakly stationary, only if $b$ is small enough.
+
+Furthermore, the stationary solutions of the conditional mean of $Z_t$ and that of $X_t^*$ are
+\begin{equation}
+\zeta_t=\sum_{i=1}^\infty \alpha_i\varepsilon_{t-i} \mbox{ and } \lambda_t=\prod\limits_{i=1}^\infty \eta_{t-i}^{\alpha_i}.
+\label{Zeta}
+\end{equation}
+%Furthermore, the stationary solution of the conditional mean of $Z_t$ is given by
+%\begin{equation}
+%\zeta_t=\sum_{i=1}^\infty \alpha_i\varepsilon_{t-i}.
+%\label{Zeta}
+%\end{equation}
+%Under the same assumptions we obtain the stationary solution of $\lambda_t$:
+%\begin{equation*}
+%\lambda_t=\prod\limits_{i=1}^\infty \eta_{t-i}^{\alpha_i}.
+%\end{equation*}
+The forecasts of the FARIMA process $Z_t$ and its conditional mean $\zeta_t$ to be proposed later are based on their AR($\infty$) representations, respectively. For $Z_t$ we have
+ \begin{equation}\label{ARInf}
+ Z_t=\sum_{j=1}^\infty \beta_j Z_{t-j}+\varepsilon_t,
+ \end{equation}
+ where $\beta_j$ are the coefficients of $\beta(B)=(1-B)^d\phi(B)\psi^{-1}(B)=1-\sum_{j=1}^\infty\beta_jB^j$. For large $j$, we have $\beta_j\approx c_\beta j^{-d-1}$ with $c_\beta>0$. This yields the representation of $\zeta_t$ based on $Z_t$:
+ \begin{equation}
+  \zeta_t=\sum_{j=1}^\infty \beta_j Z_{t-j}.
+ \end{equation}
+The stationary solutions of $X_t^*$ and $\lambda_t$, respectively, can be rewritten as
+ \begin{equation}
+ X_t^*=\eta_t\prod_{j=1}^\infty(X_{t-j}^*)^{\beta_j} \mbox{ and }  \lambda_t=\prod_{j=1}^\infty(X_{t-j}^*)^{\beta_j}.
+ \label{conditional mean lambda}
+ \end{equation}
+
+
+
+Theorem 1: Under conditions A1 to Ax,  the $\delta$th power of $X_t$ has the strict stationary solution ...
+
+Examples: 
+
+\section{Correlations and moments in Gaussian case}
+
+\subsection{Long memory under nonlinear transformation}
+
+Under regularity conditions, $d$ is always the same before and after the transformation. 
+
+
+\subsection{Some detailed results}
+
+Theorem 2: ... ...
+
+
+In the sequel we will discuss the relationship between the levels of long memory before and after the transformations by means of the well-known Hermite rank (see e.g. Beran et al., 2013, Pipiras and Taqqu, 2017, and references therein). See also Crem{\'e}r (1964). According to those references the $j$-th Hermite polynomial is defined by
+\begin{equation}
+H_j(z)=(-1)^j \exp\left(\frac{z^2}{2}\right)\frac{d^j}{dz^j}\exp\left(\frac{-z^2}{2}\right)
+\end{equation}\label{Hj}
+with $H_0(z)=1$, $H_1(z)=z$, $H_2(z)=z^2-1$, $H_3(z)=z^3-3z$ etc. Let $$\phi(z)=\frac{1}{\sqrt{2\pi}}\exp\left(\frac{-z^2}{2}\right)$$ be the standard normal density function, we have $$\inner{H_j}{H_k}=\int_{-\infty}^\infty H_j(z) H_k(z) \phi(z) dz =\delta_{ij}\cdot j!,$$ where $\delta_{jk}=1$ denotes the Dirac delta. 
+Let $L^2(\real, \phi)$ denote the space of measurable, squared-integrable functions with respect to $\phi(z)$. We see $H_k$ are orthogonal in $L^2(\real, \phi)$ but not orthonormal. Nevertheless, $\{H_k, k=0, 1, 2, ...\}$ build an orthogonal basis in $L^2(\real, \phi)$. 
+
+
+
+To this end it is assumed without loss of generality that $Z_t$ is a standard normal random variable. The Hermite rank only applies to subordinated Gaussian processes, i.e. when $G(Z)$ is a transformation of a normal random variable, or equivalently, when $F(X)$ is normally distributed. Hence, assumption T2 is necessary for further discussion in this paper. Many widely applied transformations in the literature with a natural truncation, such as the Box-Cox transformation and the most extensions of it are hence excluded, because a non-negative process after such transformations can never be really normally distributed. 
+To study the correlation structure between $X_t^m$ and $X_{t+k}^m$, $m>0$ the following additional moment condition is also required
+\begin{enumerate}
+\item[T3.] $F(x)$ is continuously differentiable with $F'(x)>0$ for $x>0$.
+\item[T4.] There is an $M\ge 1$ such that $G^{M}(z)\in L^2(\real\rightarrow\real_+, \phi)$, i.e. $E[G^{2M}(Z_t)]<\infty$.
+\end{enumerate}
+
+Then for any $0<m<M$, we have $E(X_t^{2m})<\infty$ so that $\gamma_m(k)=\cov(X_t^m, X_{t+k}^m)$ are well-defined. 
+
+The naive example of $F(x)$ is the log-transformation. Let $Z_t^*=\ln(X_t)$ with $\mu_{Z_t^*}=E(Z_t^*)$ and $\sigma_{Z_t^*}^2=\var(Z_t^*)$, we have $F(X_t)=[Z_t^*-\mu_{Z_t^*}]/\sigma_{Z_t^*}=Z_t$ with $Z_t\sim N(0, 1)$ and $X_t=\exp(Z_t^*)=\exp(\mu_{Z_t^*}+\sigma_{Z_t^*}Z_t)$ with $G(z)=e^{\mu_{Z_t^*}+\sigma_{Z_t^*} z}$. It is easy to check that now T3 is fulfilled for any $m>0$. Further explicit examples of $F$ and $G$ will be given in Sections 3.3 and 4. We will also see that there are some well-known transformations in the literature, where T3 is not fulfilled. For practical implementation only $G(z)$, which has either a closed form formula or can be easily computed numerically, should be considered. Furthermore, it is expected that both $F(x)$ and $G(z)$ exhibit some nice smoothness property and are also widely applicable in practice. Non-monotone increasing transformations will not be considered, because we are considering the analysis of non-negative processes.
+
+
+The generalized EFARIMA (GEFARIMA) model is then defined by assuming $Z_t$ is a stationary Gaussian FARIMA process defined in (\ref{FARIMA}) with $Y_t$ being replaced by $Z_t$. 
+\begin{definition}
+Let $F$ and $G$ is a pair of transformations fulfilling conditions T1 through T3 for some $m>0$. We call $X_t$ a GEFARIMA process, if $Z_t=F(X_t)$ follows a (standard) stationary Gaussian FARIMA model  
+\begin{equation}
+(1-B)^d\phi(B)Z_t=\psi(B)\varepsilon_t, 
+\label{GFARIMA}
+\end{equation}
+where $\phi(B)$, $\psi(B)$, $d$ and $\varepsilon_t$ are as defined before.  
+\end{definition}
+
+This idea transfers the analysis of a non-negative long-memory process to the application of the well-studied linear FARIMA model to the log-data. The original process $X_t$ is hence assumed to be log-linear. On the other hand the EFARIMA defines a special subordinated Gaussian process, which can be thought of as being generated by the Gaussian FARIMA $Y_t$ through the fixed exponential transformation. 
+Then the long-memory properties of $X_t$ and asymptotic results for estimating the unknown parameters are all jointly determined by the model of $Z_t$, the Hermite rank and the corresponding Hermite coefficient of $G$. 
+% For this purpose it is assumed that $Z_t$ is standardized with mean zero and unit variance. Some recent detailed summaries about the Hermite polynomial, Hermite rank and their application analyze long-memory % processes we refer the reader to Beran et al. (2013), and Pipiras and Taqqu (2017). 
+Lemma 1 given in the next subsection indicates that the calculation of the Hermite rank of a monotone increasing transformation is strongly simplified. 
+
+%The following interesting lemma can be easily verified according to the result of Men\'endez et al. (2013). 
+
+\subsection{Basic properties of the GEFARIMA model}
+If a transformation $G^m(Z)$ for some $m>0$ satisfies the conditions of Lemma 2, then $G^m(Z)\in L^2(\real, \phi)$ and it has the following unique series expansion Hermite polynomials
+\begin{equation}
+G^m(Z)=\sum_{k=0}^\infty g_{k, m} H_k(Z) =\sum_{k=0}^\infty \frac{J_m(k)}{k!} H_k(Z) ,
+\end{equation}\label{HEm}
+where $g_k$ are the Hermite coefficients, which are given by 
+\begin{equation}
+g_{k,m}=\frac{J_m(k)}{\left\|H_k\right\|}=\frac{J_m(k)}{\inner{H_k}{H_k}}=\frac{J_m(k)}{k!},
+\end{equation}\label{HCm}
+\begin{equation}
+J_m(k)=\inner{G^m_k}{H_k}=E[G^m(Z)H_k(Z)].
+\end{equation}\label{Jkm}
+In particular we have $g_{0,m}=E[G^m(Z)]$. Using similar argument as that in Men\'endez et al. (2013) we can obtain $g_{1,m}=E[\{G^m(Z)\}']>0$. This leads to the following Lemma. 
+%Furthermore, $g_{2, m}=E[\{G^m(Z)\}'']\ne0$
+\begin{lemma}
+Let $G(Z)>0$ be a non-negative monotone increasing transformation of a standard normal random variable $Z$ with $E[G^{2m}(Z)]<\infty$, $m>0$. Then the Hermite rank $h$ of $G^m(Z)$ is independent of $m$ and is always 1.
+\end{lemma}
+The proof of Lemma 1 is omitted. Lemma 1 shows that, for any $m>0$, the rate of decay of the autocovariances $\cov(X_t^m, X_{t+k}^m)$ is the same. For large $k$ and different $m$, the difference between those quantities is approximately only a constant. This confirm many related findings in the literature again. Most recently, Bai and Taqqu (2017) showed that asymptotic results for subordinated Gaussian processes with long memory are stable, if $h=1$. In the case with $h>1$, some non-central limit theorems can happen. Those results are however unstable. Following Lemma 1 we can see that an estimator of the unknown mean of $G^{2m}(Z)$ will always follow a central limit theorem. Non-central limit theorem will not occur in this context.  
+
+The variance, autocovariances and autocorrelations of the process $X_t^m$, $m>0$, are summarized in the following theorem.       
+\begin{theorem}
+Under the assumptions in Lemma 1 we have
+%
+\begin{enumerate}
+\item[\rm i)]\hspace{3cm} $E[X_{t}^m]=\nu^me^{m^{2}\sigma^{2}/2}  \,\,\, \mbox{ {\rm and} } \,\,\,
+var(X_{t}^m)=\nu^{2m}e^{m^2\sigma^{2}}\left(e^{m^2\sigma^{2}}-1\right),$\\
+where $\sigma^2$ is as defined in Lemma 1.
+%
+\item[\rm ii)]
+\[
+\gamma_{m}^e(k)=\nu^{2m}e^{m^2\sigma^{2}}\left(e^{m^2\sigma_{\epsilon}^{2}\sum\limits_{i=0}^{\infty}a_{i}a_{i+k}}  -1\right)  .
+\]
+%
+\item[\rm iii)]
+%\[
+\begin{align}\label{rhokme}
+\rho_{m}^e(k) &=\left( e^{m^2\sigma_{\epsilon}^{2}\sum\limits_{i=0}^{\infty}a_{i}a_{i+k}} -1\right)  \left(  e^{m^2\sigma^{2}}-1\right)^{-1}\nonumber\\
+ &=\left( e^{m^2\sigma^2\rho_Y(k)}  -1\right)  \left(  e^{m^2\sigma^{2}}-1\right)^{-1}.
+\end{align}
+%\]
+\end{enumerate}
+\end{theorem}
+%
+The proof of Theorem 1 is straightforward and is hence omitted. Items i) to iii) mean that the moments of any order
+and the dependence structure of $X_{t}^m$ are completely
+known, and that all of those processes are weakly stationary. This is in contrast to
+most volatility or duration models, where the correlation structure, conditions for the existence of high
+order moments and the marginal distribution
+are usually very complex or even unknown. Moreover, a particularly interesting finding is the second equation in (\ref{rhokme}), which provides an exact relationship between $\rho_{m}^e(k)$ and $\rho_Y(k)$. For a fractionally integrated process the asymptotic formulas of the autocorrelations are of great interest, because they reflex if and how the long-memory level is affected by the applied transformation. A simplified asymptotic relationship between $\rho_{m}^e(k)$ and $\rho_Y(k)$ is given in the following theorem and interpreted in the three cases with different $d$ values, respectively.
+
+
+%\subsection{The EFARIMA model}
+
+
+
+%\subsection{Memory properties of the log-normal FARIMA}
+
+
+\subsection{Further properties of the generalized EFARIMA}
+
+\begin{theorem}
+Under the assumptions in Lemma 1 we have
+%
+\begin{enumerate}
+\item[\rm i)] The relationship between $\rho_{m}^e(k)$ and $\rho_Y(k)$ for large $k$ is given by
+\[
+\rho_{m}(k)\sim c_{\rho}^e(m)\rho_Y(k), %|k|^{2d-1}    %
+\]
+where $\sim$ means that the ratio of both sides tends to 1, as $k\to\infty$ and $0<c_{\rho}^{\mathrm{e}}(m)<1$.
+
+\item[\rm ii)] For $d>0$ and large $k$ we have $\rho_Y(k)\sim c_{d}^{Y}|k|^{2d-1}$ with $c_{d}^{Y}>0$ and   
+\[
+\rho_{m}(k)\sim c_{\rho}(m)|k|^{2d-1}%
+\]
+where $0<c_{\rho}(m)=c_{\rho}^{\mathrm{e}}(m)\ast c_{d}^{Y}<c_{d}^{Y}$ such that $X_t^m$ is a long-memory process with the same memory parameter $d$ as $Y_t$, whose asymptotic autocorrelations has a smaller constant.
+\item[\rm iii)] For $d=0$, $\rho_{m}(k)$ decay exponentially as $\rho_Y(k)$, but again with a smaller asymptotic constant.
+\item[\rm iv)] For  $d<0$ and large $k$ we have $\rho_Y(k)\sim c_{d}^{Y}|k|^{2d-1}$ with $c_{d}^{Y}<0$ and   
+\[
+\rho_{m}(k)\sim c_{\rho}(m)|k|^{2d-1}%
+\]
+where $c_{d}^{Y}<c_{\rho}(m)=c_{\rho}^{\mathrm{e}}(m)\ast c_{d}^{Y}<0$. Now, $\rho_{m}(k)$ decay to zero in the same rate as by $\rho_Y(k)$ but with $\rho_{m}(k)>\rho_Y(k)$.
+\end{enumerate}
+\end{theorem}
+%
+A sketched proof of Theorem 2 is given in the Appendix. Item i) provides a simple asymptotic formula of $\rho_{m}(k)$ in term of $\rho_Y(k)$. The difference between both quantities is jointly determined by the coefficients of the linear process and the exponent $m$. In any case the absolute value of the dominated part of $\rho_{m}(k)$ is smaller than that of $\rho_Y(k)$. The higher $m$ the bigger this difference. However, for given $m$ in a reasonable range, the rate of decay will not be affected by the log- or exponential transformations. Results in Theorem 1 $iv)$ and Theorem 2 $i)$ together provide us some useful tools to understand and check the differences between the acf's of the log-data and and any power transformation of a non-negative time series. Some examples of $c_{\rho}^{\mathrm{e}}(m)$ are illustrated in Figure 1. We see ... ... . Results in Theorem 2 $ii)$ indicate that, for a long-memory log-normal process, $d>0$ is not affected by power or log-transformations.     
+In the literature it is shown that similar facts on the long-memory properties of the volatility in the LMSV and related models can be found e.g. in Harvey (1998), Surgailis and Viano (2002) and Giraitis and Leipus (2005). Theorem 2 $iii)$ indicates the fact that the acf of any exponential transformation of a Gaussian ARMA processes are not only summable but also decay geometrically. 
+
+Theorem 2 $iv)$ indicates that when the underlying FARIMA process is antipersistent, the acf of $X_t^m$ decay in a power law and are negative for large $k$. Now, the acf are summable and hence the processes in this class are usually also called `short-memory series'. However, the persistence property of those processes is quite different to that of those with geometrically decaying acf in $iii)$. One particular feature is as follows: For some estimators, for instance for the nonparametric estimation of the spectral density proposed by B\"uhlmann (1996), stronger summability conditions such that $\sum|k^p\rho(k)|<\infty$ with $p\ge1$ are required. Those conditions are not fulfilled by the acf given in Theorem 2 $iv)$. 
+A further interesting fact for $d<0$ is that now $X_t^m=\exp(mY_t)$ is no more antipersistent, because the unstable condition $\sum\rho_Y(k)=0$ is not retained by the exponential transformation. It is also a practical finding in Financial Econometrics. This fact was proved by Dittmann and Granger (2002) under some very strong assumption, where the exponential transformation is excluded. 
+Based on the fact $c_{\rho}^e(m)<1$ Beran et al. (2015) claimed that in the case with $d<0$ for $Y_t$, $X_t$ in the current context should not have antipersistence. The following lemma shows that their guess is indeed true. 
+
+
+
+
+
+\section{Memory properties in non-Gaussian case}
+
+
+\subsection{The power rank of the exponential transformation}
+
+Lemma 2: The power rank of the exponential transformation is 1.
+
+
+\section{Central limit theorems}
+
+About the partial sums of $X_t^m$
+
+Sample mean
+
+Sample variance
+
+Sample covariances?
+
+
+%\section{Application}
+
+%I is better without the asymmetric cases!!!
+
+%Do not think about this case in the moment further at all!!! 
+
+\section{Concluding remarks}
+
+
+\newpage
+
+\section*{References}
+\begin{description}
+
+\item
+Allen, D., Chan, F., McAleer, M. \& Peiris, S. (2008). Finite sample properties of the QMLE for the Log-ACD model: Application to Australian stocks. \textsl{Journal of Econometrics}, 147, 163-185.
+
+
+\item
+Andersen, T.G., Bollerslev, T., Diebold, F.X. \& Ebens, H. (2001). The Distribution of Realized Stock Return Volatility. \textsl{Journal of Financial Economics}, 61, 43-76.
+
+%\item
+%\textcolor{red}{Andersen, T., Bollerslev, T., Diebold, F.X. and Labys, P. (2000). Great realizations. \textsl{Risk}, March 2000, 105-108.}
+
+%\item
+%\textcolor{red}{Andersen, T.G., Bollerslev, T., Diebold, F.X., Labys, P. (2001). The Distribution of Realized Exchange Rate Volatility. \textsl{Journal of the American Statistical Association}, 96, 42-55.}
+
+%\item
+%\textcolor{red}{Andersen, T., Bollerslev, T., Diebold, F.X. and Labys, P. (2003). Modelling and forecasting realized volatility. \textsl{Econometrica}, 71, 579-625.}
+
+\item
+Baillie, R.T., Bollerslev, T. \& Mikkelsen, H.O. (1996). Fractionally integrated generalized autoregressive conditional heteroskedasticity. \textsl{J. Econometrics}, 74, 3-30.
+
+\item
+Baillie, R.T \& Morana, C. (2009). Modelling long memory and structural breaks in conditional variances: An adaptive FIGARCH approach. \textsl{Journal of Economic Dynamics \& Control}, 33, 1577-1592.
+%\item
+%Hall, P. \& Hart, J. D. (1999). Non-parametric regression with long-range dependence. \textsl{Stochastic Processes and their Applications} 36, 339-51.
+
+\item
+Bauwens, L., Galli, F. \& Giot, P. (2008). The moments of Log-ACD models. \textsl{Quantitative and
+Qualitative Analysis in Social Sciences}, 2, 1-28.
+
+
+\item
+Bauwens, L. \& Giot, P. (2000). The logarithmic ACD model: An application to the bid-ask quote process of three NYSE stocks. \textsl{Annales d'\'{E}conomie et de Statistique}, 60, 117-149.
+
+%\item
+%Beran, J. (1994). Statistics for Long-Memory Processes. New York: Chapman \& Hall.
+
+\item
+Beran, J. \& Feng, Y. (2002a). SMIFAR models- a semiparametric approach to modelling trends, long-range dependence and nonstationarity. \textsl{Computational Statistics \& Data Analysis}, 40, 393-419.
+
+\item
+Beran, J. \& Feng, Y. (2002b). Local polynomial fitting with long-memory short-memory and antipersistent errors. \textsl{Ann. Institute of Statistical Mathematics}, 54, 291-311.
+
+\item
+Beran, J. \& Feng, Y. (2002c). Iterative plug-in algorithms for SEMIFAR models-definition, convergence and asymptotic properties. \textsl{Journal of Computational and Graphical Statistics,} 11, 690-713.
+
+
+
+\item
+Beran, J., Feng, Y. \& Ghosh, S. (2014). Modelling long-range dependence and trends in duration series: an approach based on EFARIMA and ESEMIFAR models.  {\it Statistical Papers}, to appear.
+
+\item
+Beran, J., Feng, Y., Ghosh, S. \& Kulik, R. (2013). {\it Long memory processes - probabilistic properties and statistical methods}, Berlin: Springer.
+
+\item
+Beran, J. \& Ocker, D. (1999). SEMIFAR forecasts, with applications to foreign exchange rates. \textsl{Journal of Statistical Planning and Inference} 80, 137-153.
+
+
+\item
+Bollerslev, T. (1986). Generalized autoregressive conditional heteroskedasticity. \textsl{Journal of Econometrics}, 31, 307-327.
+
+\item
+Brockwell, P.J. \& Davis, R.A. \textcolor{black}{(2006)}. Time Series: Theory and Methods (2nd edition), New York : Spring
+
+\item
+Choi, K., Yu, W. \& Zivot, E. (2010). Long memory versus structural breaks in modeling and forecasting realized volatility. {\it Journal of International Money and Finance}, 29, 857-875.
+
+\item
+Deo, R., Hsieh, M. \& Hurvich C.M. (2010). Long memory in intertrade durations, counts and realized volatility of NYSE stocks. \textsl{Journal of statistical planning and inference}, 140, 3715-3733.
+
+\item
+Dittman, I. \& Granger, C. (2002). Properties of nonlinear transformations of fractionally integrated processes. \textsl{Journal of Econometrics}, 110, 113-133.
+
+\item
+Engle, R.F. (1982). Autoregressive conditional heteroscedasticity with estimates of the variance of United Kingdom inflation. \textsl{Econometrica}, 50, 987-1007
+
+\item
+Engle, R.F. (2002). New frontiers for ARCH models. \textsl{Journal of Applied Econometrics},
+17, 425-446.
+
+\item
+Engle, R.F. \& Rangel, J.G. (2008). The Spline-GARCH model for low frequency volatility and its global macroeconomic causes. \textsl{The Review of Financial Studies}, 21, 1187-1222.
+
+
+\item
+Engle, R.F. \& Russell, J.R. (1998). Autoregressive conditional duration: A new
+approach for irregularly spaced transaction data. \textsl{Econometrics}, 66, 1127-1162.
+
+\item
+Feng, Y.(2004). Simultaneously modelling coditional heteroskedasticity and scale change. \textsl{Econometric Theory}, 20, 563-596.
+
+\item
+Feng, Y. \& Beran J. (2013). Optimal convergence rates in non-parametric regression with fractional time series errors. \textsl{Journal of Time Series Analysis}, 34, 30-39.
+
+\item
+Fleminga, J. \& Kirbyb, C. (2011). Long memory in volatility and trading volume. {\it Journal of Banking \& Finance}, 35, 1714-1726.
+
+\item
+Gasser, T., Kneip, A. \& K\"{o}hler, W. (1991). A flexible and fast method for automatic smoothing. \textsl{J. Amer. Statist. Assoc.}, 86, 643-652.
+%\item
+%Geweke, J. (1986). Modeling the persistence of conditional variances: A comment.
+%\textsl{Econometric Review}, 5, 57-61.
+
+\item
+Granger, C. (1980). Long memory relationships and the aggregation of dynamic models. \textsl{Journal of Econometrics}, 14, 227-238.
+
+\item
+Hosking, J.R.M. (1981). Fractional differencing. Biometrika, 68, 165-176.
+
+\item
+Jasiak, J. (1998). Persistence in intertrade durations. \textsl{Finance}, 19, 166-195.
+
+%\item
+%Karanasos, M. (2001). The Statistical Properties of Long-memory and Exponential ACD Models. University of York, \textcolor{red}{Unpublished Paper}.
+
+\item
+Karanasos, M. (2004). The statistical properties of long-memory ACD models. \textsl{WSEAS Transactions on Business and Economics}, 2, 169-175.
+
+\item
+Karanasos, M. (2008). The statistical properties of exponential ACD models. \textsl{Quantitative
+and Qualitative Analysis in Social Sciences}, 2, 29-49.
+
+\item
+Karanasos, M., Psaradakis, Z. \& Sola, M. (2004). On the autocorrelation properties of long-memory GARCH processes. \textsl{Journal of Time Series Analysis}, 25, 265-281.
+
+\item
+Leipus, R., Philippe, A., Puplinskaite, D. \& Surgailis, D. (2014). Aggregation and long memory: recent developments. \textsl{Journal of the indian statistical association}, 52, 71-101.
+
+\item
+Manganelli, S. (2005). Duration, volume and volatility impact of trades. {\it Journal of Financial Markets},
+8, 377 - 399.
+
+%\item
+%\textcolor{black}{Pantula, S. G. (1986). Modelling the persistence of conditional variances: A comment. \textsl{Econometric Reviews}, 5, 71-73.}
+
+%\item
+%Shumway, R.H. \& Stoffer, D.S. (2011). Time series analysis and its applications, New York: \textsl{Springer}.
+
+\item Zaffarroni, P. (2007). Contemporaneous Aggregation of GARCH Processes. {\it Journal of Time Series Analysis}, 28, 521-544.
+\end{description}
+
+
+
+\newpage
+
+
+{\large \textbf{Appendix. Proofs of the main results}}
+
+
+\textbf{Proof of Theorem 1.} 
+$i$) The mean and variance of $X_{t}^m$ follow directly from Lemma 1 and well-known properties of the log-normal distribution. The given formulae in this part can be obtained after a straightforward simplification. The variance is of course also a special case of $\gamma_m(k)$ in $ii$) with
+$k=0$. 
+
+
+$ii$) Note that $E(X_{t}^m)E(X_{t+k}^m)=[E(X_{t}^m)]^2=\nu^{2m}e^{m^2\sigma^{2}}$, because $X_{t}^m$ is stationary. The expectation
+of $X_{t}^m X_{t+k}^m$ can be calculated as follows.
+\begin{align*}
+E(X_{t}^mX_{t+k}^m)  &  =\nu^{2m}E\left(\prod\limits_{i=0}^{\infty}%
+\eta_{t-i}^{ma_{i}}\prod\limits_{i=0}^{\infty}\eta_{t-i+k}^{ma_{i}}\right) \\
+&  =\nu^{2m}E\left(  \prod\limits_{i=0}^{k-1}\eta_{t-i}^{ma_{i}}\prod\limits_{i=0}%
+^{\infty}\eta_{t-i+k}^{m(a_{i}+a_{i+k})}\right) \\
+&  =\nu^{2m}\prod\limits_{i=0}^{k-1}E\left(  \eta_{t-i}^{ma_{i}}\right)  \prod
+\limits_{i=0}^{\infty}E\left(  \eta_{t-i+k}^{m(a_{i}+a_{i+k})}\right) \\
+&  =\nu^{2m}\prod\limits_{i=0}^{k-1}e^{m^2a_{i}^{2}\sigma_{\epsilon}^{2}/2}%
+\prod\limits_{i=0}^{\infty}e^{m^2(a_{i}+a_{i+k})^{2}\sigma_{\epsilon}^{2}/2}\\
+&  =\nu^{2m}\prod\limits_{i=0}^{\infty}e^{m^2a_{i}^{2}\sigma_{\epsilon}^{2}/2}%
+\prod\limits_{i=0}^{\infty}e^{m^2a_{i}^{2}\sigma_{\epsilon}^{2}/2}\prod
+\limits_{i=0}^{\infty}e^{2m^2a_{i}a_{i+k}\sigma_{\epsilon}^{2}/2}\\
+&  =\nu^{2m}e^{m^2\sigma^{2}}e^{m^2 \sigma_{\epsilon}^{2}\sum\limits_{i=0}^{\infty}%
+a_{i}a_{i+k}}.
+\end{align*}
+This leads to
+\begin{align}
+\gamma_m(k)  &  =\nu^{2m}e^{m^2\sigma^{2}}e^{m^2\sigma_{\epsilon}^{2}%
+\sum\limits_{i=0}^{\infty}a_{i}a_{i+k}}-\nu^{2m}e^{m^2\sigma^{2}}\nonumber\label{gammaxs}%
+\\
+&  =\nu^{2m}e^{m^2\sigma^{2}}\left(  e^{m^2\sigma_{\epsilon}^{2}\sum\limits_{i=0}^{\infty
+}a_{i}a_{i+k}}-1\right)  .
+\end{align}
+
+$iii$) Insert those results into $ii$) we have
+\begin{align}
+\rho_m(k)  &  =\left(  e^{m^2\sigma_{\epsilon}^{2}\sum\limits_{i=0}^{\infty
+}a_{i}a_{i+k}}-1\right)\left(e^{m^2\sigma^{2}}-1\right)^{-1}.
+\end{align}
+
+
+Theorem 1 is proved. \hfill
+$\diamond$
+
+
+
+\textbf{Proof of Theorem 2.} 
+
+$iv$) Note that $\sigma_{\epsilon}^{2}\sum\limits_{i=0}^{\infty}a_{i}%
+a_{i+k}=\rho_{Y}(k)\sigma^{2}$. By means of Taylor expansion of the
+exponential function we obtain
+\begin{equation}
+\rho_m(k)=\left\{  \sum\limits_{i=1}^{\infty}[\rho_{Y}(k)\sigma^{2}%
+]^{i}/i!\right\}  \left\{  \sum\limits_{i=1}^{\infty}[\sigma^{2}%
+]^{i}/i!\right\}  ^{-1}. \label{rhoka}%
+\end{equation}
+Now we will show that the first sum on the right hand side of (\ref{rhoka}) is
+dominated by its first term $\rho_{Y}(1)\sigma^{2}$. Note that $0<\rho
+_{Y}(k)<1$, if $k$ is large enough. We have
+\begin{align*}
+\sum\limits_{i=2}^{\infty}[\rho_{Y}(k)\sigma^{2}]^{i}/i!  &  <[\rho
+_{Y}(k)]^{2}\sum\limits_{i=2}^{\infty}[\sigma^{2}]^{i}/i!\\
+&  =[\rho_{Y}(k)]^{2}(e^{\sigma^{2}}-1-\sigma^{2})\\
+&  =O\{[\rho_{Y}(k)]^{2}\}.
+\end{align*}
+Hence, we have
+\begin{equation}
+\rho_{X^{\ast}}(k)=\rho_{Z}[c_{X}^{\mathrm{e}}+o(1)],
+\end{equation}
+where
+\begin{equation}
+c_{X}^{\mathrm{e}}=\sigma^{2}\left\{  \sum\limits_{i=1}^{\infty}[\sigma
+^{2}]^{i}/i!\right\}  ^{-1}.
+\end{equation}
+It is clear that $0<c_{X}^{\mathrm{e}}<1$. Theorem 2 is proved. \hfill
+$\diamond$
+
+
+
+
+
+
+\end{document}

@@ -41,14 +41,14 @@
   >
 ]>
 <requests version="1.0">
-  <internal package="biblatex" priority="9" active="0">
+  <internal package="biblatex" priority="9" active="1">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>"Partial analysis of the spatial ESEMFIAR model1.1".aux</file>
-      <file>Partial_analysis_of_the_spatial_ESEMFIAR_model1.1-blx.bib</file>
+      <file>"Literature review".aux</file>
+      <file>Literature_review-blx.bib</file>
     </provides>
     <requires type="dynamic">
-      <file>"Partial analysis of the spatial ESEMFIAR model1.1".bbl</file>
+      <file>"Literature review".bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -63,28 +63,28 @@
       <file>english.lbx</file>
     </requires>
   </internal>
-  <external package="biblatex" priority="5" active="0">
+  <external package="biblatex" priority="5" active="1">
     <generic>bibtex</generic>
     <cmdline>
       <binary>bibtex</binary>
       <option>-min-crossrefs 2</option>
-      <infile>"Partial analysis of the spatial ESEMFIAR model1.1"</infile>
+      <infile>"Literature review"</infile>
     </cmdline>
     <input>
-      <file>"Partial analysis of the spatial ESEMFIAR model1.1".aux</file>
+      <file>"Literature review".aux</file>
     </input>
     <output>
-      <file>"Partial analysis of the spatial ESEMFIAR model1.1".bbl</file>
+      <file>"Literature review".bbl</file>
     </output>
     <provides type="dynamic">
-      <file>"Partial analysis of the spatial ESEMFIAR model1.1".bbl</file>
+      <file>"Literature review".bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>"Partial analysis of the spatial ESEMFIAR model1.1".aux</file>
-      <file>Partial_analysis_of_the_spatial_ESEMFIAR_model1.1-blx.bib</file>
+      <file>"Literature review".aux</file>
+      <file>Literature_review-blx.bib</file>
     </requires>
     <requires type="editable">
-      <file>NameMeBIB.bib</file>
+      <file>BIB.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>

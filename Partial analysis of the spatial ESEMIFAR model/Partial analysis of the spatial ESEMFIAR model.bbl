@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 2.8 $
+% $ biblatex bbl format version 3.1 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -16,7 +16,7 @@
   {}
 \endgroup
 
-\sortlist[entry]{nyt/global/}
+\datalist[entry]{nyt/global//global/global}
   \entry{angulo2000estimation}{article}{}
     \name{author}{3}{}{%
       {{hash=AJ}{%
@@ -27,7 +27,7 @@
       }}%
       {{hash=RMM}{%
          family={Ruiz-Medina},
-         familyi={R\bibinitperiod-M\bibinitperiod},
+         familyi={R\bibinithyphendelim M\bibinitperiod},
          given={MD},
          giveni={M\bibinitperiod},
       }}%
@@ -46,6 +46,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2000}
+    \field{labeldatesource}{}
     \field{sortinit}{A}
     \field{sortinithash}{A}
     \field{number}{3}
@@ -73,7 +74,7 @@
       }}%
       {{hash=RMM}{%
          family={Ruiz-Medina},
-         familyi={R\bibinitperiod-M\bibinitperiod},
+         familyi={R\bibinithyphendelim M\bibinitperiod},
          given={MD},
          giveni={M\bibinitperiod},
       }}%
@@ -86,6 +87,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1999}
+    \field{labeldatesource}{}
     \field{sortinit}{A}
     \field{sortinithash}{A}
     \field{number}{1-2}
@@ -113,6 +115,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1995}
+    \field{labeldatesource}{}
     \field{sortinit}{B}
     \field{sortinithash}{B}
     \field{pages}{659\bibrangedash 672}
@@ -153,6 +156,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1998}
+    \field{labeldatesource}{}
     \field{sortinit}{B}
     \field{sortinithash}{B}
     \field{number}{4}
@@ -187,7 +191,8 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2002}
-    \field{extrayear}{1}
+    \field{extradate}{1}
+    \field{labeldatesource}{}
     \field{sortinit}{B}
     \field{sortinithash}{B}
     \field{number}{3}
@@ -222,7 +227,8 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2002}
-    \field{extrayear}{2}
+    \field{extradate}{2}
+    \field{labeldatesource}{}
     \field{sortinit}{B}
     \field{sortinithash}{B}
     \field{number}{2}
@@ -257,7 +263,8 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2002}
-    \field{extrayear}{3}
+    \field{extradate}{3}
+    \field{labeldatesource}{}
     \field{sortinit}{B}
     \field{sortinithash}{B}
     \field{number}{2}
@@ -298,7 +305,8 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2015}
-    \field{extrayear}{1}
+    \field{extradate}{1}
+    \field{labeldatesource}{}
     \field{sortinit}{B}
     \field{sortinithash}{B}
     \field{number}{2}
@@ -339,7 +347,8 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2015}
-    \field{extrayear}{2}
+    \field{extradate}{2}
+    \field{labeldatesource}{}
     \field{sortinit}{B}
     \field{sortinithash}{B}
     \field{booktitle}{Empirical Economic and Financial Research}
@@ -377,6 +386,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2014}
+    \field{labeldatesource}{}
     \field{sortinit}{B}
     \field{sortinithash}{B}
     \field{title}{Empirical economic and financial research: theory, methods
@@ -414,6 +424,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2009}
+    \field{labeldatesource}{}
     \field{sortinit}{B}
     \field{sortinithash}{B}
     \field{number}{10}
@@ -460,6 +471,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2016}
+    \field{labeldatesource}{}
     \field{sortinit}{B}
     \field{sortinithash}{B}
     \field{title}{Long-Memory Processes.}
@@ -472,13 +484,13 @@
          family={Chen},
          familyi={C\bibinitperiod},
          given={Chun-Hung},
-         giveni={C\bibinitperiod-H\bibinitperiod},
+         giveni={C\bibinithyphendelim H\bibinitperiod},
       }}%
       {{hash=YWC}{%
          family={Yu},
          familyi={Y\bibinitperiod},
          given={Wei-Choun},
-         giveni={W\bibinitperiod-C\bibinitperiod},
+         giveni={W\bibinithyphendelim C\bibinitperiod},
       }}%
       {{hash=ZE}{%
          family={Zivot},
@@ -495,6 +507,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2012}
+    \field{labeldatesource}{}
     \field{sortinit}{C}
     \field{sortinithash}{C}
     \field{number}{2}
@@ -520,6 +533,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1984}
+    \field{labeldatesource}{}
     \field{sortinit}{C}
     \field{sortinithash}{C}
     \field{pages}{55\bibrangedash 74}
@@ -531,6 +545,7 @@
 
   \entry{dahlhaus1997fitting}{article}{}
     \true{moreauthor}
+    \true{morelabelname}
     \name{author}{1}{}{%
       {{hash=DR}{%
          family={Dahlhaus},
@@ -547,6 +562,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1997}
+    \field{labeldatesource}{}
     \field{sortinit}{D}
     \field{sortinithash}{D}
     \field{number}{1}
@@ -574,6 +590,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2002}
+    \field{labeldatesource}{}
     \field{sortinit}{E}
     \field{sortinithash}{E}
     \field{number}{5}
@@ -607,6 +624,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1995}
+    \field{labeldatesource}{}
     \field{sortinit}{F}
     \field{sortinithash}{F}
     \field{pages}{371\bibrangedash 394}
@@ -631,6 +649,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2004}
+    \field{labeldatesource}{}
     \field{sortinit}{F}
     \field{sortinithash}{F}
     \field{title}{Non-and Semiparametric Regression with Fractional Time Series
@@ -653,6 +672,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2003}
+    \field{labeldatesource}{}
     \field{sortinit}{F}
     \field{sortinithash}{F}
     \field{title}{Kernel dependent functions in nonparametric regression with
@@ -672,7 +692,7 @@
          family={M{\"u}ller},
          familyi={M\bibinitperiod},
          given={Hans-Georg},
-         giveni={H\bibinitperiod-G\bibinitperiod},
+         giveni={H\bibinithyphendelim G\bibinitperiod},
       }}%
     }
     \list{publisher}{1}{%
@@ -683,6 +703,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1984}
+    \field{labeldatesource}{}
     \field{sortinit}{G}
     \field{sortinithash}{G}
     \field{pages}{171\bibrangedash 185}
@@ -715,6 +736,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1980}
+    \field{labeldatesource}{}
     \field{sortinit}{G}
     \field{sortinithash}{G}
     \field{number}{1}
@@ -755,6 +777,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2009}
+    \field{labeldatesource}{}
     \field{sortinit}{G}
     \field{sortinithash}{G}
     \field{number}{5}
@@ -788,6 +811,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1990}
+    \field{labeldatesource}{}
     \field{sortinit}{H}
     \field{sortinithash}{H}
     \field{number}{2}
@@ -815,6 +839,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1987}
+    \field{labeldatesource}{}
     \field{sortinit}{H}
     \field{sortinithash}{H}
     \field{booktitle}{Proceedings of the 46th Session of the International
@@ -844,6 +869,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1997}
+    \field{labeldatesource}{}
     \field{sortinit}{H}
     \field{sortinithash}{H}
     \field{title}{Multivariate and semiparametric kernel regression}
@@ -872,6 +898,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1981}
+    \field{labeldatesource}{}
     \field{sortinit}{H}
     \field{sortinithash}{H}
     \field{number}{1}
@@ -899,6 +926,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1987}
+    \field{labeldatesource}{}
     \field{sortinit}{K}
     \field{sortinithash}{K}
     \field{booktitle}{Proceedings of the First World Congress of the Bernoulli
@@ -926,6 +954,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2007}
+    \field{labeldatesource}{}
     \field{sortinit}{L}
     \field{sortinithash}{L}
     \field{number}{3}
@@ -939,6 +968,7 @@
 
   \entry{lavancier2008v}{article}{}
     \true{moreauthor}
+    \true{morelabelname}
     \name{author}{1}{}{%
       {{hash=LF}{%
          family={Lavancier},
@@ -956,6 +986,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2008}
+    \field{labeldatesource}{}
     \field{sortinit}{L}
     \field{sortinithash}{L}
     \field{pages}{1373\bibrangedash 1390}
@@ -982,6 +1013,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1983}
+    \field{labeldatesource}{}
     \field{sortinit}{M}
     \field{sortinithash}{M}
     \field{title}{The fractal geometry of nature}
@@ -1012,6 +1044,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1994}
+    \field{labeldatesource}{}
     \field{sortinit}{R}
     \field{sortinithash}{R}
     \field{pages}{1346\bibrangedash 1370}
@@ -1037,6 +1070,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2015}
+    \field{labeldatesource}{}
     \field{sortinit}{S}
     \field{sortinithash}{S}
     \field{title}{Multivariate density estimation: theory, practice, and
@@ -1068,10 +1102,11 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1994}
+    \field{labeldatesource}{}
     \field{sortinit}{W}
     \field{sortinithash}{W}
     \field{title}{Kernel smoothing}
     \field{year}{1994}
   \endentry
-\endsortlist
+\enddatalist
 \endinput

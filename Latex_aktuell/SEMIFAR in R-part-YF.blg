@@ -22,52 +22,47 @@ Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: SEMIFAR_in_R-part-YF-blx.bib
 Database file #2: BIB.bib
-Repeated entry---line 361 of file BIB.bib
- : @article{beran2002semifar
- :                          ,
-I'm skipping whatever remains of this entry
 Biblatex version: 3.13
 Reallocating 'wiz_functions' (item size: 4) to 9000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
-You've used 8 entries,
+You've used 12 entries,
             6365 wiz_defined-function locations,
-            1241 strings with 10181 characters,
-and the built_in function-call counts, 42603 in all, are:
-= -- 2756
-> -- 967
-< -- 295
-+ -- 979
-- -- 337
-* -- 3069
-:= -- 4229
+            1257 strings with 10736 characters,
+and the built_in function-call counts, 70420 in all, are:
+= -- 4759
+> -- 1481
+< -- 460
++ -- 1783
+- -- 506
+* -- 4938
+:= -- 7248
 add.period$ -- 0
-call.type$ -- 8
-change.case$ -- 181
+call.type$ -- 12
+change.case$ -- 288
 chr.to.int$ -- 42
-cite$ -- 14
-duplicate$ -- 4482
-empty$ -- 3849
-format.name$ -- 492
-if$ -- 9082
+cite$ -- 22
+duplicate$ -- 7820
+empty$ -- 6215
+format.name$ -- 820
+if$ -- 14722
 int.to.chr$ -- 0
-int.to.str$ -- 27
+int.to.str$ -- 43
 missing$ -- 0
-newline$ -- 261
-num.names$ -- 417
-pop$ -- 2430
+newline$ -- 422
+num.names$ -- 668
+pop$ -- 3936
 preamble$ -- 1
-purify$ -- 216
+purify$ -- 352
 quote$ -- 0
-skip$ -- 1655
+skip$ -- 2531
 stack$ -- 0
-substring$ -- 4203
-swap$ -- 1272
-text.length$ -- 224
-text.prefix$ -- 7
+substring$ -- 7133
+swap$ -- 2003
+text.length$ -- 336
+text.prefix$ -- 11
 top$ -- 1
-type$ -- 260
+type$ -- 395
 warning$ -- 0
-while$ -- 593
+while$ -- 1061
 width$ -- 0
-write$ -- 254
-(There was 1 error message)
+write$ -- 411
