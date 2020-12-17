@@ -322,6 +322,34 @@
     \field{year}{2016}
   \endentry
 
+  \entry{bollerslev1986generalized}{article}{}
+    \name{author}{1}{}{%
+      {{hash=BT}{%
+         family={Bollerslev},
+         familyi={B\bibinitperiod},
+         given={Tim},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{BT1}
+    \strng{fullhash}{BT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1986}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{3}
+    \field{pages}{307\bibrangedash 327}
+    \field{title}{Generalized autoregressive conditional heteroskedasticity}
+    \field{volume}{31}
+    \field{journaltitle}{Journal of econometrics}
+    \field{year}{1986}
+  \endentry
+
   \entry{engle2002dynamic}{article}{}
     \name{author}{1}{}{%
       {{hash=ER}{%
@@ -350,6 +378,33 @@
     \field{volume}{20}
     \field{journaltitle}{Journal of Business \& Economic Statistics}
     \field{year}{2002}
+  \endentry
+
+  \entry{engle1982autoregressive}{article}{}
+    \name{author}{1}{}{%
+      {{hash=ERF}{%
+         family={Engle},
+         familyi={E\bibinitperiod},
+         given={Robert\bibnamedelima F},
+         giveni={R\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {JSTOR}%
+    }
+    \strng{namehash}{ERF1}
+    \strng{fullhash}{ERF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1982}
+    \field{labeldatesource}{}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{pages}{987\bibrangedash 1007}
+    \field{title}{Autoregressive conditional heteroscedasticity with estimates
+  of the variance of United Kingdom inflation}
+    \field{journaltitle}{Econometrica: Journal of the Econometric Society}
+    \field{year}{1982}
   \endentry
 
   \entry{feng2020fractionally}{report}{}
@@ -426,6 +481,87 @@
     \field{pages}{23\bibrangedash 68}
     \field{title}{Kernel estimation of regression functions}
     \field{year}{1979}
+  \endentry
+
+  \entry{geweke1986comment}{article}{}
+    \name{author}{1}{}{%
+      {{hash=GJ}{%
+         family={Geweke},
+         familyi={G\bibinitperiod},
+         given={John},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{GJ1}
+    \strng{fullhash}{GJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1986}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{number}{1}
+    \field{pages}{57\bibrangedash 61}
+    \field{title}{Comment}
+    \field{volume}{5}
+    \field{journaltitle}{Econometric Reviews}
+    \field{year}{1986}
+  \endentry
+
+  \entry{milhoj1987conditional}{article}{}
+    \name{author}{1}{}{%
+      {{hash=MA}{%
+         family={Milh{\o}j},
+         familyi={M\bibinitperiod},
+         given={Anders},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis Group}%
+    }
+    \strng{namehash}{MA1}
+    \strng{fullhash}{MA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1987}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{number}{1}
+    \field{pages}{99\bibrangedash 103}
+    \field{title}{A conditional variance model for daily deviations of an
+  exchange rate}
+    \field{volume}{5}
+    \field{journaltitle}{Journal of Business \& Economic Statistics}
+    \field{year}{1987}
+  \endentry
+
+  \entry{pantula1986modeling}{article}{}
+    \name{author}{1}{}{%
+      {{hash=PSG}{%
+         family={Pantula},
+         familyi={P\bibinitperiod},
+         given={Sastry\bibnamedelima G},
+         giveni={S\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PSG1}
+    \strng{fullhash}{PSG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1986}
+    \field{labeldatesource}{}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{pages}{79\bibrangedash 97}
+    \field{title}{Modeling the persistence of conditional variances: a comment}
+    \field{volume}{5}
+    \field{journaltitle}{Econometric Reviews}
+    \field{year}{1986}
   \endentry
 \enddatalist
 \endinput

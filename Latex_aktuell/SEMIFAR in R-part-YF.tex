@@ -45,7 +45,7 @@
 
 \evensidemargin0.25cm
 
-\parindent0.4cm
+\parindent0cm
 \parskip2ex plus0.5ex minus0.5ex
 \renewcommand{\baselinestretch}{1.37}
 \unitlength1.0cm \headheight0cm \topskip0cm \headsep-1cm
@@ -161,9 +161,9 @@ Y_t=g(\tau_t) + Z_t,
 where $Y_t=\ln(X_t)$, $g(\tau_t)=\ln[s(\tau_t)]$, $Z_t=\ln(\lambda) + \epsilon_t$ and $\epsilon_t=\ln(\eta_t)$. Following \citet{beran2002semifar} we assume that $Z_t$ follows a zero mean FARIMA ($p, d, q$) process 
 \begin{equation}
 \label{FARIMA}
-(1-B)^d\phi(B)(\xi_t + \epsilon_t)=(1-B)^d\phi(B)Z_t =\psi(B)\epsilon_t,
+(1-B)^d\phi(B)Z_t =\psi(B)\epsilon_t,
 \end{equation}
-where $d \in (0,0.5)$ is the long-memory parameter, $B$ is the backshift operator, $\phi(z)=1-\sum_{i=1}^{p}\phi_iz^i$ and  $\psi(z)=1+\sum_{i=1}^{q}\psi_iz^i$ are AR- and MA-polynomials with all roots outside the unit circle. Equation \eqref{FARIMA} defines a stationary and invertible FARIMA process with $E(\epsilon_t)=0$ and $var(\epsilon_t)=\sigma^2_{\epsilon}$. Model \eqref{SEMIFAR} is equivalent to a SEMIFAR process (\cite{beran2002semifar}) with no integer differencing ($m=0$) and an additional MA-part. We have $X^*_t = \exp(Z_t)$. Subsequently, model \eqref{SMEM} is an extended version of an ESEMIFAR introduced by \citet{beran2015modelling}. However, the authors assumed that $X^*_t$ is log-normally distributed whereas in this paper we realax this assumption and suppose that $X_t^*$ satisfies condition \textbf{A1} of \citet{feng2020fractionally}.
+where $d \in (0,0.5)$ is the long-memory parameter, $B$ is the backshift operator, $\phi(z)=1-\sum_{i=1}^{p}\phi_iz^i$ and  $\psi(z)=1+\sum_{i=1}^{q}\psi_iz^i$ are AR- and MA-polynomials with all roots outside the unit circle. Equation \eqref{FARIMA} defines a stationary and invertible FARIMA process with $E(\epsilon_t)=0$ and $var(\epsilon_t)=\sigma^2_{\epsilon}$. Model \eqref{SEMIFAR} is equivalent to a SEMIFAR process (\cite{beran2002semifar}) with no integer differencing ($m=0$) and an additional MA-part. We have $X^*_t = \exp(Z_t)$. Subsequently, model \eqref{SMEM} is an extended version of an ESEMIFAR introduced by \citet{beran2015modelling}. However, the authors assumed that $X^*_t$ is log-normally distributed whereas in this paper we relax this assumption and suppose that $X_t^*$ satisfies condition \textbf{A1} of \citet{feng2020fractionally}.
 %The long-memory parameter $d$ was introduced by \citet{granger1980introduction} and \citet{hosking1981fractional} and is defined by 
 %\begin{equation}
 %\label{d}
@@ -183,15 +183,19 @@ where $h$ denotes the bandwidth and $K[(\tau_i-\tau_0)/h]$ are the weights ensur
 	\label{AMISE}
 	\text{AMISE}(h) = h^{2(m-\nu)} \frac{I[g^{(m)}]\beta^2}{m!} + \frac{(nh)^{2d-1}V(1)}{h^{2\nu}},
 \end{equation}
-where $I[g^{(m)}] = \int_{\Delta}^{1-\Delta}[g^{m}(\tau)]d\tau$ with $\Delta$ being a small positive constant, which controls for the so-called boundary effect. Moreover, $\beta = \int_{-1}^{1}u^2K(u)du$ and for $d > 0 $ we have $V(1)=2c_f \Gamma(1-2d)\sin (\pi d) \int_{-1}^{1} \int_{-1}^{1} K(x)K(y)|x-y|^{2d-1}dxdy$. For $d = 0$, $V$ reduces to $V(1)=2\pi c_f \int_{-1}^{1}K^2(x)dx$. $c_f$ stands for the spectral density of the ARMA part of \eqref{FARIMA} at frequency zero. The asymptotically optimal bandwidth, denoted by $h_A$, that minimizes the AMISE is given by
+where $I[g^{(m)}] = \int_{\Delta}^{1-\Delta}[g^{m}(\tau)]d\tau$ with $\Delta$ being a small positive constant, which controls for the so-called boundary effect. Moreover, $\beta = \int_{-1}^{1}u^mK(u)du$ and for $d > 0 $ we have $V(1)=2c_f \Gamma(1-2d)\sin (\pi d) \int_{-1}^{1} \int_{-1}^{1} K(x)K(y)|x-y|^{2d-1}dxdy$. For $d = 0$, $V$ reduces to $V(1)=2\pi c_f \int_{-1}^{1}K^2(x)dx$. $c_f$ stands for the spectral density of the ARMA part of \eqref{FARIMA} at frequency zero and is given by 
+\begin{equation}
+	c_f = f(0) = \frac{\sigma^2_\epsilon}{2\pi} \frac{(1 + \psi_1+\dots+\psi_q)^2}{(1-\phi_1-\dots-\phi_p)^2}.
+\end{equation}
+ The asymptotically optimal bandwidth, denoted by $h_A$, that minimizes the AMISE is given by
 \begin{equation}
 h_A=Cn^{(2d-1)/(2m+1-2d)},
 \end{equation}
 with 
 \begin{equation}
-C=\Bigg(\frac{2\nu+1-2d}{2(m-\nu)}\frac{(m!)^2V(1)}{I[g^{(m)}]\beta^2\Bigg)^{1/(2m+1-2d)}.
+C=\Bigg(\frac{2\nu+1-2d}{2(m-\nu)}\frac{(m!)^2V(1)}{I[g^{(m)}]\beta^2}\Bigg)^{1/(2m+1-2d)}.
 \end{equation}
-Based on these results \citet{beran2002iterative} proposed two iterative plug-in algorithms for automatic bandwidth selection, namely Algorithm \textbf{A} and \textbf{B}. In this paper we only consider a strongly adapted version of Algorithm B which is presented in the following.
+Based on these results \citet{beran2002iterative} proposed two iterative plug-in algorithms for automatic bandwidth selection, namely Algorithm \textbf{A} and \textbf{B}. In this paper we only consider a strongly adapted version of Algorithm \textbf{B} which is presented in the following.
 
 
  
@@ -205,57 +209,33 @@ Based on these results \citet{beran2002iterative} proposed two iterative plug-in
 %This result shows that the level of long memory of the stationary part of the process under consideration is not affected by the log- or exponential transformations. In the case when $\xi_t$ is normal, those results are e.g. obtained in Dittmann and Granger (2002) and Beran et al. (2015). Theorem 2 extends those results to a common innovation distribution in the log-data. The proof of Theorem 2 is given in the appendix, where we will show that the process $Z_t$ is a special case of the general framework defined in Surgailis and Viano (2002). Hence, their results apply to $Z_t$. Note however that the above result does not hold for $d=0$. Detailed discussion on corresponding properties in case with $d=0$ is beyond the aim of the current paper.  
 
 \section{Data-driven estimation}
-\label{kern}Based on model \eqref{M1} \citet{beran2002semifar} proposed an adapted version of a data-driven IPI (iterative plug-in) algorithm already introduced in Beran (1995) by replacing an estimate of the constant mean with a kernel estimate of $g$ defined by
-\begin{equation}
-\hat{g}(x) = \frac{1}{nh}\sum_{t=1}^{n}K(\frac{x-x_t}{h})(1-B)^{\hat{m}}Y_t,
-\end{equation}
-where $h>0$ denotes the bandwidth, $x\in[0,1]$ and $K(\cdot)$ is a symmetric second order kernel with compact support (see e.g. Gasser and M\"uller 1979). Moreover, explicit expressions for the bias, variance, MISE and the optimal bandwidth which minimises the asymptotic MISE are stated in Theorem 1 in \citet{beran2002semifar}.
-%\begin{equation}
-%	K(x) = \sum_{l=0}^{r}\alpha_{l}x^{2l}, \quad (|x|\leq1),
-%\end{equation}
-In \citet{beran2002iterative} two new IPI-algorithms are proposed which run much faster as they do not rely on a full search of the long memory parameter. Furthermore, an EIM- (exponential inflation method) bandwidth selector is defined.  \citet{beran2001volatility} and \citet{beran2002semifar} already suggested to use an EIM as it requires less iterations than the conventional multiplicative inflation method (MIM) used by Gasser et al. (1991), Herrmann et al. (1992) and Ray and Tsay (1997). Different choices for the inflation factor and asymptotic properties of the estimated bandwidths are derived by \citet{beran2002iterative}. To control for the poor estimation quality of the kernel estimator at the boundaries, the authors introduced a small positive constant $\Sigma > 0$ such that as $n \rightarrow \infty$, $h\rightarrow 0$, $nh\rightarrow \infty$,
-\begin{equation}
-\text{MISE} = E \bigg\{  \int_{\Sigma}^{1-\Sigma}[\hat{g}(x)-g(x)]^2dx   \bigg\}.
-\end{equation}
-In a following paper \citet{beran2002local} replaced the kernel estimator \eqref{kern} with a 
-local approximation of \(g(x)\) given by the \(p\) order polynomial
-\begin{equation}
-\label{lp}
-g(x_{t}) \approx g(x) + g^{(1)}(x)(x_{t} - x) + \ldots + g^{(p)}(x)\frac{(x_{t} - x)^{p}}{p!} + R_{p},
-\end{equation}
-where \(R_{p}\) is a remainder term. Then the estimator \(\hat{g}^{(\nu)}(x)\) with \((\nu \leq p)\) is obtained when the locally weighted sum of squared residuals is minimized such that
-\begin{equation}
-\label{eq:2.2}
-Q(x) = \sum_{t=1}^{n} \left\lbrace Y_{t} - \sum_{j=0}^{p} \beta_{j}(x_{t} - x)^{j} \right\rbrace^{2} K \left( \frac{x_{t} - x}{h} \right) \Rightarrow min ,
-\end{equation}
-where \(\hat{\beta} = (\hat{\beta}_{0},\hat{\beta}_{1},\ldots,\hat{\beta}_{p})^{T}\), $h$ and $K$ are defined as before.
 
 \subsection{The IPI-algorithm for estimating $g$}
 
+We introduce an IPI-procedure for SEMIFARIMA models by translating and adapting the main features of the IPI for SEMIFAR models introduced by \citet{beran2002iterative} from the programming language \texttt{S} to \texttt{R}. The algorithm processes as follows:
 
 
-Based on the IPI-algorithms for SEMIFAR models introduced by \citet{beran2002iterative}, Feng and Letmathe, (forthcoming) developed an IPI-procedure for SEMIFARIMA models by translating and adapting the main features of the IPI for SEMIFAR models from the programming language \texttt{S} to \texttt{R} in order to enhance the overall accessibility and applicability of the SEMIFARIMA model. The algorithm processes as follows:
-
-\noindent Step 1: In the first iteration set the initial bandwidth $h_0 = 0.15$ and select $p$ and $q$ 
-\indent denoting the AR- and MA order respectively . 
-
-Step 1a: Estimate $g$ from $Y_t$ in order to calculate the residuals $\tilde{Z}_t = Y_t - \hat{g}(\tau_t)$. 
-
-Step 1b: Fit a FARIMA ($p,d,q$) to $\tilde{Z}_t$ in order to obtain $\hat{c}_f$.
-
-Step 1c: Obtain the bandwidth $h_j=(h_{j-1})^\alpha$, where $\alpha$ denotes an 
-inflation factor. \indent  Improve $h_{j-1}$ by 
-\begin{equation}
-h_j=C_{opt}n^{(2d-1)/(2m+1-2d)}.
-\end{equation} 
-
-\noindent Step 2: Repeat steps 1a to 1c until convergence or a given number of iterations has been 
-\indent reached and set $h_{opt} = h_j$.
+\begin{itemize}
+	\item[\textbf{Step 1:}] In the first iteration set the initial bandwidth $h_0$ and select $p$ and $q$ 
+	denoting the AR- and MA-order, respectively.	
+	\begin{itemize}
+		\item [\textbf{Step 1a):}] Estimate $g$ from $Y_t$ employing $h_{j-1}$ in order to calculate the residuals $\tilde{Z}_t = Y_t - \hat{g}(\tau_t)$. 
+		
+		\item [\textbf{Step 1b):}] Obtain $\hat{c}_f$ by fitting a FARIMA (with predefined AR- and MA-order in Step 1) to  $\tilde{Z}_t$.
+		
+		\item [\textbf{Step 1c):}] Set $h_j=(h_{j-1})^\alpha$, where $\alpha = $ denotes an 
+		inflation factor and estimate $I[g^{(m)}]$ with a local polynomial of order $r^* = r + 2$.   Now, we obtain $h_{j-1}$ by 
+		\begin{equation}
+			h_j=\Bigg(\frac{2\nu+1-2d}{2(m-\nu)}\frac{(m!)^2V(1)}{I[g^{(m)}]\beta^2}\Bigg)^{1/(2m+1-2d)}\cdot n^{(2d-1)/(2m+1-2d)}.
+		\end{equation}
+	\end{itemize}
+	\item [\textbf{Step 2:}] Repeat steps 1a to 1c until convergence or a given number of iterations has been reached and set $h_{opt} = h_j$.	
+\end{itemize}
+ 
 
 %\noindent Step 3: Repeat Step 1a with $h_j$ and fit a FI-Log-GARCH on the residuals $\hat{Z}_t$ or any other LM-GARCH model on the scale-adjusted returns.
 
-After repeating Step 1a with $h_j$ the residuals $\hat{Z}_t$ or $\hat{\xi}_t$ can be further analysed by means of the FI-Log-GARCH or any other LM-GARCH model, respectively. Please note that the results presented in \citet{beran1999semifar}, \citet{beran2001volatility}, \citet{beran2002iterative}, \citet{beran2002local}, \citet{beran2002semifar} and \citet{beran2016long} remain valid for the IPI for SEMIFARIMA models. For a more detailed documentation of the procedure, changes and adaptions of this IPI-algorithm we refer the reader to Feng and Letmathe (forthcoming). 
-\subsection{Data driven estimation of $g'$ and $g''$}    
+Please note that the results presented in \citet{beran1999semifar}, \citet{beran2001volatility}, \citet{beran2002iterative}, \citet{beran2002local}, \citet{beran2002semifar} and \citet{beran2016long} remain valid for the IPI for SEMIFARIMA models.    
 
 \section{Implementation in R}
 
@@ -376,6 +356,7 @@ After repeating Step 1a with $h_j$ the residuals $\hat{Z}_t$ or $\hat{\xi}_t$ ca
 
 
 \section{Application to different kinds of time series}
+In this and the following sections the SEMIFARIMA and ESEMIFARIMA are applied to four real data examples: \textit{tempNH} (mean monthly temperature changes), \textit{gdpUS} (US GDP), \textit{dax} (German stock index) and \textit{vix} (CBOES volatility index) Those data sets have been already used by Feng et al. (forthcoming) and are implemented in the \textit{smoots} package, which was recently published on the \textit{CRAN} network.
 
 \subsection{Application of the SEMIFARIMA}
 
@@ -384,6 +365,8 @@ After repeating Step 1a with $h_j$ the residuals $\hat{Z}_t$ or $\hat{\xi}_t$ ca
 \subsection{Application to high-frequency financial data}
 
 \section{The Semi-FI-Log-GARCH model}
+The autoregressive conditional heteroscedasticity (ARCH) model proposed by \citet{engle1982autoregressive} and its generalisation, the generalized ARCH (GARCH)) model, introduced by \citet{bollerslev1986generalized} , is a well-known volatility process approach for modelling non-constant conditional variances. An extension of this model is the Log-GARCH introduced by \citet{pantula1986modeling}, \citet{geweke1986comment} and \citet{milhoj1987conditional}. The majority of the GARCH class models are defined under the assumptions that the considered return series is stationary.  and incorporates a short-memory dependence structure. However, it was found that in practice return series exhibit a slowly changing scale and long term dynamics in the conditional volatility. 
+
 
 \section{The Semi-FI-Log-ACD model* (nachfragen)}
 

@@ -1,7 +1,7 @@
 ###################################semifarima.lpf - extension of semifar.lpf with an addition MA-part################################
 ###################################content is heavily simplified, e.g no more integer differencing and###############################
 ###################################other adjustments#################################################################################
-semifarima.lpf = function(x, p, q, mse.RANGE,b0 = NULL, pg, kn, bb, bbd = 1, IM, IF, par.est = "fracdiff")
+semifarima.lpf = function(x, p = 1, q = 1, mse.RANGE = 0.025,b0 = NULL, pg = 3, kn = 2, bb = 0, bbd = 1, IM = "E", IF = 1, par.est = "fracdiff")
 {
   alpha.SEMI<-0.01
   alpha.MLE<-0.05
@@ -262,7 +262,7 @@ semifarima.lpf = function(x, p, q, mse.RANGE,b0 = NULL, pg, kn, bb, bbd = 1, IM,
   CI<-conf.farima(eta,p,q,n.DATA,alpha.MLE)$CI
   ####significance test trend
   g0 = smooth.lpf(x, 0, pg, kn, b0, bb)
-  VARg0<-(n*b0)**(2*d-1)*nu*Cf 
+  VARg0<-(n.DATA*b0)**(2*d-1)*nu*Cf 
   CRITg0<-qnorm( (1-alpha.SEMI/2) )*sqrt(VARg0) 
   SIG<-1
   
@@ -618,120 +618,4 @@ ar.coef.farima <- function(n, d)
   
   drop(list(n=n,d=d,
             b=cbind(result)))
-}
-######################################semifar.der#####################################
-semifar.der<-function(result, x, mse.RANGE, kn, bb)
-{
-  #########The data
-  x<-x
-  
-  ##################### Estimating g' based on the above results
-  #--- data, ti
-  Cf<-result$Cf
-  delta<-result$d
-  
-  n.DATA<-length(x)
-  ti<-(1:n.DATA)/n.DATA
-  b0<-result$b0
-  
-  #--- iteration settings
-  
-  nITER<-20
-  icrit<-0
-  
-  #--- initial parameters for smoothing
-  
-  Kk<-9
-  if(kn==1){Bk<-25/9
-  Rk<-1.5}
-  if(kn==2){Bk<-49/9
-  Rk<-2.1429}
-  if(kn==3){Bk<-9        ###81/9
-  Rk<-3.1818}  ###35/11	
-  
-  #------- smoothing iteration
-  cat("This is the smooth for estimating'.",fill=T)
-  
-  for(iITER in 1:nITER)
-  {
-    cat("iteration=",iITER,fill=T)
-    
-    #--- data, ti
-    
-    if( icrit==0 )
-    {
-      #---------- 3 -------- updated bandwidth for g2
-      
-      if(iITER==1){b2<-b0}else
-      {b2<-(b0)**((7-2*delta)/(14-2*delta))}#opt. for I(g''')
-      
-      b2<-min(0.49,b2) #### the above bound
-      
-      #---------- 4 -------- kernel for g2 estimation
-      
-      #---------- 8 -------- estimate int(g2**2 dt)
-      gk<-smooth.lpf(x, 3, 4, kn, b2, bb)###New !!!
-      
-      index<-max(1,trunc(mse.RANGE*n.DATA)):trunc((1-mse.RANGE)*n.DATA) 
-      # avoid border effects
-      gkk<-gk[index]**2
-      Intgk<-sum(gkk)/n.DATA
-      
-      #---------- 7 -------- update b0
-      
-      #------- estimate g
-      b0old<-b0
-      
-      if(delta!=0)
-      {
-        d<-delta
-        Vc<-2*gamma(1-2*d)*sin(pi*d)
-        
-        
-        ####For kernels of order (1, 3)
-        if(kn==1){
-          Rk<-(-3/2)^2*Vc*kdf.t(1,1,d)
-        }  
-        if(kn==2){
-          Rk<-(-15/4)^2*Vc*(kdf.t(1,1,d)-2*kdf.t(3,1,d)+kdf.t(3,3,d))
-        }
-        if(kn==3){
-          Rk<-(-105/16)^2*Vc*(kdf.t(1,1,d)+4*kdf.t(3,3,d)+kdf.t(5,5,d)
-                              -4*kdf.t(3,1,d)+2*kdf.t(5,1,d)-4*kdf.t(5,3,d))
-        }
-        
-        const1<-(Bk*Kk*Rk*(1-2*mse.RANGE)
-                 *(2+1-2*delta))**(1/(7-2*delta))
-      }
-      else
-      {
-        const1<-(Bk*Rk*(1-2*mse.RANGE)*(2+1)*2*pi)**(1/7)
-      }
-      
-      const2<-(Cf/Intgk)**(1/(7-2*delta))
-      const3<-n.DATA**((2*delta-1)/(7-2*delta))
-      b0<-const1*const2*const3      
-      #       b0<-min(1,b0)
-      b0<-min(0.49,b0) #min(1,b0)
-      #       b0<-max(n.DATA**(-2/6),b0)
-      b0<-max(n.DATA**(-5/7),b0)
-      
-      cat("Selected b0=", b0, fill=T)
-      
-      #--- did b0 change much? if not, stop iteration
-      
-      deltaITER<-0.01*max(b0,b0old)
-      if( (abs(b0-b0old)<deltaITER)&(iITER>3) ){icrit<-1}
-      
-    }
-    
-    #--- end of smoothing iteration:
-    
-  }
-  
-  #--- final result
-  g0<-smooth.lpf(x, 1, 2, kn, b0, bb)
-  
-  drop(g0)
-  
 }

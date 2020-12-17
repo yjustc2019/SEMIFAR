@@ -422,7 +422,7 @@ FIXME
 
 
 \subsection{The SEMI-LM-GARCH model}
-The autoregressive conditional heteroscedasticity (ARCH) model proposed by \citet{engle1982autoregressive} and its generalisation, the generalized ARCH (GARCH)) model, introduced by \citet{bollerslev1986generalized} , is a well-known volatility process approach for modelling non-constant conditional variances . This is of major interest especially for  fitting financial time-series and their frequently observed characteristic of conditional heteroscedasticity and volatility clustering \citep{mandelbrot1963new}. Following  \citet{baillie1996fractionally} a common representation of a GARCH(p,q) model is given by
+The autoregressive conditional heteroscedasticity (ARCH) model proposed by \citet{engle1982autoregressive} and its generalisation, the generalized ARCH (GARCH)) model, introduced by \citet{bollerslev1986generalized} , is a well-known volatility process approach for modelling non-constant conditional variances. This is of major interest especially for  fitting financial time-series and their frequently observed characteristic of conditional heteroscedasticity and volatility clustering \citep{mandelbrot1963new}. Following  \citet{baillie1996fractionally} a common representation of a GARCH(p,q) model is given by
 \begin{align}
 	\epsilon_t^2&=e^2_th_t\iff\epsilon_t=e_t\sqrt{h_t}, \\
 	h_t&=\alpha_0+\sum_{i=0}^{q}\alpha_i\epsilon_{t-i}+\sum_{j=1}^{p}\beta_jh_j=\alpha_0+\alpha(B)\epsilon_t^2+\beta(B)h_t

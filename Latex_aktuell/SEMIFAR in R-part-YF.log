@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.8.23)  9 DEC 2020 10:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.8.23)  11 DEC 2020 16:33
 entering extended mode
 **"./SEMIFAR in R-part-YF.tex"
 ("SEMIFAR in R-part-YF.tex"
@@ -595,31 +595,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 129--142
 
  []
 
-[2] [3])
-Runaway argument?
-{I[g^{(m)}]\beta ^2\Bigg )^{1/(2m+1-2d)}. \end {equation} Based on th\ETC.
-! File ended while scanning use of \frac .
-<inserted text> 
-                \par 
-<*> "./SEMIFAR in R-part-YF.tex"
-                                
-I suspect you have forgotten a `}', causing me
-to read past where you wanted me to stop.
-I'll try to recover; but if the error is serious,
-you'd better type `E' or `X' now and fix your file.
+[2] [3] [4] [5]
+Overfull \hbox (2.661pt too wide) in paragraph at lines 368--369
+\OT1/cmr/m/n/12 The au-tore-gres-sive con-di-tional het-eroscedas-tic-ity (ARCH
+) model pro-posed by []En-gle (1982)
+ []
 
-! Emergency stop.
-<*> "./SEMIFAR in R-part-YF.tex"
-                                
-*** (job aborted, no legal \end found)
+[6] [7] [8] ("SEMIFAR in R-part-YF.aux")
 
- 
+Package biblatex Warning: Please rerun LaTeX.
+(biblatex)                Page breaks have changed.
+
+Package logreq Info: Writing requests to '"SEMIFAR in R-part-YF".run.xml'.
+\openout1 = `"SEMIFAR in R-part-YF.run.xml"'.
+
+ ) 
 Here is how much of TeX's memory you used:
- 12407 strings out of 481178
- 211288 string characters out of 2920669
- 671285 words of memory out of 3000000
- 27868 multiletter control sequences out of 15000+200000
- 545134 words of font info for 71 fonts, out of 3000000 for 9000
+ 12491 strings out of 481178
+ 213635 string characters out of 2920669
+ 673219 words of memory out of 3000000
+ 27946 multiletter control sequences out of 15000+200000
+ 545957 words of font info for 74 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,6n,46p,975b,954s stack positions out of 5000i,500n,10000p,200000b,50000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 43i,6n,46p,975b,1184s stack positions out of 5000i,500n,10000p,200000b,50000s
+<D:/MikeTex/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/MikeTex/fonts/type1
+/public/amsfonts/cm/cmbx12.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmex1
+0.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/MikeTex/fonts/t
+ype1/public/amsfonts/cm/cmmi8.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cm
+r10.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/MikeTex/fonts/
+type1/public/amsfonts/cm/cmr17.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/c
+mr8.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/MikeTex/fonts
+/type1/public/amsfonts/cm/cmsy8.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/
+cmti10.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmti12.pfb><D:/MikeTex/fo
+nts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on "SEMIFAR in R-part-YF.pdf" (8 pages, 198498 bytes).
+PDF statistics:
+ 85 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
