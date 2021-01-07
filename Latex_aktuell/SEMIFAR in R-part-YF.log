@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.8.23)  11 DEC 2020 16:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.8.23)  7 JAN 2021 00:25
 entering extended mode
 **"./SEMIFAR in R-part-YF.tex"
 ("SEMIFAR in R-part-YF.tex"
@@ -595,42 +595,53 @@ Underfull \hbox (badness 10000) in paragraph at lines 129--142
 
  []
 
-[2] [3] [4] [5]
-Overfull \hbox (2.661pt too wide) in paragraph at lines 368--369
+[2] [3] [4] [5] [6] [7] [8]
+<Abb/NHtemp.pdf, id=43, 686.565pt x 361.35pt>
+File: Abb/NHtemp.pdf Graphic file (type pdf)
+<use Abb/NHtemp.pdf>
+Package pdftex.def Info: Abb/NHtemp.pdf  used on input line 378.
+(pdftex.def)             Requested size: 455.24408pt x 239.6pt.
+ [9 <./Abb/NHtemp.pdf>]
+<Abb/GERgdp.pdf, id=52, 686.565pt x 361.35pt>
+File: Abb/GERgdp.pdf Graphic file (type pdf)
+<use Abb/GERgdp.pdf>
+Package pdftex.def Info: Abb/GERgdp.pdf  used on input line 393.
+(pdftex.def)             Requested size: 455.24408pt x 239.6pt.
+
+Overfull \hbox (2.661pt too wide) in paragraph at lines 399--400
 \OT1/cmr/m/n/12 The au-tore-gres-sive con-di-tional het-eroscedas-tic-ity (ARCH
 ) model pro-posed by []En-gle (1982)
  []
 
-[6] [7] [8] ("SEMIFAR in R-part-YF.aux")
-
-Package biblatex Warning: Please rerun LaTeX.
-(biblatex)                Page breaks have changed.
-
+[10 <./Abb/GERgdp.pdf>] [11] [12] [13] ("SEMIFAR in R-part-YF.aux")
 Package logreq Info: Writing requests to '"SEMIFAR in R-part-YF".run.xml'.
 \openout1 = `"SEMIFAR in R-part-YF.run.xml"'.
 
  ) 
 Here is how much of TeX's memory you used:
- 12491 strings out of 481178
- 213635 string characters out of 2920669
- 673219 words of memory out of 3000000
- 27946 multiletter control sequences out of 15000+200000
- 545957 words of font info for 74 fonts, out of 3000000 for 9000
+ 12519 strings out of 481178
+ 214197 string characters out of 2920669
+ 674341 words of memory out of 3000000
+ 27968 multiletter control sequences out of 15000+200000
+ 546999 words of font info for 77 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,6n,46p,975b,1184s stack positions out of 5000i,500n,10000p,200000b,50000s
-<D:/MikeTex/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/MikeTex/fonts/type1
-/public/amsfonts/cm/cmbx12.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmex1
-0.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/MikeTex/fonts/t
-ype1/public/amsfonts/cm/cmmi8.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cm
-r10.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/MikeTex/fonts/
-type1/public/amsfonts/cm/cmr17.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/c
-mr8.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/MikeTex/fonts
-/type1/public/amsfonts/cm/cmsy8.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/
-cmti10.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmti12.pfb><D:/MikeTex/fo
-nts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on "SEMIFAR in R-part-YF.pdf" (8 pages, 198498 bytes).
+ 43i,6n,46p,1449b,1186s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\Letmode\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi60
+0\tcbx1440.pk><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/MikeTex
+/fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/MikeTex/fonts/type1/public/amsfo
+nts/cm/cmex10.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/Mik
+eTex/fonts/type1/public/amsfonts/cm/cmmi6.pfb><D:/MikeTex/fonts/type1/public/am
+sfonts/cm/cmmi8.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Mi
+keTex/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/MikeTex/fonts/type1/public/a
+msfonts/cm/cmr17.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmr6.pfb><D:/Mi
+keTex/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/MikeTex/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmsy6.pfb><D:/M
+ikeTex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><D:/MikeTex/fonts/type1/public/
+amsfonts/cm/cmti10.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmti12.pfb><D
+:/MikeTex/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on "SEMIFAR in R-part-YF.pdf" (13 pages, 308922 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
+ 130 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

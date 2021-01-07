@@ -166,41 +166,6 @@
     \field{year}{2015}
   \endentry
 
-  \entry{beran1999semifar}{article}{}
-    \name{author}{2}{}{%
-      {{hash=BJ}{%
-         family={Beran},
-         familyi={B\bibinitperiod},
-         given={Jan},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=OD}{%
-         family={Ocker},
-         familyi={O\bibinitperiod},
-         given={Dirk},
-         giveni={D\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Elsevier}%
-    }
-    \strng{namehash}{BJOD1}
-    \strng{fullhash}{BJOD1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{1999}
-    \field{labeldatesource}{}
-    \field{sortinit}{B}
-    \field{sortinithash}{B}
-    \field{number}{1-2}
-    \field{pages}{137\bibrangedash 153}
-    \field{title}{SEMIFAR forecasts, with applications to foreign exchange
-  rates}
-    \field{volume}{80}
-    \field{journaltitle}{Journal of Statistical Planning and Inference}
-    \field{year}{1999}
-  \endentry
-
   \entry{beran2001volatility}{article}{}
     \name{author}{2}{}{%
       {{hash=BJ}{%
@@ -278,48 +243,6 @@
     \field{pages}{209\bibrangedash 384}
     \field{title}{Limit theorems}
     \field{year}{2013}
-  \endentry
-
-  \entry{beran2016long}{book}{}
-    \name{author}{4}{}{%
-      {{hash=BJ}{%
-         family={Beran},
-         familyi={B\bibinitperiod},
-         given={Jan},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=FY}{%
-         family={Feng},
-         familyi={F\bibinitperiod},
-         given={Yuanhua},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=GS}{%
-         family={Ghosh},
-         familyi={G\bibinitperiod},
-         given={Sucharita},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=KR}{%
-         family={Kulik},
-         familyi={K\bibinitperiod},
-         given={Rafal},
-         giveni={R\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Springer}%
-    }
-    \strng{namehash}{BJ+1}
-    \strng{fullhash}{BJFYGSKR1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2016}
-    \field{labeldatesource}{}
-    \field{sortinit}{B}
-    \field{sortinithash}{B}
-    \field{title}{Long-Memory Processes.}
-    \field{year}{2016}
   \endentry
 
   \entry{bollerslev1986generalized}{article}{}
@@ -405,6 +328,64 @@
   of the variance of United Kingdom inflation}
     \field{journaltitle}{Econometrica: Journal of the Econometric Society}
     \field{year}{1982}
+  \endentry
+
+  \entry{feng2004simultaneously}{article}{}
+    \name{author}{1}{}{%
+      {{hash=FY}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Yuanhua},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{namehash}{FY1}
+    \strng{fullhash}{FY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2004}
+    \field{labeldatesource}{}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{number}{3}
+    \field{pages}{563\bibrangedash 596}
+    \field{title}{Simultaneously modeling conditional heteroskedasticity and
+  scale change}
+    \field{volume}{20}
+    \field{journaltitle}{Econometric Theory}
+    \field{year}{2004}
+  \endentry
+
+  \entry{feng2007asymptotic}{article}{}
+    \name{author}{1}{}{%
+      {{hash=FY}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Yuanhua},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{FY1}
+    \strng{fullhash}{FY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2007}
+    \field{labeldatesource}{}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{number}{2}
+    \field{pages}{63\bibrangedash 76}
+    \field{title}{On the asymptotic variance in nonparametric regression with
+  fractional time-series errors}
+    \field{volume}{19}
+    \field{journaltitle}{Nonparametric Statistics}
+    \field{year}{2007}
   \endentry
 
   \entry{feng2020fractionally}{report}{}
@@ -538,6 +519,32 @@
     \field{volume}{5}
     \field{journaltitle}{Journal of Business \& Economic Statistics}
     \field{year}{1987}
+  \endentry
+
+  \entry{muller1988longitudinal}{incollection}{}
+    \name{author}{1}{}{%
+      {{hash=MHG}{%
+         family={M{\"u}ller},
+         familyi={M\bibinitperiod},
+         given={Hans-Georg},
+         giveni={H\bibinithyphendelim G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{MHG1}
+    \strng{fullhash}{MHG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1988}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{booktitle}{Nonparametric Regression Analysis of Longitudinal Data}
+    \field{pages}{6\bibrangedash 14}
+    \field{title}{Longitudinal Data and Regression Models}
+    \field{year}{1988}
   \endentry
 
   \entry{pantula1986modeling}{article}{}
