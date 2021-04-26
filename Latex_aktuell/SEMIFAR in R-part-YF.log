@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.8.23)  7 JAN 2021 00:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.8.23)  14 FEB 2021 20:38
 entering extended mode
 **"./SEMIFAR in R-part-YF.tex"
 ("SEMIFAR in R-part-YF.tex"
@@ -563,69 +563,84 @@ Package biblatex Info: ... file '"SEMIFAR in R-part-YF".bbl' found.
 ("SEMIFAR in R-part-YF.bbl")
 Package biblatex Info: Reference section=0 on input line 85.
 Package biblatex Info: Reference segment=0 on input line 85.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 91.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 90.
 
  (D:\MikeTex\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 91.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 90.
 
 
 (D:\MikeTex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 91
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 90
 .
  (D:\MikeTex\tex/latex/base\ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Overfull \hbox (12.31693pt too wide) in paragraph at lines 91--91
+Overfull \hbox (12.31693pt too wide) in paragraph at lines 90--90
  [][] 
  []
 
 [1
 
 {C:/Users/Letmode/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 129--142
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 129--142
-
- []
-
-[2] [3] [4] [5] [6] [7] [8]
-<Abb/NHtemp.pdf, id=43, 686.565pt x 361.35pt>
+[2] [3] [4] [5] [6] [7] [8] [9]
+<Abb/NHtemp.pdf, id=46, 686.565pt x 361.35pt>
 File: Abb/NHtemp.pdf Graphic file (type pdf)
 <use Abb/NHtemp.pdf>
-Package pdftex.def Info: Abb/NHtemp.pdf  used on input line 378.
+Package pdftex.def Info: Abb/NHtemp.pdf  used on input line 370.
 (pdftex.def)             Requested size: 455.24408pt x 239.6pt.
- [9 <./Abb/NHtemp.pdf>]
-<Abb/GERgdp.pdf, id=52, 686.565pt x 361.35pt>
+ [10 <./Abb/NHtemp.pdf>]
+<Abb/GERgdp.pdf, id=55, 686.565pt x 361.35pt>
 File: Abb/GERgdp.pdf Graphic file (type pdf)
 <use Abb/GERgdp.pdf>
-Package pdftex.def Info: Abb/GERgdp.pdf  used on input line 393.
+Package pdftex.def Info: Abb/GERgdp.pdf  used on input line 385.
 (pdftex.def)             Requested size: 455.24408pt x 239.6pt.
 
-Overfull \hbox (2.661pt too wide) in paragraph at lines 399--400
+Overfull \hbox (2.661pt too wide) in paragraph at lines 391--392
 \OT1/cmr/m/n/12 The au-tore-gres-sive con-di-tional het-eroscedas-tic-ity (ARCH
 ) model pro-posed by []En-gle (1982)
  []
 
-[10 <./Abb/GERgdp.pdf>] [11] [12] [13] ("SEMIFAR in R-part-YF.aux")
+[11 <./Abb/GERgdp.pdf>] [12]
+<Abb/SP500.pdf, id=69, 794.97pt x 650.43pt>
+File: Abb/SP500.pdf Graphic file (type pdf)
+<use Abb/SP500.pdf>
+Package pdftex.def Info: Abb/SP500.pdf  used on input line 417.
+(pdftex.def)             Requested size: 455.24408pt x 372.48578pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[13] [14 <./Abb/SP500.pdf>]
+<Abb/SP500VOL.pdf, id=82, 794.97pt x 650.43pt>
+File: Abb/SP500VOL.pdf Graphic file (type pdf)
+<use Abb/SP500VOL.pdf>
+Package pdftex.def Info: Abb/SP500VOL.pdf  used on input line 433.
+(pdftex.def)             Requested size: 455.24408pt x 372.48578pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[15] [16 <./Abb/SP500VOL.pdf>] [17
+
+] [18] [19] [20
+
+] ("SEMIFAR in R-part-YF.aux")
 Package logreq Info: Writing requests to '"SEMIFAR in R-part-YF".run.xml'.
 \openout1 = `"SEMIFAR in R-part-YF.run.xml"'.
 
  ) 
 Here is how much of TeX's memory you used:
- 12519 strings out of 481178
- 214197 string characters out of 2920669
- 674341 words of memory out of 3000000
- 27968 multiletter control sequences out of 15000+200000
+ 12610 strings out of 481178
+ 216696 string characters out of 2920669
+ 678413 words of memory out of 3000000
+ 28057 multiletter control sequences out of 15000+200000
  546999 words of font info for 77 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,6n,46p,1449b,1186s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,6n,46p,2165b,1404s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Letmode\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi60
 0\tcbx1440.pk><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/MikeTex
 /fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/MikeTex/fonts/type1/public/amsfo
@@ -639,9 +654,9 @@ sfonts/cm/cmsy10.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmsy6.pfb><D:/M
 ikeTex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><D:/MikeTex/fonts/type1/public/
 amsfonts/cm/cmti10.pfb><D:/MikeTex/fonts/type1/public/amsfonts/cm/cmti12.pfb><D
 :/MikeTex/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on "SEMIFAR in R-part-YF.pdf" (13 pages, 308922 bytes).
+Output written on "SEMIFAR in R-part-YF.pdf" (20 pages, 712625 bytes).
 PDF statistics:
- 130 PDF objects out of 1000 (max. 8388607)
+ 164 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

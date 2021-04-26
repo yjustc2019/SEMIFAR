@@ -53,7 +53,7 @@ plot.der1 <- ggplot(df, aes(x = year, y = g0.der1)) +
 plot.res <- ggplot(df, aes(x = year, y = res)) +
   geom_line(size = 0.25) + 
   labs(title = "(b) Trend-adjusted Residuals", y = "Resiudals", x = "Year") +
-  scale_x_continuous(name = "Year", breaks = seq(1880, 2020, 20)) +
+  scale_x_continuous(name = "", breaks = seq(1880, 2020, 20)) +
   theme(plot.title = element_text(hjust = 0.5), axis.title = element_text(size = 9),
         axis.text = element_text(size = 7), axis.ticks = element_line(size = 0.25),
         panel.grid.major = element_line(size = 0.25))
@@ -62,11 +62,13 @@ plot.der2 <- ggplot(df, aes(x = year, y = g0.der2)) +
   geom_line(size = 0.25) +
   geom_hline(yintercept = 0, size = 0.25) +
   labs(title = "(d) Estimated second derivative", y = "2nd derivative", x = "Year") +
-  scale_x_continuous(name = "Year", breaks = seq(1880, 2020, 20)) +
+  scale_x_continuous(name = "", breaks = seq(1880, 2020, 20)) +
   theme(plot.title = element_text(hjust = 0.5), axis.title = element_text(size = 9),
         axis.text = element_text(size = 7), axis.ticks = element_line(size = 0.25),
         panel.grid.major = element_line(size = 0.25))
 
-ggpubr::ggarrange(plot.trend, plot.der1, plot.res, plot.der2, heights = c(0.9, 1), nrow = 2, ncol = 2)  
-#ggsave("NHtemp.pdf", height = 5, width = 9.5, dpi = 600)
+
+NHtemp = egg::ggarrange(plot.trend, plot.der1, plot.res, plot.der2, ncol = 2)
+setwd("~/Arbeit/DFG/Paper_SEMIFAR/Latex_aktuell/Abb")
+ggsave("NHtemp.pdf", plot = NHtemp, height = 5, width = 9.5, dpi = 600)
 

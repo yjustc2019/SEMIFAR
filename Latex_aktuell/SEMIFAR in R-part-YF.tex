@@ -73,7 +73,7 @@
 %	BIBLIOGRAPHY SETTINGS
 %---------------------------------------------------------------------------------------
 
-\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+\usepackage[backend=bibtex, maxcitenames = 2, style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
 
 \addbibresource{BIB.bib} % The filename of the bibliography
 
@@ -83,7 +83,6 @@
 
 
 \begin{document}
-
 
 
 \title{Smoothing long memory time series using R}
@@ -102,17 +101,15 @@
 
 \begin{abstract}
 \noindent 
-This paper provides first a brief summary of the SEMIFAR (semiparametric fractional autoregressiove) and ESEMIFAR (exponential SEMIFAR) models. Those models are extended slightly to include the moving average part. Under common distribution condition it is shown that the long memory parameter is not affected by the log-transformation. 
-A simple data-driven algorithm is proposed, by which the selected bandwidth and the selected orders of the ARMA model are all consistent. An R package is developed for practical implementation. The application of the proposals are illustrated by different kind of time series. 
+The paper at hand provides a detailed description of the \textit{smootslm} R-package which is an extension of the already published \textit{smoots} package enabling the data-driven local-polynomial smoothing of time series with long-memory. In this regard a simple data-driven algorithm is proposed based on the well-known iterative plug in algorithm for SEMIFAR (semiparametric fractional autoregressive) models. Two new functions for data-driven estimation of the trend and its derivatives under the presence of long-memory are introduced. The application of the proposals are illustrated by different kinds of time series. 
 
   
 %
 
 \vspace{.3cm}
 
-\noindent{\it Keywords:} Nonparametric regression with long memory, SEMIFAR, ESEMIFAR, bandwidth selection, model selection, implementation in R, 
+\noindent{\it Keywords:} long-memory, data-driven smoothing, SEMIFAR, estimation of derivatives, \textit{smootslm} package
 
-%Generalized ESEMIFAR, asymptotic results, bandwidth selection, bootstrap forecasting, long memory in realized volatility
 
 \vspace{.3cm}
 
@@ -126,22 +123,17 @@ A simple data-driven algorithm is proposed, by which the selected bandwidth and 
 %\thispagestyle{empty}
 
 \section{Introduction}
-Literature research and model research required.\\
-\\ 
-In many areas of research data are observed spatially, depending on two separate dimensions in a lattice. 
-In recent years one can observe more frequently some sort of apparent memory in the decay of spatial correlations to depend and change over its direction within the spatial process. 
-For instance, long-memory in the sense of slowly decaying autocorrelations in (high frequency) financial data across trading time and trading day produces a random field on a lattice in both dimensions simultaneously. \textcite{beran2015modelling} state that daily average trade duration data has often shown long memory
-with a clear non zero mode. Therefore a log-normal conditional distribution is suggested.
-The simplest approach to model long range dependence in a positive valued
-time series is to take the exponential of a linear long memory process such as
-FARIMA leading to stochastic volatility models. Due to the long range dependence
-there is an unobservable latent process which makes the estimation and interpretation
-of the fitted parameters very challenging.\\
-\\
-The SEMIFAR and ESEMIFAR models introduced by \textcite{beran2002semifar} and \textcite{beran2015modelling} are designed for simultaneous modeling of stochastic trends, deterministic trends and stationary short- and long-memory components in a time series such that the trend generating mechanisms can be distinguished.
+This paper introduces a new R-package coined \textit{smootslm} designed to supplement the already published \textit{smoots} package (smoothing time series, version 1.0.1, Feng and Schulz, 2019). The latter considers data-driven local polynomial smoothing of trend-stationary time series with short range dependence structure. However, the literature suggests that time series, for instance squared returns or trade durations, clearly exhibit long memory (see e.g. \cite{ding1993long}, \cite{ding1996modeling}, \cite{andersen1997intraday}, \cite{andersen1999forecasting}, \cite{cotter2005uncovering} and \cite{beran2015modelling} among others).  
+  
+Against this background the \textit{smootslm} package is developed enabling the data-driven trend estimation under long memory. Analogously to \textit{smoots} the estimation of the trend as well as of its first and second derivative is carried out by means of a data-driven IPI (iterative plug-in \cite{gasser1991flexible}) method based on the IPI for SEMIFAR (semiparametric fractional autoregressive, \cite{beran2002semifar}) models introduced by \citet{beran2002iterative}. The SEMIFAR and its exponential version the ESEMIFAR model \citep{beran2015modelling}, which is applicable to non-negative time series following a semiparametric multiplicative model form, are designed for simultaneous modelling of stochastic trends, deterministic trends and stationary short- and long-memory components in a time series such that the trend generating mechanisms can be distinguished. 
 
-\section{Local polynomial regression with long memory}
+The theoretical background of the \textit{smootslm} package and its implementation in R are briefly exemplified. For further details on the theoretical properties of the (E)SEMIFAR model and the corresponding IPI-algorithm we refer the reader to \citet{beran1999semifar}, \citet{beran2002semifar}, \citet{beran2002iterative}, \citet{beran2002local}, \citet{beran2015modelling}, \citet{beran2016long} and references therein. The main objective of this paper is the introduction of the \textit{smootslm} package and the illustration of its usefulness in particular for time series exhibiting long-memory. That is achieved by employing our package to different environmental as well as financial time series. We partly exploit data that was already used by Feng et al. (forthcoming), i.e. monthly Northern Hemisphere temperature changes. Analogously to Feng et al. (forthcoming) \textit{smootslm} is used in the context of a semiparametric log-local-linear growth model for analysing annual german GDP data. Furthermore, our proposal is applied within the scopes of the Semi-FI-Log-GARCH model which was recently introduced by Feng et al. (forthcoming). The authors added a nonparametric scale function into the FI-Log-GARCH proposed by \citet{feng2020fractionally}, which is in turn a long memory extension of the Log-GARCH (\citet{pantula1986modeling}, \cite{geweke1986comment} and \cite{milhoj1987conditional}) and is closely related to conventional long memory GARCH models. The former is applied to a return series of the S\&P500. Moreover, it was first indicated by \citet{beran2015modelling} that the (type 1) Log-ACD model introduced by \citet{bauwens2000logarithmic}, \citet{bauwens2008moments} and \citet{karanasos2008statistical} can be represented as an EFARIMA model. Subsequently, it was shown by \citet{feng2015forecasting} that the EFARIMA and ESEMIFAR can be redefined as a FI-Log-ACD and a Semi-FI-Log-ACD, respectively. We illustrate the use of \textit{smootslm} in regards to the Semi-FI-Log-ACD by modelling log-transformed trading volume of the S\&P500.
 
+The paper is organised as follows. In Section 2 the definitions of the FARIMA and SEMIFARIMA are given and the methodological background as well as the IPI-algorithm incorporated in \textit{smootslm} are elucidated. The implementation in R is exemplified in Section 3. The application of our proposal to environmental data is illustrated in Section 4. The use of \textit{smootslm} within the scopes of the Semi-FI-Log-GARCH and Semi-FI-Log-ACD is investigated in Sections 5 and 6. In Section 7 final remarks are given.
+
+\section{Smoothing long memory time series}
+
+\subsection{The FARIMA and SEMIFARIMA}
 A well-established model for  analysing financial time series data is the multiplicative error model (MEM) (\cite{engle2002dynamic})  which is given by 
 \begin{equation}
 \label{MEM}
@@ -171,6 +163,7 @@ where $d \in (0,0.5)$ is the long-memory parameter, $B$ is the backshift operato
 %\end{equation} 
 %where $b_k(\delta) = (-1)^{k}{\delta\choose k}  = (-1)^{k} \frac{\Gamma(\delta+1)}{\Gamma(k+1)\Gamma(\delta-k+1)}$ and $\Gamma(\cdot)$ denotes the Gamma function.
 
+\subsection{Local polynomial regression for long memory time series}
 In the following local polynomial estimation of the scale function $g^{(\nu)}$, the $\nu$-th derivative of $g$, is exemplified briefly (see e.g. \cite{beran2002iterative}, \cite{beran2002local}, \cite{beran2002semifar}, and \cite{beran2013limit}). Under the assumption that $g$ is at least ($l+1$)-times differentiable at a point $t_0$, $g(\tau_t)$ can be approximated by a local polynomial of order $l$ for $\tau_t$ in a neighbourhood of $\tau_0$. Following \citet{gasser1979kernel}, the weight function is determined to be a second order kernel with compact support $[-1,1]$ having the polynomial form $K(u)=\sum_{i=0}^{r}a_i u^{2i}$, for $(|u|\leq1)$,where $K(u)=0$ if $|u|>1$ and $a_i$ are such that $\int_{-1}^{1}K(u)du=1$ holds.  Here, $r \in \{0,1,2,3\}$ denotes the kernel used for estimating $g^{(\nu)}$, corresponding to the uniform, epanechnikov, bisquare and triweight kernel.
 $\hat{g}^{(\nu)}$ ($\nu\leq l$) can now be obtained by solving the locally weighted least squares problem
 \begin{equation}
@@ -210,7 +203,6 @@ Based on these results \citet{beran2002iterative} proposed two iterative plug-in
 %\end{theorem}
 %This result shows that the level of long memory of the stationary part of the process under consideration is not affected by the log- or exponential transformations. In the case when $\xi_t$ is normal, those results are e.g. obtained in Dittmann and Granger (2002) and Beran et al. (2015). Theorem 2 extends those results to a common innovation distribution in the log-data. The proof of Theorem 2 is given in the appendix, where we will show that the process $Z_t$ is a special case of the general framework defined in Surgailis and Viano (2002). Hence, their results apply to $Z_t$. Note however that the above result does not hold for $d=0$. Detailed discussion on corresponding properties in case with $d=0$ is beyond the aim of the current paper.  
 
-\section{Data-driven estimation}
 In order to obtain a selected bandwidth the unknown constants $I[g^{(m)}]$, $d$ and $V$ in \eqref{ha1} have to be replaced with consistent estimators. Please note, that the estimation of $V$ relates to that of $cf$. $I[g^{(m)}]$ is estimated by means of local polynomial regression and numerical integration. The remaining two quantities $d$ and $V$ can be obtained via maximum likelihood. Inserting those estimates into \eqref{ha1} yields a plug-in estimator for the bandwidth, which minimises the MISE.
 
 \subsection{The IPI-algorithm for estimating $g$}
@@ -246,10 +238,10 @@ Explicit formulas of the equivalent kernels for estimating $g^{(\nu)}$ at an int
 \section{Implementation in R}
 Based on the algorithms introduced in the previous section a R-package is currently developed, which is an extension of the already published \textit{smoots} package. Hence, this package will be coined \textit{smootslm}. The main functions are called \textit{tsmoothlm} and \textit{dsmoothlm} for estimating the trend and its derivatives, respectively, under presence of long-memory errors. Local polynomial estimation of  $g^{(\nu)}$ and kernel smoothing of $g$ are carried out by means of the functions \textit{gsmooth} and \textit{knsmooth}, which are implemented in the \textit{smoots} package (see Feng et al., 2020).
 
-In the following the function \textit{tsmoothlm} is explained in more detail. The first argument $y$ denotes the input time series. The second and third argument (\textit{pmin} and \textit{pmax}) are the minimum and maximum AR-order of the stochastic part $Z_t$ in \eqref{SEMIFAR}, respectively. Accordingly, the fourth and fifth argument (\textit{qmin} and \textit{qmax}) stand for the the minimum and maximum MA-order of $Z_t$. All four arguments can take the value 0, 1, 2, 3, 4 or 5 while $p_{\text{min}} \leq  p_{\text{max}}$ and $q_{\text{min}} \leq  q_{\text{max}}$. The optimal order is determined via BIC. The default setting is $p_{\text{min}} = q_{\text{min}} = p_{\text{max}} = q_{\text{max}} = 0$. The order of the polynomial for trend estimation is set via the argument $p$ and the user can choose between 1 and 3, where $p = 1$ is the predefined option. The argument \textit{mu} controls for the smoothness of the weight function. We have $\mu \in \{0,1,2,3\}$, with $\mu = 1$ for the Epanechnikov kernel as default. Furthermore, the inflation factor $\alpha$ can be selected by the argument \textit{InfR} with three different options, i.e. \textit{"Opt"}, \textit{"Nai"} and \textit{"Var"}, which corresponds to $\alpha_{\text{opt}} = (2m + 1 - 2d) / (2m + 3 - 2d)$, $\alpha_{\text{nai}} = (2m + 1 - 2d) / (2m + 5 - 2d)$ and $\alpha_{var} = \frac{1}{2}$, respectively.
-Moreover, the starting bandwidth $h_0$ can be set beforehand by the argument \textit{bStart} with default $h_0 = 0.1$ for $p =1$ and $h_0 = 0.2$ for $p = 3$. However, the choice of \textit{bStart} should not affect the finally selected bandwidth if the IPI converges. Argument \textit{bb} controls for boundary bandwidth. The default is $bb = 1$ meaning that the k-nearest neighbour method is applied, which results in a total bandwidth of $2\hat{h}$ at each observation point $\tau_t$. For $\textit{bb} = 0$ however, the total bandwidth is shortened at boundary points. By the argument \textit{cb}, which is set to $\textit{cb} = 0.05$ per default, the percentage of observations omitted for calculating $I[g^{(m)}] = \int_{c_b}^{1-d_b}[g^{m}(\tau)]^2d\tau$ in \eqref{ha1} can be controlled. Additionally, the smoothing method with $\hat{h}_{\text{opt}}$ can be selected via the argument \textit{method}. The user may choose between local polynomial regression ("\textit{lpr}") and kernel regression ("\textit{kr}"). However, originally kernel regression has been only incorporated in the \textit{smoots} package as a comparison to local polynomial regression.
+In the following the function \textit{tsmoothlm} is explained in more detail. The first argument $y$ denotes the input time series. The second and third argument (\textit{pmin} and \textit{pmax}) are the minimum and maximum AR-order of the stochastic part $Z_t$ in \eqref{SEMIFAR}, respectively. Accordingly, the fourth and fifth argument (\textit{qmin} and \textit{qmax}) stand for the the minimum and maximum MA-order of $Z_t$. All four arguments can take the value 0, 1, 2, 3, 4 or 5 while $p_{\text{min}} \leq  p_{\text{max}}$ and $q_{\text{min}} \leq  q_{\text{max}}$. The optimal order is determined via BIC. The default setting is $p_{\text{min}} = q_{\text{min}} = p_{\text{max}} = q_{\text{max}} = 0$. The order of the polynomial for trend estimation is set via the argument $p$ and the user can choose between 1 and 3, where $p = 1$ is the predefined option. The argument \textit{mu} controls for the smoothness of the weight function. We have $\mu \in \{0,1,2,3\}$, with $\mu = 1$ for the Epanechnikov kernel as default. Furthermore, the inflation factor $\alpha$ can be selected by the argument \textit{InfR} with three different options, i.e. \textit{"Opt"}, \textit{"Nai"} and \textit{"Var"}, which corresponds to $\alpha_{\text{opt}} = (2m + 1 - 2d) / (2m + 3 - 2d)$, $\alpha_{\text{nai}} = (2m + 1 - 2d) / (2m + 5 - 2d)$ and $\alpha_{var} = \frac{1}{2}$, respectively. The default setting for \textit{InfR} is \textit{"Opt"}.
+Moreover, the starting bandwidth $h_0$ can be set beforehand by the argument \textit{bStart} with default $h_0 = 0.1$ for $p =1$ and $h_0 = 0.2$ for $p = 3$. However, the choice of \textit{bStart} should not affect the finally selected bandwidth if the IPI converges. Argument \textit{bb} controls for boundary bandwidth. The default is $bb = 1$ meaning that the k-nearest neighbour method is applied, which results in a total bandwidth of $2\hat{h}$ at each observation point $\tau_t$. For $\textit{bb} = 0$ however, the total bandwidth is shortened at boundary points. By the argument \textit{cb}, which is set to $\textit{cb} = 0.05$ per default, the percentage of observations omitted for calculating $I[g^{(m)}] = \int_{c_b}^{1-d_b}[g^{m}(\tau)]^2d\tau$ in \eqref{ha1} can be controlled. Additionally, the smoothing method with $\hat{h}_{\text{opt}}$ can be selected via the argument \textit{method}. The user may choose between local polynomial regression ("\textit{lpr}") and kernel regression ("\textit{kr}"). However, originally kernel regression has been only incorporated in the \textit{smoots} package as a benchmark to local polynomial regression.
 
-For estimating $g^{(\nu)}$ the function \textit{dsmoothlm} is applied. Please recall that here \textit{tsmoothlm} is employed as a pilot method with minimum and maximum AR- and MA-order \textit{pmin.p}, \textit{pmax.p}, \textit{qmin.p} as well as \textit{qmax.p}, a local polynomial estimator of order \textit{pp}, the inflation rate \textit{InfR.p}, the kernel \textit{mu.p} and a starting bandwidth \textit{bStart.p} in order to obtain reasonable estimates for $\hat{d}$, $\hat{c_f}$ and $\hat{h}_{\nu,0}$ (see section 3.2). The options and default settings for these arguments are the same as for \textit{tsmoothlm}. In addition to that, the order of the derivative to be estimated is set via the argument \textit{nu} and can take the value 1 or 2 for the first and second derivative, respectively. Moreover, the argument \textit{mu} controls the kernel used for bandwidth selection after the pilot stage. Please note that the S3 methods (\textit{print} and \textit{plot}) implemented in the \textit{smoots} package can be employed to the estimation results of the functions above. The output objects of \textit{tsmoothlm} and \textit{dsmoothlm} are basically lists containing input parameters and estimation results. Furhter detailed information on the functions are to be published in the users guideline of the \textit{smootslm} package.       
+For estimating $g^{(\nu)}$ the function \textit{dsmoothlm} is applied. Please recall that here \textit{tsmoothlm} is employed as a pilot method with minimum and maximum AR- and MA-order \textit{pmin.p}, \textit{pmax.p}, \textit{qmin.p} as well as \textit{qmax.p}, a local polynomial estimator of order \textit{pp}, the inflation rate \textit{InfR.p}, the kernel \textit{mu.p} and a starting bandwidth \textit{bStart.p} in order to obtain reasonable estimates for $\hat{d}$, $\hat{c_f}$ and $\hat{h}_{\nu,0}$ (see section 3.2). The options and default settings for these arguments are the same as for \textit{tsmoothlm}. In addition to that, the order of the derivative to be estimated is set via the argument \textit{nu} and can take the value 1 or 2 for the first and second derivative, respectively. Moreover, the argument \textit{mu} controls the kernel used for bandwidth selection after the pilot stage. Please note that the S3 methods (\textit{print} and \textit{plot}) implemented in the \textit{smoots} package can be employed to the estimation results of the functions above. The output objects of \textit{tsmoothlm} and \textit{dsmoothlm} are basically lists containing input parameters and estimation results. Further detailed information on the functions are to be published in the users guideline of the \textit{smootslm} package.       
 
 %The implementation of the SEMIFAR model in \code{R} is called via the \code{semifar.lpf} function. 
 %The script covers the kernel estimation of a nonparametric trend allowing for different error structures and maximum likelihood estimation of the parametric part of the model. The \code{R} function is designed for a fast and uncomplicated application of SEMIFAR and assumes some not necessarily fixed values a priori to be constant. For instance, the level of confidence used for \( \eta \) is by default set to \(0.05\) and is among other constants not included as input. Nevertheless the script can be made more flexible very easily by using more parameters in the function call. 
@@ -328,7 +320,7 @@ For estimating $g^{(\nu)}$ the function \textit{dsmoothlm} is applied. Please re
 %\label{eq:IFopt}
 %\begin{split}
 %\hat{h} & = h_M\left\lbrace 1 + O(n^{2(2\delta-1)/(7-2\delta)}) + O_{p}(n^{2(2\delta-1)/(7-2\delta)}) + O_p(n^{(-1/2)}) \right\rbrace \\
-%& = h_M\left\lbrace 1 + O(n^{-2/7}) + O_{p}(n^{-2/7}) + O_{p}(n^{-1/2}) \right\rbrace
+% & = h_M\left\lbrace 1 + O(n^{-2/7}) + O_{p}(n^{-2/7}) + O_{p}(n^{-1/2}) \right\rbrace
 %\end{split}
 %\end{equation}
 %where the first term gives the order of the bias under this particular inflation factor and the second term corresponds to the order of the variance. The third term is asymptotically negligible and for all choices of \( \alpha \) the same.
@@ -416,15 +408,41 @@ We can see that the log-transformation of the Semi-FI-Log-GARCH defined by \eqre
 which is in turn a special case of Model \eqref{FARIMA}. We see that the Semi-FI-Log-GARCH is equivalent to a SEMIFARIMA model with the restriction $p \geq q$. Subsequently, well developed SEMIFARIMA algorithms are applicable for estimating $g(\tau_t)$ and $Z_t$. %Then $\hat{h}_t$ and  by  $\hat{h}_t = \hat{C}_\sigma \hat{h}_t^*$, with $\hat{h}_t^* = \exp(\hat{Z}_t)$
 $\hat{\sigma}(\tau_t)$ can be obtained by $\hat{\sigma}(\tau_t) = \hat{C}_\sigma \exp [\hat{g}(\tau_t) / 2]$, where $C_\sigma^2 = \var (r_t / \exp[g(\tau_t) / 2])$. $C_\sigma$ can be estimated consistently by the scale-adjusted returns under the assumption that $E(\xi_1^4)<\infty$.
 
-The Semi-FI-Log-GARCH is applied to 
+The Semi-FI-Log-GARCH is applied to the S\&P500 series from 1990 to December 2020, which was downloaded from Yahoo Finance. Pleas note that it is possible to observe zero returns. Consequently, the log-transformation is not employable. As a remedy the squared returns are centralized, which is necessary anyway if the underlying return series has a non-zero mean. The centralized returns are depicted in Figure 3a). In Figure 3b) the log-transformed returns together with the estimated trends are shown. A local-linear and local cubic estimator are employed for trend estimation and are indicated by the blue and red line, respectively. For both estimators bandwidth selection by means of the IPI-algorithm was carried out with the same settings, i.e. the default for all arguments except $\textit{p} = 3$ for local cubic and $\textit{p.max} = \textit{q.max} = 3$ for both approaches. The selected bandwidths obtained with a local linear and local cubic estimator are 0.094 and 0.155, respectively. As we can see in Figure 3b) the unconditional variances are clearly not time invariant. Moreover, both smoothing approaches deliver pleasing results. However, the fitted trend obtained via local linear regression is slightly over-smoothed. Consequently, the local cubic trend is used for further analysis. The conditional volatilities ($\hat{\sqrt{h}}$) shown in Figure 3c) are approximately stationary whereas this is not the case for the total volatilities ($\hat{\sigma(\tau_t)}\hat{\sqrt{h}}$) illustrated in Figure 3d). Furthermore, the following FARIMA($1, \hat{d}, 1$) is obtained from the residuals of the log-data
+\begin{equation}
+	Z_t = 0.208 Z_{t-1} - \frac{(0.487 \epsilon_{t-1} + \epsilon_t)}{(1-B)^{0.294}}.
+\end{equation}
 
+\begin{figure}[h!]
+	\includegraphics[trim = {0cm 0mm 0mm 0mm}, width = \textwidth]{Abb/SP500.pdf}
+	\caption{Estimation results of the Semi-FI-Log-GARCH for the SP500 series.}
+\end{figure}
+We see that the dependence structure of the errors is clearly affected by long-range persistence. Short-memory models could falsely capture long memory as short range dependence which may lead to poor forecasting accuracy. 
 
 \section{The Semi-FI-Log-ACD model* (nachfragen)}
+ Another well-known method for analysing non-negative financial time series is the autoregressive conditional duration (ACD) model introduced by \citet{engle1998autoregressive}. An extension of the ACD is the (type 1) Log-ACD$_1$ proposed by \citet{bauwens2008moments} which can considered to be a squared version of the Log-GARCH. A fractionally integrated generalization of the Log-ACD was indicated by \citet{beran2015modelling} and subsequently \citet{feng2015forecasting} proposed the FI-Log-ACD and its semiparametric extension the Semi-FI-Log-ACD. Let $X_t$, $t = 1,...,n$ be some non-negative financial time series. A Semi-FI-Log-ACD for $X_t$ is then defined by 
+ \begin{equation}
+ 	X_t = s(\tau_t) \lambda_t e_t,
+ \end{equation}
+where $X^* = \lambda_t e_t$ follows a FI-Log-ACD, $s(\tau_t)$ is a smooth mean function, $\lambda_t > 0$ denotes the conditional mean and $e_t \geq 0$ are i.i.d. random variables. Furthermore, we assume that $E(\lambda_t) = E(e_t) = 1$. Moreover, the authors showed that the FI-Log-ACD (Semi-FI-Log-ACD) is equivalent to the EFARIMA (ESEMIFAR). Hence, the Semi-FI-Log-ACD corresponds to a squared Semi-FI-Log-GARCH defined by \eqref{SEMIFIL} and \eqref{SEMIFIL*}. By simply replacing $r_t^2$, $h_t$ and $\eta_t^2$ Semi-FI-Log-ACD can be estimated analogously. For a detailed derivation of the Semi-FI-Log-ACD we refer the reader to \citet{feng2015forecasting}.
+
+ In the following the Semi-FI-Log-ACD is applied to daily trading volume of the S\&P500 from January 2000 to December 2020. The data was obtained from Yahoo finance as well. The original data $X_t$ is displayed in Figure 4a) and it can be seen that the variation in the data is clearly time dependent. This indicates that using the log-trans Trend estimation is carried out with exactly the same settings as in the previous section except for $p=3$ we have $\textit{InfR} = \text{"Nai"}$. The selected bandwidths are 0.12 and 0.178. In Figure 3b) the log-transformed series, the local linear and local cubic trends are shown and are indicated by the black, red and blue (dashed) lines, respectively. Both estimators deliver very similar results but the local cubic approach seems to slightly over-fit the data. Therefore, the conditional and total means illustrated in Figures 4c) and 4d) as well as the residuals are obtained from the local linear estimates. From the residuals of the local linear estimator we obtain a FARIMA($0, 0.446, 0$) model indicating strong long-range dependence in the data. 
+ 
+ 
+ \begin{figure}[h!]
+ 	\includegraphics[trim = {0cm 0mm 0mm 0mm}, width = \textwidth]{Abb/SP500VOL.pdf}
+ 	\caption{Estimation results of the Semi-FI-Log-ACD for the S\&P500 series.}
+ \end{figure}
+
 
 \section{Concluding remarks}
+The paper at hand exemplifies the development of a supplementing R-package for the \textit{smoots} package. The main feature of this package is the semi-parametric estimation under long-memory errors. In this regard an adapted version of the iterative plug in algorithm proposed by \citet{beran2002iterative} is introduced. Moreover, the implementation of this package is comprehensively described. The usage of two main functions is explained and illustrated by application to various non-stationary time series with long-memory. The estimation results are quite satisfactory. A further extension of this approach is the non-parametric estimation of the stochastic part of the model by means of e.g.  a local Whittle-, GPH- or wavelet-estimator.
+\clearpage
 
 \printbibliography
 
+
+\clearpage
 \section*{Appendix}
 
 

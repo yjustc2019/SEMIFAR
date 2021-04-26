@@ -1,30 +1,40 @@
 library(ggplot2)
-
+library(smootslm)
+setwd("~/Arbeit/DFG/Paper_SEMIFAR/Data")
 
 data = read.csv("CHI_GDP_ann_1911_2016.csv", sep = ";", header = TRUE)
 
 gdp = data$RealGDP
 
 
-lgdp <- log(gdp)
-n = length(lgdp)
+y <- log(gdp)
+n = length(y)
 year = (1:n)/n * 106 + 1911
-result = semifarima_pq.lpf(lgdp, p.min = 0, p.max = 1, q.min = 0, q.max = 1, pg = 1, IF = 2, kn = 2, bb = 1)
-result.der1 = semifarima.der(result, lgdp, nu = 1, mse.RANGE = 0.05, kn = 2, bb = 1)
-result.der2 = semifarima.der(result, lgdp, nu = 2, mse.RANGE = 0.05, kn = 2, bb = 1)
+
+result = tsmoothlm(y, q.min = 0, p.min = 0, p.max = 3, q.max = 3, p = 1, InfR = "Opt")
+result$iterations
+
+result.der1 = dsmoothlm(y, p.max = 3, q.max = 3, pp = 1, d = 1, mu = 2, InfR.p = "Opt")
+result.der1$iterations
+
+result.der2 = dsmoothlm(y, p.max = 3, q.max = 3, pp = 1, d = 2, mu = 3, InfR.p = "Opt")
 
 
-g.ker = kern.reg(lgdp, result$b0, kernel = "epanech")
-#g.ker2 = smoots::knsmooth(lgdp, mu = 1, b = result$b0)$ye
-g0 = result$g0
-g0.der1 = result.der1
-g0.der2 = result.der2
+result.ker = tsmoothlm(y, q.min = 0, p.min = 0, p.max = 3, q.max = 3, p = 1, InfR = "Opt", method = "kr")
 
-res = lgdp - g0
+g0 = result$ye
+g0.der1 = result.der1$ye
+g0.der2 = result.der2$ye
+g.ker = result.ker$ye
+
+
+
+
+res = y - g0
 
 df = data.frame(cbind(year, g0, g0.der1, g0.der2, g.ker, res))
 
-plot.trend <- ggplot(df, aes(x = year, y = lgdp)) + 
+plot.trend <- ggplot(df, aes(x = year, y = y)) + 
   geom_line(aes(color = "Log of GDP"), size = 0.25) +
   geom_line(aes(y = g0, color = "Trend (local linear)"), size = 0.25) +
   geom_line(aes(y = g.ker, color = "Trend (kernel)"), size = 0.25, linetype = "dashed") +
@@ -66,5 +76,6 @@ plot.der2 <- ggplot(df, aes(x = year, y = g0.der2)) +
         axis.text = element_text(size = 7), axis.ticks = element_line(size = 0.25),
         panel.grid.major = element_line(size = 0.25))
 
-ggpubr::ggarrange(plot.trend, plot.der1, plot.res, plot.der2, heights = c(0.9, 1), nrow = 2, ncol = 2)  
+ggpubr::ggarrange(plot.trend, plot.der1, plot.res, plot.der2, heights = c(0.9, 1), nrow = 2, ncol = 2)
+setwd("~/Arbeit/DFG/Paper_SEMIFAR/Latex_aktuell/Abb")
 ggsave("CHIgdp.pdf", height = 5, width = 9.5, dpi = 600)
