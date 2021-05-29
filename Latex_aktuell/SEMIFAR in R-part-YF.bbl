@@ -918,6 +918,46 @@
     \field{year}{2008}
   \endentry
 
+  \entry{letmathe2021semiparametric}{report}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{3}{}{%
+      {{hash=LS}{%
+         family={Letmathe},
+         familyi={L\bibinitperiod},
+         given={Sebastian},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=FY}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Yuanhua},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=UA}{%
+         family={Uhde},
+         familyi={U\bibinitperiod},
+         given={Andr{\'e}},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LS+1}
+    \strng{fullhash}{LSFYUA+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{title}{Semiparametric GARCH models with long memory applied to Value
+  at Risk and Expected Shortfall}
+    \list{institution}{1}{%
+      {Paderborn University, CIE Center for International Economics}%
+    }
+    \field{type}{techreport}
+    \field{year}{2021}
+  \endentry
+
   \entry{milhoj1987conditional}{article}{}
     \name{author}{1}{}{%
       {{hash=MA}{%

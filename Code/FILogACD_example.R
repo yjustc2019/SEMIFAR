@@ -16,8 +16,8 @@ retc = Clo
 lret = log(Clo)
 n = length(lret)
 
-result1 = tsmoothlm(lret, p = 1, p.max = 3, q.max = 3, InfR = "Opt")
-result3 = tsmoothlm(lret, p = 3, p.max = 3, q.max = 3, InfR = "Nai")
+result1 = tsmoothlm(lret, p = 1, pmax = 3, qmax = 3, InfR = "Opt")
+result3 = tsmoothlm(lret, p = 3, pmax = 3, qmax = 3, InfR = "Nai")
 
 ye1 = result1$ye
 ye3 = result3$ye
@@ -25,8 +25,6 @@ res1 = result1$res
 res3 = result3$res
 
 year = (1:n) / n * 21 + 2000
-
-
 
 FARIMA11 <- fracdiff::fracdiff(res1, nar = result1$p.BIC, nma = result1$q.BIC)
 FARIMA13 <- fracdiff::fracdiff(res3, nar = result3$p.BIC, nma = result3$q.BIC)
@@ -53,7 +51,7 @@ df = data.frame(year, retc, lret, ye1, ye3, res1, res3, cond.mean1, tot.mean1)
 
 plot.ret = ggplot(data = df, aes(x = year, y = retc)) + 
   geom_line() + 
-  labs(title = "(a) SP500 trading volume", y = "Returns") +
+  labs(title = "(a) SP500 trading volume", y = "Cum. Volume") +
   scale_x_continuous(name = "", breaks = seq(1990, 2021, 1)) +
   theme(plot.title = element_text(hjust = 0.5), axis.title.y = element_text(size = 9), axis.title.x = element_blank(), 
         axis.text.y = element_text(size = 7), axis.text.x = element_blank(), axis.ticks.x = element_blank(),
@@ -63,7 +61,7 @@ plot.trend = ggplot(data = df, aes(x = year, y = lret)) +
   geom_line(aes(color = "Log-data")) +
   geom_line(aes(y = ye1, color = "Trend 1 (local linear)")) +
   geom_line(aes(y = ye3, color = "Trend 2 (local cubic)"), linetype = "dashed") +
-  labs(title = "(b) Log-transformed data $ estimated trends", y = "Log-data & trends") +
+  labs(title = "(b) Log-transformed data & estimated trends", y = "Log-data & trends") +
   scale_x_continuous(name = "", breaks = seq(1990, 2021, 1)) +
   scale_color_manual(name = "Lines:",
                      breaks = c("Log-data", "Trend 1 (local linear)", "Trend 2 (local cubic)"),

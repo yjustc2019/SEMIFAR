@@ -5,7 +5,7 @@ library(smootslm)
 ticker = c("GDAXI", "GSPC", "DJI", "HSI", "N225", "FTSE", "STOXX50E")#SP500 is ganz gut #N225 und FTSE fehlen noch
 idx = 2
 start_date = "1990-01-01"
-end_date = Sys.Date()
+end_date = "2020-12-31"#Sys.Date()
 
 data = quantmod::getSymbols(paste0("^",ticker[idx]), from = start_date, to = end_date, warnings = FALSE, auto.assign = FALSE)
 IDX = data[which(!is.na(data[, paste0(ticker[idx],".Close")]))] ### deleting missing values
@@ -17,8 +17,8 @@ retc = ret - mean(ret)
 lret = log(retc^2)
 n = length(lret)
 
-result1 = tsmoothlm(lret, p = 1, p.max = 3, q.max = 3, InfR = "Opt")
-result3 = tsmoothlm(lret, p = 3, p.max = 3, q.max = 3, InfR = "Opt")
+result1 = tsmoothlm(lret, p = 1, pmax = 3, qmax = 3, InfR = "Opt")
+result3 = tsmoothlm(lret, p = 3, pmax = 3, qmax = 3, InfR = "Opt")
 
 ye1 = result1$ye
 ye3 = result3$ye
@@ -61,7 +61,7 @@ plot.trend = ggplot(data = df, aes(x = year, y = lret)) +
   geom_line(aes(color = "Log-data")) +
   geom_line(aes(y = ye3, color = "Trend 1 (local cubic)")) +
   geom_line(aes(y = ye1, color = "Trend 2 (local linear)"), linetype = "dashed") +
-  labs(title = "(b) Log-transformed returns $ estimated trends", y = "Log-data § trends") +
+  labs(title = "(b) Log-transformed returns & estimated trends", y = "Log-data § trends") +
   scale_x_continuous(name = "", breaks = seq(1990, 2021, 1)) +
   scale_color_manual(name = "Lines:",
                      breaks = c("Log-data", "Trend 1 (local cubic)", "Trend 2 (local linear)"),
@@ -93,5 +93,5 @@ plot.totv = ggplot(data = df, aes(x = year, y = tot.vol3)) +
 
 SP500 = egg::ggarrange(plot.ret, plot.trend, plot.condv, plot.totv, ncol = 1)
 setwd("~/Arbeit/DFG/Paper_SEMIFAR/Latex_aktuell/Abb")
-#ggsave("SP500.pdf", plot = SP500, height = 9, width = 11, dpi = 600)
+ggsave("SP500.pdf", plot = SP500, height = 9, width = 11, dpi = 600)
 
