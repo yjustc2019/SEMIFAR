@@ -1,0 +1,916 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nyt/global//global/global}
+  \entry{andersen1997intraday}{article}{}
+    \name{author}{2}{}{%
+      {{hash=ATG}{%
+         family={Andersen},
+         familyi={A\bibinitperiod},
+         given={Torben\bibnamedelima G},
+         giveni={T\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=BT}{%
+         family={Bollerslev},
+         familyi={B\bibinitperiod},
+         given={Tim},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{ATGBT1}
+    \strng{fullhash}{ATGBT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1997}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{number}{2-3}
+    \field{pages}{115\bibrangedash 158}
+    \field{title}{Intraday periodicity and volatility persistence in financial
+  markets}
+    \field{volume}{4}
+    \field{journaltitle}{Journal of empirical finance}
+    \field{year}{1997}
+  \endentry
+
+  \entry{andersen1999forecasting}{article}{}
+    \name{author}{3}{}{%
+      {{hash=ATG}{%
+         family={Andersen},
+         familyi={A\bibinitperiod},
+         given={Torben\bibnamedelima G},
+         giveni={T\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=BT}{%
+         family={Bollerslev},
+         familyi={B\bibinitperiod},
+         given={Tim},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Lange},
+         familyi={L\bibinitperiod},
+         given={Steve},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{ATG+1}
+    \strng{fullhash}{ATGBTLS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1999}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{number}{5}
+    \field{pages}{457\bibrangedash 477}
+    \field{title}{Forecasting financial market volatility: Sample frequency
+  vis-a-vis forecast horizon}
+    \field{volume}{6}
+    \field{journaltitle}{Journal of empirical finance}
+    \field{year}{1999}
+  \endentry
+
+  \entry{bauwens2008moments}{article}{}
+    \name{author}{3}{}{%
+      {{hash=BL}{%
+         family={Bauwens},
+         familyi={B\bibinitperiod},
+         given={Luc},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=GF}{%
+         family={Galli},
+         familyi={G\bibinitperiod},
+         given={Fausto},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=GP}{%
+         family={Giot},
+         familyi={G\bibinitperiod},
+         given={Pierre},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BL+1}
+    \strng{fullhash}{BLGFGP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2008}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{pages}{1\bibrangedash 28}
+    \field{title}{Moments of the Log-ACD model}
+    \field{volume}{2}
+    \field{journaltitle}{Quantitative and Qualitative Analysis in Social
+  Sciences}
+    \field{year}{2008}
+  \endentry
+
+  \entry{bauwens2000logarithmic}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BL}{%
+         family={Bauwens},
+         familyi={B\bibinitperiod},
+         given={Luc},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=GP}{%
+         family={Giot},
+         familyi={G\bibinitperiod},
+         given={Pierre},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {JSTOR}%
+    }
+    \strng{namehash}{BLGP1}
+    \strng{fullhash}{BLGP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2000}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{pages}{117\bibrangedash 149}
+    \field{title}{The logarithmic ACD model: an application to the bid-ask
+  quote process of three NYSE stocks}
+    \field{journaltitle}{Annales d'Economie et de Statistique}
+    \field{year}{2000}
+  \endentry
+
+  \entry{beran2002iterative}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BJ}{%
+         family={Beran},
+         familyi={B\bibinitperiod},
+         given={Jan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=FY}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Yuanhua},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{BJFY1}
+    \strng{fullhash}{BJFY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2002}
+    \field{extradate}{1}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{3}
+    \field{pages}{690\bibrangedash 713}
+    \field{title}{Iterative plug-in algorithms for SEMIFAR models—definition,
+  convergence, and asymptotic properties}
+    \field{volume}{11}
+    \field{journaltitle}{Journal of Computational and Graphical Statistics}
+    \field{year}{2002}
+  \endentry
+
+  \entry{beran2002local}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BJ}{%
+         family={Beran},
+         familyi={B\bibinitperiod},
+         given={Jan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=FY}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Yuanhua},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{BJFY1}
+    \strng{fullhash}{BJFY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2002}
+    \field{extradate}{2}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{2}
+    \field{pages}{291\bibrangedash 311}
+    \field{title}{Local polynomial fitting with long-memory, short-memory and
+  antipersistent errors}
+    \field{volume}{54}
+    \field{journaltitle}{Annals of the Institute of Statistical Mathematics}
+    \field{year}{2002}
+  \endentry
+
+  \entry{beran2002semifar}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BJ}{%
+         family={Beran},
+         familyi={B\bibinitperiod},
+         given={Jan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=FY}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Yuanhua},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{BJFY1}
+    \strng{fullhash}{BJFY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2002}
+    \field{extradate}{3}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{2}
+    \field{pages}{393\bibrangedash 419}
+    \field{title}{SEMIFAR models—a semiparametric approach to modelling
+  trends, long-range dependence and nonstationarity}
+    \field{volume}{40}
+    \field{journaltitle}{Computational Statistics \& Data Analysis}
+    \field{year}{2002}
+  \endentry
+
+  \entry{beran2015modelling}{article}{}
+    \name{author}{3}{}{%
+      {{hash=BJ}{%
+         family={Beran},
+         familyi={B\bibinitperiod},
+         given={Jan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=FY}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Yuanhua},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=GS}{%
+         family={Ghosh},
+         familyi={G\bibinitperiod},
+         given={Sucharita},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{BJ+1}
+    \strng{fullhash}{BJFYGS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{2}
+    \field{pages}{431\bibrangedash 451}
+    \field{title}{Modelling long-range dependence and trends in duration
+  series: an approach based on EFARIMA and ESEMIFAR models}
+    \field{volume}{56}
+    \field{journaltitle}{Statistical Papers}
+    \field{year}{2015}
+  \endentry
+
+  \entry{beran1999semifar}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BJ}{%
+         family={Beran},
+         familyi={B\bibinitperiod},
+         given={Jan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=OD}{%
+         family={Ocker},
+         familyi={O\bibinitperiod},
+         given={Dirk},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{BJOD1}
+    \strng{fullhash}{BJOD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1999}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{1-2}
+    \field{pages}{137\bibrangedash 153}
+    \field{title}{SEMIFAR forecasts, with applications to foreign exchange
+  rates}
+    \field{volume}{80}
+    \field{journaltitle}{Journal of Statistical Planning and Inference}
+    \field{year}{1999}
+  \endentry
+
+  \entry{beran2013limit}{incollection}{}
+    \name{author}{4}{}{%
+      {{hash=BJ}{%
+         family={Beran},
+         familyi={B\bibinitperiod},
+         given={Jan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=FY}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Yuanhua},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=GS}{%
+         family={Ghosh},
+         familyi={G\bibinitperiod},
+         given={Sucharita},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=KR}{%
+         family={Kulik},
+         familyi={K\bibinitperiod},
+         given={Rafal},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{BJ+1}
+    \strng{fullhash}{BJFYGSKR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2013}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Long-Memory Processes}
+    \field{pages}{209\bibrangedash 384}
+    \field{title}{Limit theorems}
+    \field{year}{2013}
+  \endentry
+
+  \entry{beran2016long}{book}{}
+    \name{author}{4}{}{%
+      {{hash=BJ}{%
+         family={Beran},
+         familyi={B\bibinitperiod},
+         given={Jan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=FY}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Yuanhua},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=GS}{%
+         family={Ghosh},
+         familyi={G\bibinitperiod},
+         given={Sucharita},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=KR}{%
+         family={Kulik},
+         familyi={K\bibinitperiod},
+         given={Rafal},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{BJ+1}
+    \strng{fullhash}{BJFYGSKR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2016}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Long-Memory Processes.}
+    \field{year}{2016}
+  \endentry
+
+  \entry{cotter2005uncovering}{article}{}
+    \name{author}{1}{}{%
+      {{hash=CJ}{%
+         family={Cotter},
+         familyi={C\bibinitperiod},
+         given={John},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{CJ1}
+    \strng{fullhash}{CJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2005}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{number}{4}
+    \field{pages}{325\bibrangedash 337}
+    \field{title}{Uncovering long memory in high frequency UK futures}
+    \field{volume}{11}
+    \field{journaltitle}{The European Journal of Finance}
+    \field{year}{2005}
+  \endentry
+
+  \entry{ding1996modeling}{article}{}
+    \name{author}{2}{}{%
+      {{hash=DZ}{%
+         family={Ding},
+         familyi={D\bibinitperiod},
+         given={Zhuanxin},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=GCW}{%
+         family={Granger},
+         familyi={G\bibinitperiod},
+         given={Clive\bibnamedelima WJ},
+         giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{DZGCW1}
+    \strng{fullhash}{DZGCW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1996}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{number}{1}
+    \field{pages}{185\bibrangedash 215}
+    \field{title}{Modeling volatility persistence of speculative returns: a new
+  approach}
+    \field{volume}{73}
+    \field{journaltitle}{Journal of econometrics}
+    \field{year}{1996}
+  \endentry
+
+  \entry{ding1993long}{article}{}
+    \name{author}{3}{}{%
+      {{hash=DZ}{%
+         family={Ding},
+         familyi={D\bibinitperiod},
+         given={Zhuanxin},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=GCW}{%
+         family={Granger},
+         familyi={G\bibinitperiod},
+         given={Clive\bibnamedelima WJ},
+         giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+      {{hash=ERF}{%
+         family={Engle},
+         familyi={E\bibinitperiod},
+         given={Robert\bibnamedelima F},
+         giveni={R\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{DZ+1}
+    \strng{fullhash}{DZGCWERF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1993}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{number}{1}
+    \field{pages}{83\bibrangedash 106}
+    \field{title}{A long memory property of stock market returns and a new
+  model}
+    \field{volume}{1}
+    \field{journaltitle}{Journal of empirical finance}
+    \field{year}{1993}
+  \endentry
+
+  \entry{engle2002dynamic}{article}{}
+    \name{author}{1}{}{%
+      {{hash=ER}{%
+         family={Engle},
+         familyi={E\bibinitperiod},
+         given={Robert},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{ER1}
+    \strng{fullhash}{ER1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2002}
+    \field{labeldatesource}{}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{number}{3}
+    \field{pages}{339\bibrangedash 350}
+    \field{title}{Dynamic conditional correlation: A simple class of
+  multivariate generalized autoregressive conditional heteroskedasticity
+  models}
+    \field{volume}{20}
+    \field{journaltitle}{Journal of Business \& Economic Statistics}
+    \field{year}{2002}
+  \endentry
+
+  \entry{engle1998autoregressive}{article}{}
+    \name{author}{2}{}{%
+      {{hash=ERF}{%
+         family={Engle},
+         familyi={E\bibinitperiod},
+         given={Robert\bibnamedelima F},
+         giveni={R\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=RJR}{%
+         family={Russell},
+         familyi={R\bibinitperiod},
+         given={Jeffrey\bibnamedelima R},
+         giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {JSTOR}%
+    }
+    \strng{namehash}{ERFRJR1}
+    \strng{fullhash}{ERFRJR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1998}
+    \field{labeldatesource}{}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{pages}{1127\bibrangedash 1162}
+    \field{title}{Autoregressive conditional duration: a new model for
+  irregularly spaced transaction data}
+    \field{journaltitle}{Econometrica}
+    \field{year}{1998}
+  \endentry
+
+  \entry{feng2007asymptotic}{article}{}
+    \name{author}{1}{}{%
+      {{hash=FY}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Yuanhua},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{FY1}
+    \strng{fullhash}{FY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2007}
+    \field{labeldatesource}{}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{number}{2}
+    \field{pages}{63\bibrangedash 76}
+    \field{title}{On the asymptotic variance in nonparametric regression with
+  fractional time-series errors}
+    \field{volume}{19}
+    \field{journaltitle}{Nonparametric Statistics}
+    \field{year}{2007}
+  \endentry
+
+  \entry{feng2015forecasting}{article}{}
+    \name{author}{2}{}{%
+      {{hash=FY}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Yuanhua},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=ZC}{%
+         family={Zhou},
+         familyi={Z\bibinitperiod},
+         given={Chen},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{FYZC1}
+    \strng{fullhash}{FYZC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{number}{2}
+    \field{pages}{349\bibrangedash 363}
+    \field{title}{Forecasting financial market activity using a semiparametric
+  fractionally integrated Log-ACD}
+    \field{volume}{31}
+    \field{journaltitle}{International Journal of Forecasting}
+    \field{year}{2015}
+  \endentry
+
+  \entry{feng2020fractionally}{report}{}
+    \name{author}{4}{}{%
+      {{hash=FY}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Yuanhua},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=BJ}{%
+         family={Beran},
+         familyi={B\bibinitperiod},
+         given={Jan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Letmathe},
+         familyi={L\bibinitperiod},
+         given={Sebastian},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=GS}{%
+         family={Ghosh},
+         familyi={G\bibinitperiod},
+         given={Sucharita},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FY+1}
+    \strng{fullhash}{FYBJLSGS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{title}{Fractionally integrated Log-GARCH with application to value
+  at risk and expected shortfall}
+    \list{institution}{1}{%
+      {Paderborn University, CIE Center for International Economics}%
+    }
+    \field{type}{techreport}
+    \field{year}{2020}
+  \endentry
+
+  \entry{gasser1991flexible}{article}{}
+    \name{author}{3}{}{%
+      {{hash=GT}{%
+         family={Gasser},
+         familyi={G\bibinitperiod},
+         given={Theo},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=KA}{%
+         family={Kneip},
+         familyi={K\bibinitperiod},
+         given={Alois},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=KW}{%
+         family={K{\"o}hler},
+         familyi={K\bibinitperiod},
+         given={Walter},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis Group}%
+    }
+    \strng{namehash}{GT+1}
+    \strng{fullhash}{GTKAKW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1991}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{number}{415}
+    \field{pages}{643\bibrangedash 652}
+    \field{title}{A flexible and fast method for automatic smoothing}
+    \field{volume}{86}
+    \field{journaltitle}{Journal of the american statistical association}
+    \field{year}{1991}
+  \endentry
+
+  \entry{gasser1979kernel}{incollection}{}
+    \name{author}{2}{}{%
+      {{hash=GT}{%
+         family={Gasser},
+         familyi={G\bibinitperiod},
+         given={Theo},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=MHG}{%
+         family={M{\"u}ller},
+         familyi={M\bibinitperiod},
+         given={Hans-Georg},
+         giveni={H\bibinithyphendelim G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{GTMHG1}
+    \strng{fullhash}{GTMHG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1979}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{booktitle}{Smoothing techniques for curve estimation}
+    \field{pages}{23\bibrangedash 68}
+    \field{title}{Kernel estimation of regression functions}
+    \field{year}{1979}
+  \endentry
+
+  \entry{geweke1986comment}{article}{}
+    \name{author}{1}{}{%
+      {{hash=GJ}{%
+         family={Geweke},
+         familyi={G\bibinitperiod},
+         given={John},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{GJ1}
+    \strng{fullhash}{GJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1986}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{number}{1}
+    \field{pages}{57\bibrangedash 61}
+    \field{title}{Comment}
+    \field{volume}{5}
+    \field{journaltitle}{Econometric Reviews}
+    \field{year}{1986}
+  \endentry
+
+  \entry{karanasos2008statistical}{article}{}
+    \name{author}{1}{}{%
+      {{hash=KM}{%
+         family={Karanasos},
+         familyi={K\bibinitperiod},
+         given={M},
+         giveni={M},
+      }}%
+    }
+    \strng{namehash}{KM1}
+    \strng{fullhash}{KM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2008}
+    \field{labeldatesource}{}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{number}{1}
+    \field{pages}{29\bibrangedash 49}
+    \field{title}{The statistical properties of exponential ACD models}
+    \field{volume}{2}
+    \field{journaltitle}{Quantitative and Qualitative Analysis in Social
+  Sciences}
+    \field{year}{2008}
+  \endentry
+
+  \entry{milhoj1987conditional}{article}{}
+    \name{author}{1}{}{%
+      {{hash=MA}{%
+         family={Milh{\o}j},
+         familyi={M\bibinitperiod},
+         given={Anders},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis Group}%
+    }
+    \strng{namehash}{MA1}
+    \strng{fullhash}{MA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1987}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{number}{1}
+    \field{pages}{99\bibrangedash 103}
+    \field{title}{A conditional variance model for daily deviations of an
+  exchange rate}
+    \field{volume}{5}
+    \field{journaltitle}{Journal of Business \& Economic Statistics}
+    \field{year}{1987}
+  \endentry
+
+  \entry{muller1988longitudinal}{incollection}{}
+    \name{author}{1}{}{%
+      {{hash=MHG}{%
+         family={M{\"u}ller},
+         familyi={M\bibinitperiod},
+         given={Hans-Georg},
+         giveni={H\bibinithyphendelim G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{MHG1}
+    \strng{fullhash}{MHG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1988}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{booktitle}{Nonparametric Regression Analysis of Longitudinal Data}
+    \field{pages}{6\bibrangedash 14}
+    \field{title}{Longitudinal Data and Regression Models}
+    \field{year}{1988}
+  \endentry
+
+  \entry{pantula1986modeling}{article}{}
+    \name{author}{1}{}{%
+      {{hash=PSG}{%
+         family={Pantula},
+         familyi={P\bibinitperiod},
+         given={Sastry\bibnamedelima G},
+         giveni={S\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PSG1}
+    \strng{fullhash}{PSG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1986}
+    \field{labeldatesource}{}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{pages}{79\bibrangedash 97}
+    \field{title}{Modeling the persistence of conditional variances: a comment}
+    \field{volume}{5}
+    \field{journaltitle}{Econometric Reviews}
+    \field{year}{1986}
+  \endentry
+\enddatalist
+\endinput

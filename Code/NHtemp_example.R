@@ -8,13 +8,13 @@ n = length(y)
 year = (1:n)/n * 138 + 1880
 
 
-result = tsmoothlm(y, q.min = 0, p.min = 0, p.max = 3, q.max = 3, p = 1, InfR = "Opt")
+result = tsmoothlm(y, qmin = 0, pmin = 0, pmax = 3, qmax = 3, p = 1, InfR = "Opt")
 result$iterations
 
-result.der1 = dsmoothlm(y, p.max = 3, q.max = 3, pp = 1, d = 1, mu = 2, InfR.p = "Opt")
+result.der1 = dsmoothlm(y, pmax = 3, qmax = 3, pp = 1, d = 1, mu = 2, InfR.p = "Opt")
 result.der1$iterations
 
-result.der2 = dsmoothlm(y, p.max = 3, q.max = 3, pp = 1, d = 2, mu = 3, InfR.p = "Opt")
+result.der2 = dsmoothlm(y, pmax = 3, qmax = 3, pp = 1, d = 2, mu = 3, InfR.p = "Opt")
 result.der2$iterations
 
 g0 = result$ye

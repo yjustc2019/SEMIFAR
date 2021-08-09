@@ -1,39 +1,39 @@
-
+setwd("~/Arbeit/DFG/Paper_SEMIFAR/Data")
 library(ggplot2)
 library(smootslm)
 
 X = read.csv("london-air-quality.csv", sep = ";", header = TRUE)
-y = X$no2[!is.na(X$no2)]
+y = X$AQI[!is.na(X$AQI)]
 muy = mean(y)
 n = length(y)
 year = (1:n)/n * 138 + 1880
+y = log(y)
 
-
-result = tsmoothlm(y, p.max = 3, q.max = 3, p = 1, InfR = "Opt")
+result = tsmoothlm(y, pmax = 3, qmax = 3, p = 1, InfR = "Var")
 result$iterations
 
-result.der1 = dsmoothlm(y, p.max = 3, q.max = 3, pp = 3, d = 1, mu = 2, InfR.p = "Nai")
+result.der1 = dsmoothlm(y, pmax = 3, qmax = 3, pp = 3, d = 1, mu = 2, InfR.p = "Var")
 result.der1$iterations
 
-result.der2 = dsmoothlm(y, p.max = 3, q.max = 3, pp = 3, d = 2, mu = 3, InfR.p = "Nai")
+result.der2 = dsmoothlm(y, pmax = 3, qmax = 3, pp = 3, d = 2, mu = 3, InfR.p = "Var")
 result.der2$iterations
 
 g0 = result$ye
 g0.der1 = result.der1$ye
 g0.der2 = result.der2$ye
 
-res = y - g0 + muy
+res = y - g0# + muy
 
-df = data.frame(cbind(year, g0, g0.der1, g0.der2, res))
+df = data.frame(cbind(y, year, g0, g0.der1, g0.der2, res))
 
 plot.trend <- ggplot(df, aes(x = year, y = y)) + 
-  geom_line(aes(color = "Temp. Changes"), size = 0.25, linetype = "dotted") +
+  geom_line(aes(color = "Air Pollution"), size = 0.25, linetype = "dotted") +
   geom_line(aes(y = g0, color = "Trend (local cubic)"), size = 0.25) +
-  labs(title = "(a) Temperature changes & estimated trend", y = "Temp. changes & trend in (in °C)", x = "") + 
+  labs(title = "(a) Log of air pollution (AQI) & estimated trend", y = "Log-Air Pollution - AQI", x = "") + 
   scale_x_continuous(name = "", breaks = seq(1880, 2020, 20)) +
   scale_color_manual(name = "Lines:",
-                     breaks = c("Temp. Changes", "Trend (local cubic)"),
-                     values = c("Temp. Changes" = "black", "Trend (local cubic)" = "red")) +
+                     breaks = c("Air Pollution", "Trend (local cubic)"),
+                     values = c("Air Pollution" = "black", "Trend (local cubic)" = "red")) +
   theme(legend.position = c(0.1275, 0.845), legend.key.size = unit(0.35, "cm"),
         legend.text = element_text(size = 6), legend.title = element_text(size = 8),
         legend.background = element_rect(colour = 'black', fill = 'white', linetype='solid', size = 0.25),
@@ -68,6 +68,7 @@ plot.der2 <- ggplot(df, aes(x = year, y = g0.der2)) +
         axis.text = element_text(size = 7), axis.ticks = element_line(size = 0.25),
         panel.grid.major = element_line(size = 0.25))
 
-ggpubr::ggarrange(plot.trend, plot.der1, plot.res, plot.der2, heights = c(0.9, 1), nrow = 2, ncol = 2)  
-#ggsave("NHtemp.pdf", height = 5, width = 9.5, dpi = 600)
+ggpubr::ggarrange(plot.trend, plot.der1, plot.res, plot.der2, heights = c(0.9, 1), nrow = 2, ncol = 2)
+setwd("~/Arbeit/DFG/Paper_SEMIFAR/Latex_aktuell/Abb")
+ggsave("London_AirQuality_AQI.pdf", height = 5, width = 9.5, dpi = 600)
 

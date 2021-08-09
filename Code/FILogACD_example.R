@@ -3,21 +3,21 @@ library(smootslm)
 
 ### downloading data from yahoo.finance
 ticker = c("GDAXI", "GSPC", "DJI", "HSI", "N225", "FTSE", "STOXX50E", "VIX")#SP500 is gut
-idx = 2
+idx = 8
 start_date = "2000-01-01"
 end_date = "2020-12-31"#Sys.Date()
 
 data = quantmod::getSymbols(paste0("^",ticker[idx]), from = start_date, to = end_date, warnings = FALSE, auto.assign = FALSE)
-IDX = data[which(!is.na(data[, paste0(ticker[idx],".Volume")])
-                 & data[, paste0(ticker[idx],".Volume")] != 0)] ### deleting missing and zero values
-Clo = as.vector(IDX[, paste0(ticker[idx],".Volume")]) ### Closing Price
+IDX = data[which(!is.na(data[, paste0(ticker[idx],".Close")])
+                 & data[, paste0(ticker[idx],".Close")] != 0)] ### deleting missing and zero values
+Clo = as.vector(IDX[, paste0(ticker[idx],".Close")]) ### Closing Price
 
 retc = Clo
 lret = log(Clo)
 n = length(lret)
 
-result1 = tsmoothlm(lret, p = 1, pmax = 3, qmax = 3, InfR = "Opt")
-result3 = tsmoothlm(lret, p = 3, pmax = 3, qmax = 3, InfR = "Nai")
+result1 = tsmoothlm(lret, p = 1, pmax = 1, qmax = 0, InfR = "Opt")
+result3 = tsmoothlm(lret, p = 3, pmax = 1, qmax = 0, InfR = "Nai")
 
 ye1 = result1$ye
 ye3 = result3$ye
