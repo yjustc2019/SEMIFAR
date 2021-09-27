@@ -664,50 +664,6 @@
     \field{year}{2015}
   \endentry
 
-  \entry{feng2020fractionally}{report}{}
-    \name{author}{4}{}{%
-      {{hash=FY}{%
-         family={Feng},
-         familyi={F\bibinitperiod},
-         given={Yuanhua},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=BJ}{%
-         family={Beran},
-         familyi={B\bibinitperiod},
-         given={Jan},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=LS}{%
-         family={Letmathe},
-         familyi={L\bibinitperiod},
-         given={Sebastian},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=GS}{%
-         family={Ghosh},
-         familyi={G\bibinitperiod},
-         given={Sucharita},
-         giveni={S\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{FY+1}
-    \strng{fullhash}{FYBJLSGS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2020}
-    \field{labeldatesource}{}
-    \field{sortinit}{F}
-    \field{sortinithash}{F}
-    \field{title}{Fractionally integrated Log-GARCH with application to value
-  at risk and expected shortfall}
-    \list{institution}{1}{%
-      {Paderborn University, CIE Center for International Economics}%
-    }
-    \field{type}{techreport}
-    \field{year}{2020}
-  \endentry
-
   \entry{gasser1991flexible}{article}{}
     \name{author}{3}{}{%
       {{hash=GT}{%
@@ -780,32 +736,67 @@
     \field{year}{1979}
   \endentry
 
-  \entry{geweke1986comment}{article}{}
-    \name{author}{1}{}{%
-      {{hash=GJ}{%
-         family={Geweke},
+  \entry{granger1980introduction}{article}{}
+    \name{author}{2}{}{%
+      {{hash=GCW}{%
+         family={Granger},
          familyi={G\bibinitperiod},
-         given={John},
-         giveni={J\bibinitperiod},
+         given={Clive\bibnamedelima WJ},
+         giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+      {{hash=JR}{%
+         family={Joyeux},
+         familyi={J\bibinitperiod},
+         given={Roselyne},
+         giveni={R\bibinitperiod},
       }}%
     }
     \list{publisher}{1}{%
-      {Taylor \& Francis}%
+      {Wiley Online Library}%
     }
-    \strng{namehash}{GJ1}
-    \strng{fullhash}{GJ1}
+    \strng{namehash}{GCWJR1}
+    \strng{fullhash}{GCWJR1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{labelyear}{1986}
+    \field{labelyear}{1980}
     \field{labeldatesource}{}
     \field{sortinit}{G}
     \field{sortinithash}{G}
     \field{number}{1}
-    \field{pages}{57\bibrangedash 61}
-    \field{title}{Comment}
-    \field{volume}{5}
-    \field{journaltitle}{Econometric Reviews}
-    \field{year}{1986}
+    \field{pages}{15\bibrangedash 29}
+    \field{title}{An introduction to long-memory time series models and
+  fractional differencing}
+    \field{volume}{1}
+    \field{journaltitle}{Journal of time series analysis}
+    \field{year}{1980}
+  \endentry
+
+  \entry{hosking1981fractional}{article}{}
+    \name{author}{1}{}{%
+      {{hash=HJR}{%
+         family={Hosking},
+         familyi={H\bibinitperiod},
+         given={Jonathan\bibnamedelima RM},
+         giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Oxford University Press}%
+    }
+    \strng{namehash}{HJR1}
+    \strng{fullhash}{HJR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1981}
+    \field{labeldatesource}{}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{number}{1}
+    \field{pages}{165\bibrangedash 176}
+    \field{title}{Fractional differencing}
+    \field{volume}{68}
+    \field{journaltitle}{Biometrika}
+    \field{year}{1981}
   \endentry
 
   \entry{karanasos2008statistical}{article}{}
@@ -834,35 +825,6 @@
     \field{year}{2008}
   \endentry
 
-  \entry{milhoj1987conditional}{article}{}
-    \name{author}{1}{}{%
-      {{hash=MA}{%
-         family={Milh{\o}j},
-         familyi={M\bibinitperiod},
-         given={Anders},
-         giveni={A\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Taylor \& Francis Group}%
-    }
-    \strng{namehash}{MA1}
-    \strng{fullhash}{MA1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{1987}
-    \field{labeldatesource}{}
-    \field{sortinit}{M}
-    \field{sortinithash}{M}
-    \field{number}{1}
-    \field{pages}{99\bibrangedash 103}
-    \field{title}{A conditional variance model for daily deviations of an
-  exchange rate}
-    \field{volume}{5}
-    \field{journaltitle}{Journal of Business \& Economic Statistics}
-    \field{year}{1987}
-  \endentry
-
   \entry{muller1988longitudinal}{incollection}{}
     \name{author}{1}{}{%
       {{hash=MHG}{%
@@ -887,30 +849,6 @@
     \field{pages}{6\bibrangedash 14}
     \field{title}{Longitudinal Data and Regression Models}
     \field{year}{1988}
-  \endentry
-
-  \entry{pantula1986modeling}{article}{}
-    \name{author}{1}{}{%
-      {{hash=PSG}{%
-         family={Pantula},
-         familyi={P\bibinitperiod},
-         given={Sastry\bibnamedelima G},
-         giveni={S\bibinitperiod\bibinitdelim G\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{PSG1}
-    \strng{fullhash}{PSG1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{1986}
-    \field{labeldatesource}{}
-    \field{sortinit}{P}
-    \field{sortinithash}{P}
-    \field{pages}{79\bibrangedash 97}
-    \field{title}{Modeling the persistence of conditional variances: a comment}
-    \field{volume}{5}
-    \field{journaltitle}{Econometric Reviews}
-    \field{year}{1986}
   \endentry
 \enddatalist
 \endinput

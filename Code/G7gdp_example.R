@@ -1,5 +1,4 @@
 library(ggplot2)
-gdp = smoots::gdpUS$GDP
 setwd("~/Arbeit/DFG/Paper_SEMIFAR/Data")
 
 data = read.csv("G7_GDP_1961_2019.csv", sep = ";", header = TRUE)

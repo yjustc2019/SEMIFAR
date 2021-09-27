@@ -1,15 +1,16 @@
 setwd("~/Arbeit/DFG/Paper_SEMIFAR/Data")
 library(ggplot2)
 library(smootslm)
+library(latex2exp)
 
-X = read.csv("london-air-quality.csv", sep = ";", header = TRUE)
-y = X$AQI[!is.na(X$AQI)]
+X = airLDN#read.csv("london-air-quality.csv", sep = ";", header = TRUE)
+y = na.omit(X$AQI)
 muy = mean(y)
 n = length(y)
 year = (1:n)/n * 7 + 2014
 y = log(y)
 
-result = tsmoothlm(y, pmax = 1, qmax = 1, p = 3, mu = 2, InfR = "Var")
+result = tsmoothlm(y, pmin = 0, pmax = 1, qmin = 0, qmax = 1, p = 1, InfR = "Var")
 result$iterations
 
 result.der1 = dsmoothlm(y, pmax = 1, qmax = 1, pp = 1, d = 1, mu = 3, InfR.p = "Var")
@@ -27,9 +28,9 @@ res = y - g0# + muy
 df = data.frame(cbind(y, year, g0, g0.der1, g0.der2, res))
 
 plot.trend <- ggplot(df, aes(x = year, y = y)) + 
-  geom_line(aes(color = "Air Pollution"), size = 0.25, linetype = "dotted") +
+  geom_line(aes(color = "Air Pollution "), size = 0.25, linetype = "dotted") +
   geom_line(aes(y = g0, color = "Trend (local cubic)"), size = 0.25) +
-  labs(title = "(a) Log of air pollution (AQI) & estimated trend", y = "Log-Air Pollution", x = "") + 
+  labs(title = TeX(r"(a) Log of $NO^2$ (London) & estimated trend)"), y = "NO2 level & trend") + 
   scale_x_continuous(name = "", breaks = seq(2014, 2021, 1)) +
   scale_color_manual(name = "Lines:",
                      breaks = c("Air Pollution", "Trend (local cubic)"),
@@ -70,5 +71,5 @@ plot.der2 <- ggplot(df, aes(x = year, y = g0.der2)) +
 
 ggpubr::ggarrange(plot.trend, plot.der1, plot.res, plot.der2, heights = c(0.9, 1), nrow = 2, ncol = 2)
 setwd("~/Arbeit/DFG/Paper_SEMIFAR/Latex_aktuell/Abb")
-ggsave("London_AirQuality_AQI_cubic.pdf", height = 5, width = 9.5, dpi = 600)
+ggsave("London_AirQuality_AQI_linear.pdf", height = 5, width = 9.5, dpi = 600)
 
