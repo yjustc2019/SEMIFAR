@@ -17,8 +17,8 @@ retc = ret - mean(ret)
 lret = log(retc^2)
 n = length(lret)
 
-result1 = tsmoothlm(lret, p = 1, pmax = 3, qmax = 3, InfR = "Opt")
-result3 = tsmoothlm(lret, p = 3, pmax = 3, qmax = 3, InfR = "Opt")
+result1 = tsmoothlm(lret, p = 1, pmin = 1, pmax = 1, qmin = 1, qmax = 1, InfR = "Opt")
+result3 = tsmoothlm(lret, p = 3, pmin = 1, qmin = 1, pmax = 1, qmax = 1, InfR = "Opt")
 
 ye1 = result1$ye
 ye3 = result3$ye
@@ -91,7 +91,7 @@ plot.totv = ggplot(data = df, aes(x = year, y = tot.vol3)) +
         axis.text = element_text(size = 7), axis.ticks = element_line(size = 0.25),
         panel.grid.major = element_line(size = 0.25))
 
-SP500 = egg::ggarrange(plot.ret, plot.trend, plot.condv, plot.totv, ncol = 1)
+SP500 = ggpubr::ggarrange(plot.ret, plot.trend, plot.condv, plot.totv, ncol = 1)
 setwd("~/Arbeit/DFG/Paper_SEMIFAR/Latex_aktuell/Abb")
 ggsave("SP500.pdf", plot = SP500, height = 9, width = 11, dpi = 600)
 

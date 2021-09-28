@@ -1,68 +1,37 @@
-This is BibTeX, Version 0.99d
-Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+This is 8-bit Big BibTeX version 0.99d
+Implementation:  Microsoft(R) C/C++ for Win32
+Release version: 3.71 (18 mar 2013)
+
+The 8-bit codepage and sorting file: 88591lat.csf
 The top-level auxiliary file: Smoothing_lm_time_series_with_R.aux
-Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: biblatex.bst
-Reallocating 'name_of_file' (item size: 1) to 36 items.
-Reallocating 'name_of_file' (item size: 1) to 4 items.
-Reallocating 'glb_str_end' (item size: 4) to 20 items.
-Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
-Reallocating 'global_strs' (item size: 1) to 4000000 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'wiz_functions' (item size: 4) to 6000 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocated glb_str_ptr (elt_size=4) to 10 items from 0.
+Reallocated global_strs (elt_size=20001) to 10 items from 0.
+Reallocated glb_str_end (elt_size=4) to 10 items from 0.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: Smoothing_lm_time_series_with_R-blx.bib
 Database file #2: BIB.bib
-Biblatex version: 3.13
-Reallocating 'wiz_functions' (item size: 4) to 9000 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-You've used 25 entries,
-            6365 wiz_defined-function locations,
-            1343 strings with 12809 characters,
-and the built_in function-call counts, 143707 in all, are:
-= -- 9588
-> -- 2844
-< -- 889
-+ -- 3200
-- -- 988
-* -- 10774
-:= -- 14214
-add.period$ -- 0
-call.type$ -- 25
-change.case$ -- 518
-chr.to.int$ -- 42
-cite$ -- 48
-duplicate$ -- 15323
-empty$ -- 13282
-format.name$ -- 1614
-if$ -- 30350
-int.to.chr$ -- 0
-int.to.str$ -- 79
-missing$ -- 0
-newline$ -- 836
-num.names$ -- 1309
-pop$ -- 8348
-preamble$ -- 1
-purify$ -- 631
-quote$ -- 0
-skip$ -- 4984
-stack$ -- 0
-substring$ -- 15360
-swap$ -- 4135
-text.length$ -- 698
-text.prefix$ -- 25
-top$ -- 1
-type$ -- 838
-warning$ -- 0
-while$ -- 1951
-width$ -- 0
-write$ -- 812
+Biblatex version: 3.3
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+
+Here's how much of BibTeX's memory you used:
+ Cites:                28 out of 750
+ Fields:             3613 out of 5000
+ Hash table:        34647 out of 35307
+ Strings:            1341 out of 35307
+ Free string pool:  12937 out of 65000
+ Wizard functions:   6256 out of 9000

@@ -3,21 +3,21 @@ library(smootslm)
 
 ### downloading data from yahoo.finance
 ticker = c("GDAXI", "GSPC", "DJI", "HSI", "N225", "FTSE", "STOXX50E", "VIX")#SP500 is gut
-idx = 8
+idx = 2
 start_date = "2000-01-01"
 end_date = "2020-12-31"#Sys.Date()
 
 data = quantmod::getSymbols(paste0("^",ticker[idx]), from = start_date, to = end_date, warnings = FALSE, auto.assign = FALSE)
-IDX = data[which(!is.na(data[, paste0(ticker[idx],".Close")])
-                 & data[, paste0(ticker[idx],".Close")] != 0)] ### deleting missing and zero values
-Clo = as.vector(IDX[, paste0(ticker[idx],".Close")]) ### Closing Price
+IDX = data[which(!is.na(data[, paste0(ticker[idx],".Volume")])
+                 & data[, paste0(ticker[idx],".Volume")] != 0)] ### deleting missing and zero values
+Clo = as.vector(IDX[, paste0(ticker[idx],".Volume")]) ### Closing Price
 
 retc = Clo
 lret = log(Clo)
 n = length(lret)
 
-result1 = tsmoothlm(lret, p = 1, pmax = 1, qmax = 0, InfR = "Opt")
-result3 = tsmoothlm(lret, p = 3, pmax = 1, qmax = 0, InfR = "Nai")
+result1 = tsmoothlm(lret, p = 1, pmin = 1, pmax = 1, qmin = 1, qmax = 1, InfR = "Opt")
+result3 = tsmoothlm(lret, p = 3, pmin = 1, pmax = 1, qmin = 1, qmax = 1, InfR = "Opt")
 
 ye1 = result1$ye
 ye3 = result3$ye
@@ -91,7 +91,7 @@ plot.totv = ggplot(data = df, aes(x = year, y = tot.mean1)) +
         axis.text = element_text(size = 7), axis.ticks = element_line(size = 0.25),
         panel.grid.major = element_line(size = 0.25))
 
-VOL = egg::ggarrange(plot.ret, plot.trend, plot.condv, plot.totv, ncol = 1)
+VOL = ggpubr::ggarrange(plot.ret, plot.trend, plot.condv, plot.totv, ncol = 1)
 setwd("~/Arbeit/DFG/Paper_SEMIFAR/Latex_aktuell/Abb")
 ggsave("SP500VOL.pdf", plot = VOL, height = 9, width = 11, dpi = 600)
 

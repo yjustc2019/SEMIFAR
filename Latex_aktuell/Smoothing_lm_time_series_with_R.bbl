@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.1 $
+% $ biblatex bbl format version 2.8 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -16,7 +16,7 @@
   {}
 \endgroup
 
-\datalist[entry]{nyt/global//global/global}
+\sortlist[entry]{nyt/global/}
   \entry{andersen1997intraday}{article}{}
     \name{author}{2}{}{%
       {{hash=ATG}{%
@@ -40,7 +40,6 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1997}
-    \field{labeldatesource}{}
     \field{sortinit}{A}
     \field{sortinithash}{A}
     \field{number}{2-3}
@@ -81,7 +80,6 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1999}
-    \field{labeldatesource}{}
     \field{sortinit}{A}
     \field{sortinithash}{A}
     \field{number}{5}
@@ -91,6 +89,72 @@
     \field{volume}{6}
     \field{journaltitle}{Journal of empirical finance}
     \field{year}{1999}
+  \endentry
+
+  \entry{baillie2002modeling}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BRT}{%
+         family={Baillie},
+         familyi={B\bibinitperiod},
+         given={Richard\bibnamedelima T},
+         giveni={R\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+      {{hash=CSK}{%
+         family={Chung},
+         familyi={C\bibinitperiod},
+         given={Sang-Kuck},
+         giveni={S\bibinitperiod-K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{BRTCSK1}
+    \strng{fullhash}{BRTCSK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2002}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{2}
+    \field{pages}{215\bibrangedash 226}
+    \field{title}{Modeling and forecasting from trend-stationary long memory
+  models with applications to climatology}
+    \field{volume}{18}
+    \field{journaltitle}{International Journal of Forecasting}
+    \field{year}{2002}
+  \endentry
+
+  \entry{bauwens2000logarithmic}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BL}{%
+         family={Bauwens},
+         familyi={B\bibinitperiod},
+         given={Luc},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=GP}{%
+         family={Giot},
+         familyi={G\bibinitperiod},
+         given={Pierre},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {JSTOR}%
+    }
+    \strng{namehash}{BLGP1}
+    \strng{fullhash}{BLGP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2000}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{pages}{117\bibrangedash 149}
+    \field{title}{The logarithmic ACD model: an application to the bid-ask
+  quote process of three NYSE stocks}
+    \field{journaltitle}{Annales d'Economie et de Statistique}
+    \field{year}{2000}
   \endentry
 
   \entry{bauwens2008moments}{article}{}
@@ -119,7 +183,6 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2008}
-    \field{labeldatesource}{}
     \field{sortinit}{B}
     \field{sortinithash}{B}
     \field{pages}{1\bibrangedash 28}
@@ -130,37 +193,27 @@
     \field{year}{2008}
   \endentry
 
-  \entry{bauwens2000logarithmic}{article}{}
-    \name{author}{2}{}{%
-      {{hash=BL}{%
-         family={Bauwens},
+  \entry{beran2017statistics}{book}{}
+    \name{author}{1}{}{%
+      {{hash=BJ}{%
+         family={Beran},
          familyi={B\bibinitperiod},
-         given={Luc},
-         giveni={L\bibinitperiod},
-      }}%
-      {{hash=GP}{%
-         family={Giot},
-         familyi={G\bibinitperiod},
-         given={Pierre},
-         giveni={P\bibinitperiod},
+         given={Jan},
+         giveni={J\bibinitperiod},
       }}%
     }
     \list{publisher}{1}{%
-      {JSTOR}%
+      {Routledge}%
     }
-    \strng{namehash}{BLGP1}
-    \strng{fullhash}{BLGP1}
+    \strng{namehash}{BJ1}
+    \strng{fullhash}{BJ1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{labelyear}{2000}
-    \field{labeldatesource}{}
+    \field{labelyear}{2017}
     \field{sortinit}{B}
     \field{sortinithash}{B}
-    \field{pages}{117\bibrangedash 149}
-    \field{title}{The logarithmic ACD model: an application to the bid-ask
-  quote process of three NYSE stocks}
-    \field{journaltitle}{Annales d'Economie et de Statistique}
-    \field{year}{2000}
+    \field{title}{Statistics for long-memory processes}
+    \field{year}{2017}
   \endentry
 
   \entry{beran2002iterative}{article}{}
@@ -186,8 +239,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2002}
-    \field{extradate}{1}
-    \field{labeldatesource}{}
+    \field{extrayear}{1}
     \field{sortinit}{B}
     \field{sortinithash}{B}
     \field{number}{3}
@@ -222,8 +274,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2002}
-    \field{extradate}{2}
-    \field{labeldatesource}{}
+    \field{extrayear}{2}
     \field{sortinit}{B}
     \field{sortinithash}{B}
     \field{number}{2}
@@ -258,8 +309,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2002}
-    \field{extradate}{3}
-    \field{labeldatesource}{}
+    \field{extrayear}{3}
     \field{sortinit}{B}
     \field{sortinithash}{B}
     \field{number}{2}
@@ -269,47 +319,6 @@
     \field{volume}{40}
     \field{journaltitle}{Computational Statistics \& Data Analysis}
     \field{year}{2002}
-  \endentry
-
-  \entry{beran2015modelling}{article}{}
-    \name{author}{3}{}{%
-      {{hash=BJ}{%
-         family={Beran},
-         familyi={B\bibinitperiod},
-         given={Jan},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=FY}{%
-         family={Feng},
-         familyi={F\bibinitperiod},
-         given={Yuanhua},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=GS}{%
-         family={Ghosh},
-         familyi={G\bibinitperiod},
-         given={Sucharita},
-         giveni={S\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Springer}%
-    }
-    \strng{namehash}{BJ+1}
-    \strng{fullhash}{BJFYGS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2015}
-    \field{labeldatesource}{}
-    \field{sortinit}{B}
-    \field{sortinithash}{B}
-    \field{number}{2}
-    \field{pages}{431\bibrangedash 451}
-    \field{title}{Modelling long-range dependence and trends in duration
-  series: an approach based on EFARIMA and ESEMIFAR models}
-    \field{volume}{56}
-    \field{journaltitle}{Statistical Papers}
-    \field{year}{2015}
   \endentry
 
   \entry{beran1999semifar}{article}{}
@@ -335,7 +344,6 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1999}
-    \field{labeldatesource}{}
     \field{sortinit}{B}
     \field{sortinithash}{B}
     \field{number}{1-2}
@@ -382,13 +390,52 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2013}
-    \field{labeldatesource}{}
     \field{sortinit}{B}
     \field{sortinithash}{B}
     \field{booktitle}{Long-Memory Processes}
     \field{pages}{209\bibrangedash 384}
     \field{title}{Limit theorems}
     \field{year}{2013}
+  \endentry
+
+  \entry{beran2015modelling}{article}{}
+    \name{author}{3}{}{%
+      {{hash=BJ}{%
+         family={Beran},
+         familyi={B\bibinitperiod},
+         given={Jan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=FY}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Yuanhua},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=GS}{%
+         family={Ghosh},
+         familyi={G\bibinitperiod},
+         given={Sucharita},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{BJ+1}
+    \strng{fullhash}{BJFYGS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{2}
+    \field{pages}{431\bibrangedash 451}
+    \field{title}{Modelling long-range dependence and trends in duration
+  series: an approach based on EFARIMA and ESEMIFAR models}
+    \field{volume}{56}
+    \field{journaltitle}{Statistical Papers}
+    \field{year}{2015}
   \endentry
 
   \entry{beran2016long}{book}{}
@@ -426,7 +473,6 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2016}
-    \field{labeldatesource}{}
     \field{sortinit}{B}
     \field{sortinithash}{B}
     \field{title}{Long-Memory Processes.}
@@ -450,7 +496,6 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2005}
-    \field{labeldatesource}{}
     \field{sortinit}{C}
     \field{sortinithash}{C}
     \field{number}{4}
@@ -484,7 +529,6 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1996}
-    \field{labeldatesource}{}
     \field{sortinit}{D}
     \field{sortinithash}{D}
     \field{number}{1}
@@ -525,7 +569,6 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1993}
-    \field{labeldatesource}{}
     \field{sortinit}{D}
     \field{sortinithash}{D}
     \field{number}{1}
@@ -554,7 +597,6 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2002}
-    \field{labeldatesource}{}
     \field{sortinit}{E}
     \field{sortinithash}{E}
     \field{number}{3}
@@ -590,7 +632,6 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1998}
-    \field{labeldatesource}{}
     \field{sortinit}{E}
     \field{sortinithash}{E}
     \field{pages}{1127\bibrangedash 1162}
@@ -617,7 +658,6 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2007}
-    \field{labeldatesource}{}
     \field{sortinit}{F}
     \field{sortinithash}{F}
     \field{number}{2}
@@ -652,7 +692,6 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2015}
-    \field{labeldatesource}{}
     \field{sortinit}{F}
     \field{sortinithash}{F}
     \field{number}{2}
@@ -662,6 +701,37 @@
     \field{volume}{31}
     \field{journaltitle}{International Journal of Forecasting}
     \field{year}{2015}
+  \endentry
+
+  \entry{gasser1979kernel}{incollection}{}
+    \name{author}{2}{}{%
+      {{hash=GT}{%
+         family={Gasser},
+         familyi={G\bibinitperiod},
+         given={Theo},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=MHG}{%
+         family={M{\"u}ller},
+         familyi={M\bibinitperiod},
+         given={Hans-Georg},
+         giveni={H\bibinitperiod-G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{GTMHG1}
+    \strng{fullhash}{GTMHG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1979}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{booktitle}{Smoothing techniques for curve estimation}
+    \field{pages}{23\bibrangedash 68}
+    \field{title}{Kernel estimation of regression functions}
+    \field{year}{1979}
   \endentry
 
   \entry{gasser1991flexible}{article}{}
@@ -693,7 +763,6 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1991}
-    \field{labeldatesource}{}
     \field{sortinit}{G}
     \field{sortinithash}{G}
     \field{number}{415}
@@ -704,36 +773,47 @@
     \field{year}{1991}
   \endentry
 
-  \entry{gasser1979kernel}{incollection}{}
-    \name{author}{2}{}{%
-      {{hash=GT}{%
-         family={Gasser},
-         familyi={G\bibinitperiod},
-         given={Theo},
-         giveni={T\bibinitperiod},
+  \entry{gil2020long}{article}{}
+    \name{author}{4}{}{%
+      {{hash=GALA}{%
+         family={Gil-Alana},
+         familyi={G\bibinitperiod-A\bibinitperiod},
+         given={Luis\bibnamedelima A},
+         giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod},
       }}%
-      {{hash=MHG}{%
-         family={M{\"u}ller},
-         familyi={M\bibinitperiod},
-         given={Hans-Georg},
-         giveni={H\bibinithyphendelim G\bibinitperiod},
+      {{hash=YOS}{%
+         family={Yaya},
+         familyi={Y\bibinitperiod},
+         given={OlaOluwa\bibnamedelima S},
+         giveni={O\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=AOG}{%
+         family={Awolaja},
+         familyi={A\bibinitperiod},
+         given={Oladapo\bibnamedelima G},
+         giveni={O\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=CL}{%
+         family={Cristofaro},
+         familyi={C\bibinitperiod},
+         given={Lorenzo},
+         giveni={L\bibinitperiod},
       }}%
     }
-    \list{publisher}{1}{%
-      {Springer}%
-    }
-    \strng{namehash}{GTMHG1}
-    \strng{fullhash}{GTMHG1}
+    \strng{namehash}{GALA+1}
+    \strng{fullhash}{GALAYOSAOGCL1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{labelyear}{1979}
-    \field{labeldatesource}{}
+    \field{labelyear}{2020}
     \field{sortinit}{G}
     \field{sortinithash}{G}
-    \field{booktitle}{Smoothing techniques for curve estimation}
-    \field{pages}{23\bibrangedash 68}
-    \field{title}{Kernel estimation of regression functions}
-    \field{year}{1979}
+    \field{number}{8}
+    \field{pages}{1351\bibrangedash 1367}
+    \field{title}{Long Memory and Time Trends in Particulate Matter Pollution
+  (PM2. 5 and PM10) in the 50 US States}
+    \field{volume}{59}
+    \field{journaltitle}{Journal of Applied Meteorology and Climatology}
+    \field{year}{2020}
   \endentry
 
   \entry{granger1980introduction}{article}{}
@@ -759,7 +839,6 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1980}
-    \field{labeldatesource}{}
     \field{sortinit}{G}
     \field{sortinithash}{G}
     \field{number}{1}
@@ -788,7 +867,6 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1981}
-    \field{labeldatesource}{}
     \field{sortinit}{H}
     \field{sortinithash}{H}
     \field{number}{1}
@@ -813,7 +891,6 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2008}
-    \field{labeldatesource}{}
     \field{sortinit}{K}
     \field{sortinithash}{K}
     \field{number}{1}
@@ -831,7 +908,7 @@
          family={M{\"u}ller},
          familyi={M\bibinitperiod},
          given={Hans-Georg},
-         giveni={H\bibinithyphendelim G\bibinitperiod},
+         giveni={H\bibinitperiod-G\bibinitperiod},
       }}%
     }
     \list{publisher}{1}{%
@@ -842,7 +919,6 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{1988}
-    \field{labeldatesource}{}
     \field{sortinit}{M}
     \field{sortinithash}{M}
     \field{booktitle}{Nonparametric Regression Analysis of Longitudinal Data}
@@ -850,5 +926,5 @@
     \field{title}{Longitudinal Data and Regression Models}
     \field{year}{1988}
   \endentry
-\enddatalist
+\endsortlist
 \endinput
