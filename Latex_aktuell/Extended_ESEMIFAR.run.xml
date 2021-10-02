@@ -44,11 +44,11 @@
   <internal package="biblatex" priority="9" active="0">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>Smoothing_lm_time_series_with_R.aux</file>
-      <file>Smoothing_lm_time_series_with_R-blx.bib</file>
+      <file>Extended_ESEMIFAR.aux</file>
+      <file>Extended_ESEMIFAR-blx.bib</file>
     </provides>
     <requires type="dynamic">
-      <file>Smoothing_lm_time_series_with_R.bbl</file>
+      <file>Extended_ESEMIFAR.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -68,20 +68,20 @@
     <cmdline>
       <binary>bibtex</binary>
       <option>-min-crossrefs 2</option>
-      <infile>Smoothing_lm_time_series_with_R</infile>
+      <infile>Extended_ESEMIFAR</infile>
     </cmdline>
     <input>
-      <file>Smoothing_lm_time_series_with_R.aux</file>
+      <file>Extended_ESEMIFAR.aux</file>
     </input>
     <output>
-      <file>Smoothing_lm_time_series_with_R.bbl</file>
+      <file>Extended_ESEMIFAR.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>Smoothing_lm_time_series_with_R.bbl</file>
+      <file>Extended_ESEMIFAR.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>Smoothing_lm_time_series_with_R.aux</file>
-      <file>Smoothing_lm_time_series_with_R-blx.bib</file>
+      <file>Extended_ESEMIFAR.aux</file>
+      <file>Extended_ESEMIFAR-blx.bib</file>
     </requires>
     <requires type="editable">
       <file>BIB.bib</file>

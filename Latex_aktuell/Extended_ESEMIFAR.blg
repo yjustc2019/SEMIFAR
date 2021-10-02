@@ -1,9 +1,9 @@
 This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: Smoothing_lm_time_series_with_R.aux
+The top-level auxiliary file: Extended_ESEMIFAR.aux
 Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: biblatex.bst
-Reallocating 'name_of_file' (item size: 1) to 36 items.
+Reallocating 'name_of_file' (item size: 1) to 22 items.
 Reallocating 'name_of_file' (item size: 1) to 4 items.
 Reallocating 'glb_str_end' (item size: 4) to 20 items.
 Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
@@ -20,14 +20,14 @@ Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
-Database file #1: Smoothing_lm_time_series_with_R-blx.bib
+Database file #1: Extended_ESEMIFAR-blx.bib
 Database file #2: BIB.bib
 Biblatex version: 3.13
 Reallocating 'wiz_functions' (item size: 4) to 9000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 You've used 28 entries,
             6365 wiz_defined-function locations,
-            1361 strings with 13309 characters,
+            1361 strings with 13267 characters,
 and the built_in function-call counts, 164811 in all, are:
 = -- 11174
 > -- 3152
