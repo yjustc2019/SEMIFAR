@@ -91,7 +91,7 @@
 
 
 \title{An extended exponential SEMIFAR model with application in R}
-\author{Yuanhua Feng, Jan Beran and Sebastian Letmathe\\ Faculty of Business Administration and Economics, Paderborn University}
+\author{Sebastian Letmathe, Jan Beran and Yuanhua Feng\\ Faculty of Business Administration and Economics, Paderborn University}
 \maketitle
 %\doublespacing
 
@@ -106,7 +106,7 @@
 
 \begin{abstract}
 \noindent 
-The paper at hand provides a detailed description of the \textit{esemifar} R-package, which is an extension of the already published \textit{smoots} package, enabling the data-driven local-polynomial smoothing of time series with long-memory. In this regard a simple data-driven algorithm is proposed based on the well-known iterative plug in algorithm for SEMIFAR (semiparametric fractional autoregressive) models. Two new functions for data-driven estimation of the trend and its derivatives under the presence of long-memory are introduced. \textit{esemifar} is applied to various environmental and financial time series with long memory, e.g. mean monthly Northern Hemisphere changes, daily observations of the air quality index of London (Britain) and quarterly G7-GDP. Moreover, \textit{esemifar} is applied to model daily trading volume of the S\&P500. It is worth mentioning that this package can be applied to any suitable time series with long memory.
+The paper at hand provides a detailed description of the \textit{esemifar} R-package, which is an extension of the already published \textit{smoots} package, enabling the data-driven local-polynomial smoothing of time series with long-memory. In this regard a simple data-driven algorithm is proposed based on the well-known iterative plug in algorithm for SEMIFAR (semiparametric fractional autoregressive) models. Two new functions for data-driven estimation of the trend and its derivatives under the presence of long-memory are introduced. \textit{esemifar} is applied to various environmental and financial time series with long memory, e.g. mean monthly Northern Hemisphere changes, daily observations of the air quality index of London (Britain), quarterly G7-GDP and daily trading volume of the S\&P500. It is worth mentioning that this package can be applied to any suitable time series with long memory.
 
   
 %
@@ -129,7 +129,7 @@ The paper at hand provides a detailed description of the \textit{esemifar} R-pac
 %\thispagestyle{empty}
 
 \section{Introduction}
-This paper introduces a new R-package coined \textit{esemifar} designed to supplement the already published \textit{smoots} package (smoothing time series, version 1.0.1, Feng and Schulz, 2019). The latter considers data-driven local polynomial smoothing of trend-stationary time series with short range dependence structure. However, the literature suggests that specific time series, for instance squared returns, trade durations, temperature and air pollution data, exhibit long memory (see e.g. \cite{ding1993long}, \cite{ding1996modeling}, \cite{andersen1997intraday}, \cite{andersen1999forecasting}, \cite{baillie2002modeling}, \cite{cotter2005uncovering}, \cite{beran2015modelling}, \citet{beran2017statistics} and \citet{gil2020long} among others).  
+This paper introduces a new R-package coined \textit{esemifar} designed to supplement the already published \textit{smoots} package (smoothing time series, version 1.1.1, Feng, Schulz and Letmathe, 2021). The latter considers data-driven local polynomial smoothing of trend-stationary time series with short-range dependence. However, the literature suggests that many time series, for instance squared returns, trade durations, temperature and air pollution data, exhibit long memory (see e.g. \cite{ding1993long}, \cite{ding1996modeling}, \cite{andersen1997intraday}, \cite{andersen1999forecasting}, \cite{baillie2002modeling}, \cite{cotter2005uncovering}, \cite{beran2015modelling}, \cite{beran2017statistics} and \cite{gil2020long} among others).  
   
 Against this background the \textit{esemifar} package is developed enabling the data-driven trend estimation under long memory. Analogously to \textit{smoots} the estimation of the trend and its first and second derivative is carried out by means of a data-driven IPI (iterative plug-in \cite{gasser1991flexible}) method based on the IPI for SEMIFAR (semiparametric fractional autoregressive, \cite{beran2002semifar}) models introduced by \citet{beran2002iterative}. The SEMIFAR and its exponential version the ESEMIFAR model \citep{beran2015modelling}, which is applicable to non-negative time series following a semiparametric multiplicative model form, are designed for simultaneous modelling of stochastic trends, deterministic trends and stationary short- and long-memory components in a time series.
 
